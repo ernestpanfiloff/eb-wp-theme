@@ -25,6 +25,39 @@
     .sh-link:hover {
       transform: none !important;
     }
+    .card:hover,
+    .card-h:hover,
+    .card-sm:hover {
+      transform: none !important;
+    }
+    .nav-cta,
+    .f-btn,
+    .lm-btn,
+    .mob-cta a,
+    .hero-form,
+    .card,
+    .card-sm,
+    .card-h,
+    .lm-card,
+    .tc,
+    .s-btn {
+      border-radius: 6px !important;
+    }
+    .f-btn,
+    .mob-cta a {
+      color: #fff !important;
+    }
+    .f-btn:hover,
+    .mob-cta a:hover {
+      color: #fff !important;
+    }
+    .lm-btn,
+    .lm-btn:hover {
+      color: var(--ink) !important;
+    }
+    .f-inputs input {
+      border-radius: 6px !important;
+    }
     .card-h .c-title { margin-bottom: 0.3rem; }
     .card-h .c-body {
       display: flex;
@@ -32,13 +65,13 @@
     }
     .card-h .c-exc {
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      line-height: 1.35;
-      max-height: 4.05em;
+      line-height: 1.7;
+      max-height: 3.4em;
       margin-bottom: 0.45rem;
-      font-size: 0.76rem;
+      font-size: 0.83rem;
     }
     .card-h .c-foot { margin-top: auto; }
     .nav-dd a small {
@@ -46,6 +79,65 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+    .nav-links > li > a {
+      justify-content: center;
+      text-align: center;
+    }
+    .s-btn svg {
+      display: block;
+    }
+    .ft-col-title {
+      display: block;
+      margin-bottom: 0.55rem;
+    }
+    .ft-col ul {
+      margin-top: 0.2rem;
+    }
+    .tc-d {
+      white-space: normal !important;
+      overflow: visible !important;
+      text-overflow: clip !important;
+      display: block !important;
+      min-height: 2.8em;
+    }
+    .ft-dis {
+      color: rgba(255,255,255,0.82) !important;
+    }
+    .ft-pill {
+      color: #0b6a56 !important;
+      border-color: rgba(11,191,150,0.30) !important;
+      background: rgba(11,191,150,0.14) !important;
+      font-weight: 600 !important;
+    }
+    .lm-ul {
+      padding-left: 0 !important;
+      margin-left: 0 !important;
+    }
+    .lm-ul li {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.58rem !important;
+      padding-left: 0 !important;
+      margin-left: 0 !important;
+      line-height: 1.45 !important;
+    }
+    .lm-ul li::before {
+      position: static !important;
+      transform: none !important;
+      flex: 0 0 17px !important;
+      width: 17px !important;
+      height: 17px !important;
+      min-width: 17px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      font-size: 0.66rem !important;
+      line-height: 1 !important;
+      color: #1fd3ac !important;
+      background: rgba(11,191,150,0.18) !important;
+      border: 1px solid rgba(11,191,150,0.58) !important;
     }
   </style>
 </head>
@@ -64,11 +156,11 @@
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
               </span>
             </a>
-            <div class="nav-dd" role="menu">
-              <a href="#" role="menuitem">Brain Health &amp; Longevity <small>Sleep, exercise, nutrition, and brain aging</small></a>
-              <a href="#" role="menuitem">Focus &amp; Productivity <small>Dopamine, deep work, and sustained attention</small></a>
-              <a href="#" role="menuitem">Memory &amp; Learning <small>Neuroplasticity, recall, and learning systems</small></a>
-              <a href="#" role="menuitem">Nootropics &amp; Supplements <small>Evidence-based compounds for cognitive support</small></a>
+            <div class="nav-dd">
+              <a href="#">Brain Health &amp; Longevity <small>Sleep, exercise, nutrition, and brain aging</small></a>
+              <a href="#">Focus &amp; Productivity <small>Dopamine, deep work, and sustained attention</small></a>
+              <a href="#">Memory &amp; Learning <small>Neuroplasticity, recall, and learning systems</small></a>
+              <a href="#">Nootropics &amp; Supplements <small>Evidence-based compounds for cognitive support</small></a>
             </div>
           </li>
           <li><a href="#">About</a></li>
@@ -78,8 +170,7 @@
 
       <a href="#newsletter" class="nav-cta">
         <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>
-        Newsletter
-      </a>
+        Get the Free Newsletter &rarr;</a>
 
       <button class="burger" id="burger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobMenu">
         <span aria-hidden="true"></span>
@@ -108,7 +199,7 @@
         <li><a href="#">About</a></li>
         <li><a href="#">Resources</a></li>
       </ul>
-      <div class="mob-cta"><a href="#newsletter">Get the Free Newsletter -&gt;</a></div>
+      <div class="mob-cta"><a href="#newsletter">Get the Free Newsletter &rarr;</a></div>
     </div>
   </div>
 
@@ -144,7 +235,7 @@
               <label for="femail" class="sr-only">Email address</label>
               <input type="email" id="femail" name="EMAIL" placeholder="Your best email" required />
             </div>
-            <button type="submit" class="f-btn">Get The Free Newsletter -&gt;</button>
+            <button type="submit" class="f-btn"><span class="btn-ico" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg></span><span>Get the Free Newsletter &rarr;</span></button>
           </form>
           <div class="f-foot">
             <span class="f-disc">No spam, ever. Unsubscribe anytime.</span>
@@ -170,12 +261,12 @@
       <div class="band-inner">
         <span class="band-lbl" aria-hidden="true">Topics</span>
         <div class="band-scroll-wrap" id="bandWrap">
-          <div class="band-tags" id="bandTags" role="list">
-            <a href="#" class="band-tag" role="listitem">Brain Health &amp; Longevity</a>
-            <a href="#" class="band-tag" role="listitem">Focus &amp; Productivity</a>
-            <a href="#" class="band-tag" role="listitem">Memory &amp; Learning</a>
-            <a href="#" class="band-tag" role="listitem">Nootropics &amp; Supplements</a>
-          </div>
+          <ul class="band-tags" id="bandTags">
+            <li><a href="#" class="band-tag">Brain Health &amp; Longevity</a></li>
+            <li><a href="#" class="band-tag">Focus &amp; Productivity</a></li>
+            <li><a href="#" class="band-tag">Memory &amp; Learning</a></li>
+            <li><a href="#" class="band-tag">Nootropics &amp; Supplements</a></li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -187,36 +278,36 @@
             <span class="sh-ey" aria-hidden="true">Blog</span>
             <h2 id="articles-heading" class="sh-t">Latest Articles</h2>
           </div>
-          <a href="#" class="sh-link">View all articles -&gt;</a>
+          <a href="#" class="sh-link">View all articles &rarr;</a>
         </div>
 
         <div class="articles-grid">
           <div class="feat">
             <article class="card" aria-label="Featured article">
-              <div class="c-thumb"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80" alt="Neuroscience featured article" /></div>
+              <div class="c-thumb"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80" alt="Neuroscience featured article" loading="eager" decoding="async" /></div>
               <div class="c-body">
                 <h3 class="c-title"><a href="#">What improves attention in entrepreneurs? A practical neuroscience primer</a></h3>
                 <p class="c-exc">A simple, evidence-backed framework for managing focus, mental fatigue, and cognitive load.</p>
-                <div class="c-foot"><span class="c-rt">Focus &amp; Productivity</span><a href="#" class="c-rm">Read article -&gt;</a></div>
+                <div class="c-foot"><span class="c-rt">Focus &amp; Productivity</span><a href="#" class="c-rm">Read article &rarr;</a></div>
               </div>
             </article>
 
             <div class="stack">
               <article class="card card-h" aria-label="Article card">
-                <div class="c-thumb"><img src="https://images.unsplash.com/photo-1516542076529-1ea3854896f2?auto=format&fit=crop&w=800&q=80" alt="Article thumbnail" /></div>
-                <div class="c-body"><h3 class="c-title"><a href="#">Memory retention for high-volume learning</a></h3><p class="c-exc">Use retrieval practice, spaced review, and deliberate recall prompts to lock in key ideas for high-volume learning without adding extra study hours.</p><div class="c-foot"><span class="c-rt">Memory &amp; Learning</span><a href="#" class="c-rm">Read -&gt;</a></div></div>
+                <div class="c-thumb"><img src="https://images.unsplash.com/photo-1516542076529-1ea3854896f2?auto=format&fit=crop&w=800&q=80" alt="Article thumbnail" loading="lazy" decoding="async" /></div>
+                <div class="c-body"><h3 class="c-title"><a href="#">Memory retention for high-volume learning</a></h3><p class="c-exc">Use retrieval practice and spaced recall to retain key ideas faster.</p><div class="c-foot"><span class="c-rt">Memory &amp; Learning</span><a href="#" class="c-rm">Read &rarr;</a></div></div>
               </article>
               <article class="card card-h" aria-label="Article card">
-                <div class="c-thumb"><img src="https://images.unsplash.com/photo-1499728603263-13726abce5fd?auto=format&fit=crop&w=800&q=80" alt="Article thumbnail" /></div>
-                <div class="c-body"><h3 class="c-title"><a href="#">Sleep architecture and creative output</a></h3><p class="c-exc">How more stable deep sleep and REM cycles improve cognitive flexibility, decision quality, emotional regulation, and next-day creative performance.</p><div class="c-foot"><span class="c-rt">Brain Health &amp; Longevity</span><a href="#" class="c-rm">Read -&gt;</a></div></div>
+                <div class="c-thumb"><img src="https://images.unsplash.com/photo-1499728603263-13726abce5fd?auto=format&fit=crop&w=800&q=80" alt="Article thumbnail" loading="lazy" decoding="async" /></div>
+                <div class="c-body"><h3 class="c-title"><a href="#">Sleep architecture and creative output</a></h3><p class="c-exc">Stable deep sleep and REM cycles improve clarity and creative output.</p><div class="c-foot"><span class="c-rt">Brain Health &amp; Longevity</span><a href="#" class="c-rm">Read &rarr;</a></div></div>
               </article>
             </div>
           </div>
 
           <div class="grid3">
-            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=80" alt="Grid article" /></div><div class="c-body"><h3 class="c-title"><a href="#">Caffeine timing and sustained focus</a></h3><p class="c-exc">Use caffeine with circadian timing, not habit, to reduce crashes and improve clarity.</p><div class="c-foot"><span class="c-rt">Focus &amp; Productivity</span><a href="#" class="c-rm">Read -&gt;</a></div></div></article>
-            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1499728603263-13726abce5fd?auto=format&fit=crop&w=900&q=80" alt="Grid article" /></div><div class="c-body"><h3 class="c-title"><a href="#">Nootropics: what evidence actually says</a></h3><p class="c-exc">A clear guide to human data, dosage caveats, and realistic outcomes for supplements.</p><div class="c-foot"><span class="c-rt">Nootropics &amp; Supplements</span><a href="#" class="c-rm">Read -&gt;</a></div></div></article>
-            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=900&q=80" alt="Grid article" /></div><div class="c-body"><h3 class="c-title"><a href="#">Stress physiology and sharper decisions</a></h3><p class="c-exc">How to regulate arousal under pressure and avoid cognitive narrowing in key moments.</p><div class="c-foot"><span class="c-rt">Brain Health &amp; Longevity</span><a href="#" class="c-rm">Read -&gt;</a></div></div></article>
+            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=80" alt="Grid article" loading="lazy" decoding="async" /></div><div class="c-body"><h3 class="c-title"><a href="#">Caffeine timing and sustained focus</a></h3><p class="c-exc">Use caffeine with circadian timing, not habit, to reduce crashes and improve clarity.</p><div class="c-foot"><span class="c-rt">Focus &amp; Productivity</span><a href="#" class="c-rm">Read &rarr;</a></div></div></article>
+            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1499728603263-13726abce5fd?auto=format&fit=crop&w=900&q=80" alt="Grid article" loading="lazy" decoding="async" /></div><div class="c-body"><h3 class="c-title"><a href="#">Nootropics: what evidence actually says</a></h3><p class="c-exc">A clear guide to human data, dosage caveats, and realistic outcomes for supplements.</p><div class="c-foot"><span class="c-rt">Nootropics &amp; Supplements</span><a href="#" class="c-rm">Read &rarr;</a></div></div></article>
+            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=900&q=80" alt="Grid article" loading="lazy" decoding="async" /></div><div class="c-body"><h3 class="c-title"><a href="#">Stress physiology and sharper decisions</a></h3><p class="c-exc">How to regulate arousal under pressure and avoid cognitive narrowing in key moments.</p><div class="c-foot"><span class="c-rt">Brain Health &amp; Longevity</span><a href="#" class="c-rm">Read &rarr;</a></div></div></article>
           </div>
         </div>
       </div>
@@ -236,7 +327,7 @@
               <li>Food sources and supplementation guidance</li>
               <li>Backed by peer-reviewed human trials</li>
             </ul>
-            <a href="#" class="lm-btn">Comment "STACK" on Instagram -&gt;</a>
+            <a href="#" class="lm-btn">Comment "STACK" on Instagram &rarr;</a>
           </div>
           <div class="lm-vis" aria-hidden="true">
             <div class="lm-pc">
@@ -262,13 +353,13 @@
             <span class="sh-ey" aria-hidden="true">Blog</span>
             <h2 id="topics-heading" class="sh-t">Browse Articles by Topic</h2>
           </div>
-          <a href="#" class="sh-link">View all articles -&gt;</a>
+          <a href="#" class="sh-link">View all articles &rarr;</a>
         </div>
         <div class="tgrid">
-          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">🧠</span><span class="tc-n">Brain Health &amp; Longevity</span><span class="tc-d">Sleep, exercise, nutrition, neuroplasticity, and long-term cognitive protection.</span><span class="tc-c">17 articles</span></a>
-          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">🎯</span><span class="tc-n">Focus &amp; Productivity</span><span class="tc-d">Dopamine, attention control, deep work, and distraction-proof productivity.</span><span class="tc-c">12 articles</span></a>
-          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">🧩</span><span class="tc-n">Memory &amp; Learning</span><span class="tc-d">How memory forms, improves, and can be trained for better learning and recall.</span><span class="tc-c">6 articles</span></a>
-          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">💊</span><span class="tc-n">Nootropics &amp; Supplements</span><span class="tc-d">Evidence-based ingredient research, dosage context, and cognitive support guides.</span><span class="tc-c">8 articles</span></a>
+          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">&#x1F9E0;</span><span class="tc-n">Brain Health &amp; Longevity</span><span class="tc-d">Sleep, exercise, nutrition, neuroplasticity, and long-term cognitive protection.</span><span class="tc-c">17 articles</span></a>
+          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">&#x1F3AF;</span><span class="tc-n">Focus &amp; Productivity</span><span class="tc-d">Dopamine, attention control, deep work, and distraction-proof productivity.</span><span class="tc-c">12 articles</span></a>
+          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">&#x1F9E9;</span><span class="tc-n">Memory &amp; Learning</span><span class="tc-d">How memory forms, improves, and can be trained for better learning and recall.</span><span class="tc-c">6 articles</span></a>
+          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">&#x1F48A;</span><span class="tc-n">Nootropics &amp; Supplements</span><span class="tc-d">Evidence-based ingredient research, dosage context, and cognitive support guides.</span><span class="tc-c">8 articles</span></a>
         </div>
       </div>
     </section>
@@ -281,14 +372,28 @@
         <p class="ft-tag">Neuroscience for high performers. Peer-reviewed research translated into what actually matters.</p>
         <p class="ft-dis">Not medical advice. For educational purposes only. Always consult a qualified healthcare professional.</p>
         <div class="ft-soc">
-          <a class="s-btn" href="#" aria-label="Instagram">IG</a>
-          <a class="s-btn" href="#" aria-label="YouTube">YT</a>
-          <a class="s-btn" href="#" aria-label="X">X</a>
+          <a class="s-btn" href="#" aria-label="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+              <rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect>
+              <circle cx="12" cy="12" r="4.2"></circle>
+              <circle cx="18" cy="6" r="1"></circle>
+            </svg>
+          </a>
+          <a class="s-btn" href="#" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.7 12 4.7 12 4.7s-5.9 0-7.6.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8ZM10 15.6V8.4l6 3.6-6 3.6Z"></path>
+            </svg>
+          </a>
+          <a class="s-btn" href="#" aria-label="X">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M18.9 2H22l-6.8 7.8L23 22h-6.1l-4.8-6.6L6.3 22H3.2l7.2-8.2L1 2h6.2l4.3 6 5.4-6Zm-1.1 18h1.7L6.3 3.9H4.5L17.8 20Z"></path>
+            </svg>
+          </a>
         </div>
       </div>
 
       <div class="ft-col">
-        <h4>Content</h4>
+        <span class="ft-col-title">Categories</span>
         <ul>
           <li><a href="#">All Articles</a></li>
           <li><a href="#">Brain Health &amp; Longevity</a></li>
@@ -299,17 +404,17 @@
       </div>
 
       <div class="ft-col">
-        <h4>Resources</h4>
+        <span class="ft-col-title">Resources</span>
         <ul>
           <li><a href="#">The Brain Stack</a></li>
-          <li><a href="#newsletter">Newsletter</a></li>
+          <li><a href="#newsletter">Get the Free Newsletter &rarr;</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Style Guide</a></li>
         </ul>
       </div>
 
       <div class="ft-col">
-        <h4>Research From</h4>
+        <span class="ft-col-title">Research</span>
         <ul>
           <li><a href="#">PubMed</a></li>
           <li><a href="#">NIH</a></li>

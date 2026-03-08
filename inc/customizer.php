@@ -56,7 +56,7 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 		'section'     => 'eb_nav', 'type' => 'textarea', 'transport' => 'refresh',
 	] );
 	eb_ctl( $wp_customize, 'eb_nav_show_cta',      [ 'default' => '1',          'label' => __( 'Show CTA Button',              'enhancingbrain' ), 'section' => 'eb_nav', 'type' => 'checkbox' ] );
-	eb_ctl( $wp_customize, 'eb_nav_cta_text',      [ 'default' => 'Get the Free Newsletter ->', 'label' => __( 'CTA Button - Text',            'enhancingbrain' ), 'section' => 'eb_nav', 'type' => 'text' ] );
+	eb_ctl( $wp_customize, 'eb_nav_cta_text',      [ 'default' => 'Get the Free Newsletter →', 'label' => __( 'CTA Button - Text',            'enhancingbrain' ), 'section' => 'eb_nav', 'type' => 'text' ] );
 	eb_ctl( $wp_customize, 'eb_nav_cta_url',       [ 'default' => '#newsletter','label' => __( 'CTA Button - Link URL',        'enhancingbrain' ), 'section' => 'eb_nav', 'type' => 'text' ] );
 	eb_ctl( $wp_customize, 'eb_nav_cta_show_icon', [ 'default' => '1',          'label' => __( 'Show email icon on CTA button','enhancingbrain' ), 'section' => 'eb_nav', 'type' => 'checkbox' ] );
 
@@ -78,7 +78,7 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 		'eb_nl_label'       => [ 'Free Weekly Newsletter', 'Card Label', 'text' ],
 		'eb_nl_title'       => [ 'Your weekly brain brief.', 'Card Title', 'text' ],
 		'eb_nl_desc'        => [ 'One email every Sunday. Real neuroscience, zero fluff.', 'Description', 'textarea' ],
-		'eb_nl_btn'         => [ 'Get the Free Newsletter ->', 'Button Text', 'text' ],
+		'eb_nl_btn'         => [ 'Get the Free Newsletter →', 'Button Text', 'text' ],
 		'eb_nl_form_action' => [ '', 'Form Action URL (MailChimp/MailPoet endpoint)', 'url' ],
 		'eb_nl_proof'       => [ 'Joined by 600+ readers', 'Social Proof Text', 'text' ],
 		'eb_nl_disclaimer'  => [ 'No spam, ever. Unsubscribe anytime.', 'Card Disclaimer', 'text' ],
@@ -99,7 +99,7 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 	eb_ctl( $wp_customize, 'eb_articles_visible',   [ 'default' => '1',                   'label' => __( 'Show Articles Section',  'enhancingbrain' ), 'section' => 'eb_articles', 'type' => 'checkbox', 'transport' => 'refresh' ] );
 	eb_ctl( $wp_customize, 'eb_articles_eyebrow',   [ 'default' => 'Blog',                'label' => __( 'Eyebrow Text',           'enhancingbrain' ), 'section' => 'eb_articles', 'type' => 'text' ] );
 	eb_ctl( $wp_customize, 'eb_articles_heading',   [ 'default' => 'Latest Articles',     'label' => __( 'Section Heading',        'enhancingbrain' ), 'section' => 'eb_articles', 'type' => 'text' ] );
-	eb_ctl( $wp_customize, 'eb_articles_link_text', [ 'default' => 'View all articles ->', 'label' => __( 'View All Link Text',     'enhancingbrain' ), 'section' => 'eb_articles', 'type' => 'text' ] );
+	eb_ctl( $wp_customize, 'eb_articles_link_text', [ 'default' => 'View all articles →', 'label' => __( 'View All Link Text',     'enhancingbrain' ), 'section' => 'eb_articles', 'type' => 'text' ] );
 	eb_ctl( $wp_customize, 'eb_articles_count',     [ 'default' => '6',                   'label' => __( 'Number of Posts',        'enhancingbrain' ), 'section' => 'eb_articles', 'type' => 'number' ] );
 
 	/* 8 - LEAD MAGNET */
@@ -113,7 +113,7 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 		'eb_lm_bullet_2' => [ 'Why it matters for high performance',         'Bullet 2', 'text' ],
 		'eb_lm_bullet_3' => [ 'Food sources and supplementation guidance',   'Bullet 3', 'text' ],
 		'eb_lm_bullet_4' => [ 'Backed by peer-reviewed human trials',        'Bullet 4', 'text' ],
-		'eb_lm_btn_text' => [ 'Comment "STACK" on Instagram ->',              'Button Text', 'text' ],
+		'eb_lm_btn_text' => [ 'Comment "STACK" on Instagram →',              'Button Text', 'text' ],
 		'eb_lm_btn_url'  => [ 'https://www.instagram.com/enhancingbrain',    'Button URL',  'url'  ],
 	] as $id => [ $default, $label, $type ] ) {
 		eb_ctl( $wp_customize, $id, [ 'default' => $default, 'label' => __( $label, 'enhancingbrain' ), 'section' => 'eb_lead_magnet', 'type' => $type ] );
@@ -124,7 +124,7 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 	eb_ctl( $wp_customize, 'eb_topics_visible', [ 'default' => '1',                          'label' => __( 'Show Topics Section',  'enhancingbrain' ), 'section' => 'eb_topics', 'type' => 'checkbox', 'transport' => 'refresh' ] );
 	eb_ctl( $wp_customize, 'eb_topics_eyebrow', [ 'default' => 'Browse Articles by Topic',   'label' => __( 'Eyebrow',              'enhancingbrain' ), 'section' => 'eb_topics', 'type' => 'text' ] );
 	eb_ctl( $wp_customize, 'eb_topics_heading', [ 'default' => 'Explore Topics',             'label' => __( 'Section Heading',      'enhancingbrain' ), 'section' => 'eb_topics', 'type' => 'text' ] );
-	eb_ctl( $wp_customize, 'eb_topics_link',    [ 'default' => 'All articles ->',             'label' => __( 'View All Link Text',   'enhancingbrain' ), 'section' => 'eb_topics', 'type' => 'text' ] );
+	eb_ctl( $wp_customize, 'eb_topics_link',    [ 'default' => 'All articles →',             'label' => __( 'View All Link Text',   'enhancingbrain' ), 'section' => 'eb_topics', 'type' => 'text' ] );
 
 	/* 10 - FOOTER */
 	$default_footer_nav = "Home | /\nArticles | /articles\nAbout | /about\nPrivacy Policy | /privacy-policy";
@@ -152,9 +152,9 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 	eb_ctl( $wp_customize, 'eb_footer_x_url',  [ 'default' => '', 'label' => __( 'X / Twitter URL (blank = hidden)',  'enhancingbrain' ),                                     'section' => 'eb_footer', 'type' => 'url' ] );
 
 	/* Footer column headings */
-	eb_ctl( $wp_customize, 'eb_footer_col1_heading', [ 'default' => 'Content',      'label' => __( '"Content" Column Heading',      'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
+	eb_ctl( $wp_customize, 'eb_footer_col1_heading', [ 'default' => 'Categories',      'label' => __( '"Content" Column Heading',      'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
 	eb_ctl( $wp_customize, 'eb_footer_col2_heading', [ 'default' => 'Resources',    'label' => __( '"Resources" Column Heading',    'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
-	eb_ctl( $wp_customize, 'eb_footer_col3_heading', [ 'default' => 'Research From','label' => __( '"Research From" Column Heading','enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
+	eb_ctl( $wp_customize, 'eb_footer_col3_heading', [ 'default' => 'Research','label' => __( '"Research From" Column Heading','enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
 
 	/* Footer column links - unlimited textarea format */
 	eb_ctl( $wp_customize, 'eb_footer_col1_links', [

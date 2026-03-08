@@ -61,7 +61,7 @@ get_header();
 						<span class="btn-ico" aria-hidden="true">
 							<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>
 						</span>
-						<span><?php echo esc_html( get_theme_mod( 'eb_nl_btn', 'Get the Free Newsletter ->' ) ); ?></span>
+						<span><?php echo esc_html( get_theme_mod( 'eb_nl_btn', 'Get the Free Newsletter →' ) ); ?></span>
 					</button>
 				</form>
 
@@ -153,7 +153,7 @@ get_header();
 					<h2 id="articles-heading" class="sh-t"><?php echo esc_html( get_theme_mod( 'eb_articles_heading', 'Latest Articles' ) ); ?></h2>
 				</div>
 				<a href="<?php echo esc_url( home_url( '/articles' ) ); ?>" class="sh-link">
-					<?php echo esc_html( get_theme_mod( 'eb_articles_link_text', 'View all articles ->' ) ); ?>
+					<?php echo esc_html( get_theme_mod( 'eb_articles_link_text', 'View all articles →' ) ); ?>
 				</a>
 			</div>
 
@@ -186,7 +186,7 @@ get_header();
 						<div class="c-foot">
 							<span class="c-rt"><?php echo esc_html( eb_primary_category_name( $main->ID ) ); ?></span>
 							<a href="<?php echo esc_url( get_permalink( $main ) ); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title( $main ) ) ); ?>">
-								<?php esc_html_e( 'Read article ->', 'enhancingbrain' ); ?>
+								<?php esc_html_e( 'Read article →', 'enhancingbrain' ); ?>
 							</a>
 						</div>
 					</div>
@@ -215,7 +215,7 @@ get_header();
 							<div class="c-foot">
 								<span class="c-rt"><?php echo esc_html( eb_primary_category_name( $post->ID ) ); ?></span>
 								<a href="<?php echo esc_url( get_permalink( $post ) ); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title( $post ) ) ); ?>">
-									<?php esc_html_e( 'Read ->', 'enhancingbrain' ); ?>
+									<?php esc_html_e( 'Read →', 'enhancingbrain' ); ?>
 								</a>
 							</div>
 						</div>
@@ -250,7 +250,7 @@ get_header();
 						<div class="c-foot">
 							<span class="c-rt"><?php echo esc_html( eb_primary_category_name( $post->ID ) ); ?></span>
 							<a href="<?php echo esc_url( get_permalink( $post ) ); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title( $post ) ) ); ?>">
-								<?php esc_html_e( 'Read ->', 'enhancingbrain' ); ?>
+								<?php esc_html_e( 'Read →', 'enhancingbrain' ); ?>
 							</a>
 						</div>
 					</div>
@@ -291,7 +291,7 @@ get_header();
 					<?php endif; ?>
 					<a href="<?php echo esc_url( get_theme_mod( 'eb_lm_btn_url', 'https://www.instagram.com/enhancingbrain' ) ); ?>"
 					   target="_blank" rel="noopener noreferrer" class="lm-btn">
-						<?php echo esc_html( get_theme_mod( 'eb_lm_btn_text', 'Comment "STACK" on Instagram ->' ) ); ?>
+						<?php echo esc_html( get_theme_mod( 'eb_lm_btn_text', 'Comment "STACK" on Instagram →' ) ); ?>
 					</a>
 				</div>
 				<div class="lm-vis" aria-hidden="true">
@@ -322,7 +322,7 @@ get_header();
 					<h2 id="topics-heading" class="sh-t"><?php echo esc_html( get_theme_mod( 'eb_topics_heading', 'Browse Articles by Topic' ) ); ?></h2>
 				</div>
 				<a href="<?php echo esc_url( home_url( '/articles' ) ); ?>" class="sh-link">
-					<?php echo esc_html( get_theme_mod( 'eb_topics_link', 'View all articles ->' ) ); ?>
+					<?php echo esc_html( get_theme_mod( 'eb_topics_link', 'View all articles →' ) ); ?>
 				</a>
 			</div>
 			<div class="tgrid">
@@ -335,7 +335,7 @@ get_header();
 				'nootropics-supplements' => '&#x1F48A;',
 			];
 			foreach ( $topic_cats as $i => $cat ) :
-					$count = absint( $cat->count );
+					$count = absint( $cat->count ) . ' ' . _n( 'article', 'articles', $cat->count, 'enhancingbrain' );
 				?>
 				<a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>" class="tc">
 					<span class="tc-icon" aria-hidden="true"><?php echo wp_kses_post( $icons[ $cat->slug ] ?? '&#x1F4D6;' ); ?></span>

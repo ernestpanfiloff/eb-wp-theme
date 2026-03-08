@@ -13,16 +13,30 @@
 			<div class="ft-soc">
 				<?php
 				$socials = [
-					[ get_theme_mod( 'eb_footer_ig_url', 'https://www.instagram.com/enhancingbrain' ), 'IG', 'Instagram' ],
-					[ get_theme_mod( 'eb_footer_yt_url', '' ), 'YT', 'YouTube'    ],
-					[ get_theme_mod( 'eb_footer_x_url',  '' ), 'X',  'X/Twitter'  ],
+					[ get_theme_mod( 'eb_footer_ig_url', 'https://www.instagram.com/enhancingbrain' ), 'instagram', 'Instagram' ],
+					[ get_theme_mod( 'eb_footer_yt_url', '' ), 'youtube', 'YouTube'    ],
+					[ get_theme_mod( 'eb_footer_x_url',  '' ), 'x',  'X/Twitter'  ],
 				];
-				foreach ( $socials as [ $url, $short, $label ] ) :
+				foreach ( $socials as [ $url, $icon, $label ] ) :
 					if ( $url ) :
 				?>
 				<a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener noreferrer" class="s-btn"
 				   aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) . ' on ' . $label ); ?>">
-					<?php echo esc_html( $short ); ?>
+					<?php if ( 'instagram' === $icon ) : ?>
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+						<rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect>
+						<circle cx="12" cy="12" r="4.2"></circle>
+						<circle cx="18" cy="6" r="1"></circle>
+					</svg>
+					<?php elseif ( 'youtube' === $icon ) : ?>
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+						<path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.7 12 4.7 12 4.7s-5.9 0-7.6.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8ZM10 15.6V8.4l6 3.6-6 3.6Z"></path>
+					</svg>
+					<?php else : ?>
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+						<path d="M18.9 2H22l-6.8 7.8L23 22h-6.1l-4.8-6.6L6.3 22H3.2l7.2-8.2L1 2h6.2l4.3 6 5.4-6Zm-1.1 18h1.7L6.3 3.9H4.5L17.8 20Z"></path>
+					</svg>
+					<?php endif; ?>
 				</a>
 				<?php endif; endforeach; ?>
 			</div>
@@ -31,7 +45,7 @@
 		<!-- Content column -->
 		<?php if ( get_theme_mod( 'eb_footer_show_content_col', '1' ) ) : ?>
 		<div class="ft-col">
-			<h2 class="ft-col-title"><?php echo esc_html( get_theme_mod( 'eb_footer_col1_heading', 'Content' ) ); ?></h2>
+			<h2 class="ft-col-title"><?php echo esc_html( get_theme_mod( 'eb_footer_col1_heading', 'Categories' ) ); ?></h2>
 			<ul>
 				<?php
 				$links = eb_parse_menu_items( get_theme_mod( 'eb_footer_col1_links',
@@ -65,7 +79,7 @@
 		<!-- Research From column -->
 		<?php if ( get_theme_mod( 'eb_footer_show_research_col', '1' ) ) : ?>
 		<div class="ft-col">
-			<h2 class="ft-col-title"><?php echo esc_html( get_theme_mod( 'eb_footer_col3_heading', 'Research From' ) ); ?></h2>
+			<h2 class="ft-col-title"><?php echo esc_html( get_theme_mod( 'eb_footer_col3_heading', 'Research' ) ); ?></h2>
 			<ul>
 				<?php
 				$links = eb_parse_menu_items( get_theme_mod( 'eb_footer_col3_links',

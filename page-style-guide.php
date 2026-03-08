@@ -52,15 +52,15 @@ get_header();
 			<span class="btn-ico" aria-hidden="true">
 				<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>
 			</span>
-			<span>Get the Free Newsletter -&gt;</span>
+			<span>Get the Free Newsletter &rarr;</span>
 		</button>
 		<a href="#" class="nav-cta">
 			<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>
 			Newsletter CTA
 		</a>
-		<a href="#" class="lm-btn" style="display:inline-block;">Download Resource -&gt;</a>
-		<a href="#" class="sh-link">View all -&gt;</a>
-		<a href="#" class="c-rm">Read -&gt;</a>
+		<a href="#" class="lm-btn" style="display:inline-block;">Download Resource &rarr;</a>
+		<a href="#" class="sh-link">View all &rarr;</a>
+		<a href="#" class="c-rm">Read &rarr;</a>
 	</div>
 </section>
 
@@ -93,7 +93,7 @@ get_header();
 			<span class="tc-icon" aria-hidden="true"><?php echo wp_kses_post( $icon_map[ $cat->slug ] ?? '&#x1F4D6;' ); ?></span>
 			<span class="tc-n"><?php echo esc_html( $cat->name ); ?></span>
 			<?php if ( $cat->description ) : ?><span class="tc-d"><?php echo esc_html( $cat->description ); ?></span><?php endif; ?>
-			<span class="tc-c"><?php echo esc_html( (string) absint( $cat->count ) ); ?></span>
+			<span class="tc-c"><?php echo esc_html( absint( $cat->count ) . ' ' . _n( 'article', 'articles', $cat->count, 'enhancingbrain' ) ); ?></span>
 		</a>
 		<?php endforeach; ?>
 	</div>
@@ -121,7 +121,7 @@ get_header();
 				<p class="c-exc"><?php the_excerpt(); ?></p>
 				<div class="c-foot">
 					<span class="c-rt"><?php echo esc_html( eb_primary_category_name( get_the_ID() ) ); ?></span>
-					<a href="<?php the_permalink(); ?>" class="c-rm">Read -&gt;</a>
+					<a href="<?php the_permalink(); ?>" class="c-rm">Read &rarr;</a>
 				</div>
 			</div>
 		</article>
@@ -184,9 +184,18 @@ get_header();
 .sg-type h1, .sg-type h2, .sg-type h3, .sg-type h4 { margin-bottom: .75rem; }
 .sg-type p, .sg-type blockquote { margin-bottom: 1rem; }
 .sg-row { display: flex; align-items: center; }
+.sg-page .single-content ul,
+.sg-page .single-content ol {
+	padding-left: 1.2rem;
+	margin: 0.25rem 0 1.1rem;
+}
+.sg-page .single-content ul { list-style: disc; }
+.sg-page .single-content ol { list-style: decimal; }
+.sg-page .single-content li { margin-bottom: 0.35rem; }
 @media (max-width: 900px) {
 	.sg-page { padding-top: 2rem; }
 }
 </style>
 
 <?php get_footer(); ?>
+

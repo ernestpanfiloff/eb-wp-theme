@@ -9,14 +9,54 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/main.css" />
   <style>
+    .nav-cta,
+    .f-btn,
+    .lm-btn,
+    .mob-cta a,
+    .c-rm,
+    .sh-link {
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s !important;
+    }
+    .nav-cta:hover,
+    .f-btn:hover,
+    .lm-btn:hover,
+    .mob-cta a:hover,
+    .c-rm:hover,
+    .sh-link:hover,
+    .card:hover,
+    .card-h:hover,
+    .card-sm:hover {
+      transform: none !important;
+    }
+    .nav-cta,
+    .f-btn,
+    .lm-btn,
+    .mob-cta a,
+    .card,
+    .card-sm,
+    .card-h,
+    .sg-block,
+    .sg-callout,
+    .sg-stat,
+    .sg-form input {
+      border-radius: 6px !important;
+    }
+    .f-btn,
+    .mob-cta a {
+      color: #fff !important;
+    }
+    .lm-btn,
+    .lm-btn:hover {
+      color: var(--ink) !important;
+    }
     .sg-page { padding: 2.5rem 0 5rem; background: var(--bg); }
     .sg-wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
     .sg-head { margin-bottom: 2rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
     .sg-kicker { font-family: var(--mono); font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-dk); }
     .sg-title { font-size: clamp(1.8rem, 3vw, 2.5rem); margin-top: .45rem; }
     .sg-grid { display: grid; grid-template-columns: 1fr; gap: 1.15rem; }
-    .sg-block { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
-    .sg-block h2 { font-size: 1rem; margin-bottom: .8rem; }
+    .sg-block { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem; }
+    .sg-block h2 { font-size: 1.18rem; margin-bottom: .8rem; }
     .sg-palette { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .65rem; }
     .sg-swatch { min-height: 90px; border-radius: 6px; padding: .75rem; display: flex; flex-direction: column; justify-content: flex-end; font-family: var(--mono); font-size: .68rem; border: 1px solid rgba(0,0,0,.08); }
     .sg-type > * + * { margin-top: .65rem; }
@@ -27,17 +67,68 @@
     .sg-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
     .sg-table th, .sg-table td { border: 1px solid var(--border); padding: .55rem .65rem; text-align: left; }
     .sg-table th { background: var(--ink); color: #fff; font-family: var(--head); }
-    .sg-prose h3 { margin-top: 1.2rem; font-size: 1.15rem; }
+    .sg-type h2 { font-size: 1.35rem; }
+    .sg-type h3 { font-size: 1.08rem; }
+    .sg-prose h2 { margin-top: 1rem; font-size: 1.22rem; }
+    .sg-prose h3 { margin-top: 1.2rem; font-size: 1.02rem; }
     .sg-prose p { margin-top: .65rem; }
     .sg-prose ul, .sg-prose ol { margin-top: .65rem; padding-left: 1.2rem; }
+    .sg-prose ul { list-style: disc; }
+    .sg-prose ol { list-style: decimal; }
     .sg-prose li { margin-top: .35rem; color: var(--muted); }
+    .sg-prose ul li,
+    .sg-prose ol li { display: list-item; }
     .sg-prose blockquote { margin-top: .75rem; border-left: 4px solid var(--accent); padding: .8rem 1rem; background: var(--accent-lt); border-radius: 0 6px 6px 0; }
     .sg-prose code { background: var(--surface); border: 1px solid var(--border); padding: .1rem .3rem; border-radius: 4px; font-family: var(--mono); font-size: .85em; }
-    .sg-prose pre { margin-top: .75rem; background: var(--ink); color: #d1fae5; border-radius: 6px; padding: .9rem; overflow-x: auto; }
+    .sg-prose pre { margin-top: .75rem; background: var(--ink); color: #d1fae5; border-radius: 6px; padding: .9rem; overflow-x: auto; border: 1px solid rgba(255,255,255,0.14); }
+    .sg-prose pre code { color: #d1fae5; background: transparent; border: 0; padding: 0; display: block; }
     .sg-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: .6rem; }
     .sg-stat { border: 1px solid var(--border); border-radius: 6px; padding: .8rem; background: #fff; }
     .sg-stat strong { display: block; font-size: 1.2rem; font-family: var(--head); color: var(--ink); }
     .sg-form { display: grid; gap: .6rem; max-width: 420px; }
+    .sg-form label { font-size: .82rem; font-weight: 600; color: var(--ink); }
+    .sg-form input {
+      width: 100%;
+      padding: .72rem 1rem;
+      border: 1px solid var(--border-dk);
+      border-radius: 5px;
+      background: var(--bg);
+      font-family: var(--body);
+      font-size: 0.875rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .sg-form input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(11,191,150,0.12);
+    }
+    .sg-kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .6rem; }
+    .sg-kpi { border: 1px solid var(--border); background: #fff; border-radius: 6px; padding: .75rem; }
+    .sg-kpi strong { display: block; font-size: 1.35rem; font-family: var(--head); color: var(--ink); }
+    .sg-kpi span { color: var(--muted); font-size: .78rem; }
+    .sg-faq { display: grid; gap: .5rem; }
+    .sg-faq-item { border: 1px solid var(--border); border-radius: 6px; background: #fff; }
+    .sg-faq-q { font-weight: 600; color: var(--ink); padding: .75rem .9rem; border-bottom: 1px solid var(--border); }
+    .sg-faq-a { color: var(--muted); padding: .72rem .9rem; }
+    .sg-timeline { display: grid; gap: .55rem; }
+    .sg-step { display: grid; grid-template-columns: 30px 1fr; align-items: start; gap: .55rem; }
+    .sg-step-dot { width: 24px; height: 24px; border-radius: 50%; background: var(--accent-lt); color: var(--accent-dk); border: 1px solid rgba(11,191,150,0.35); display: inline-flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: .7rem; margin-top: .1rem; }
+    .sg-step-body strong { display: block; color: var(--ink); font-size: .9rem; }
+    .sg-step-body p { margin-top: .2rem; color: var(--muted); font-size: .82rem; }
+    .sg-compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .65rem; }
+    .sg-compare-card { border: 1px solid var(--border); border-radius: 6px; background: #fff; padding: .9rem; }
+    .sg-compare-card h3 { font-size: .95rem; margin-bottom: .35rem; }
+    .sg-compare-card p { font-size: .8rem; color: var(--muted); }
+    .ft-dis {
+      color: rgba(255,255,255,0.68) !important;
+    }
+    .ft-pill {
+      color: #0b6a56 !important;
+      border-color: rgba(11,191,150,0.30) !important;
+      background: rgba(11,191,150,0.14) !important;
+      font-weight: 600 !important;
+    }
   </style>
 </head>
 <body>
@@ -69,13 +160,20 @@
           <h3>H3: Focus, memory, and long-term brain health</h3>
           <p>Body: Plus Jakarta Sans with high readability and calm contrast.</p>
           <p><strong>Strong text</strong>, <em>emphasis text</em>, and <code>inline code</code> examples.</p>
+          <div class="sg-callout" style="margin-top:.8rem;">
+            <p><strong>Font Stack</strong></p>
+            <p>Headings: Outfit</p>
+            <p>Accent italic highlight: Playfair Display</p>
+            <p>Body: Plus Jakarta Sans</p>
+            <p>Labels and code: DM Mono</p>
+          </div>
         </section>
 
         <section class="sg-block">
           <h2>Buttons + Pills + Badges</h2>
           <div class="sg-row">
-            <a href="#" class="nav-cta"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>Newsletter</a>
-            <button class="f-btn" type="button" style="max-width:220px;">Primary Action</button>
+            <a href="#" class="nav-cta"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>Get the Free Newsletter &rarr;</a>
+            <button class="f-btn" type="button" style="max-width:260px;"><span class="btn-ico" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg></span><span>Primary Action</span></button>
             <a href="#" class="lm-btn">Lead Magnet CTA</a>
             <span class="hero-pill">Science-backed</span>
             <span class="band-tag active">Focus &amp; Productivity</span>
@@ -90,14 +188,14 @@
               <div class="c-body">
                 <h3 class="c-title"><a href="#">Deep work and dopamine stability</a></h3>
                 <p class="c-exc">How to structure your week for sustained cognitive output.</p>
-                <div class="c-foot"><span class="c-rt">Focus &amp; Productivity</span><a href="#" class="c-rm">Read -&gt;</a></div>
+                <div class="c-foot"><span class="c-rt">Focus &amp; Productivity</span><a href="#" class="c-rm">Read &rarr;</a></div>
               </div>
             </article>
             <article class="card card-sm">
               <div class="c-body">
                 <h3 class="c-title"><a href="#">Nutrient basics for long-term cognition</a></h3>
                 <p class="c-exc">Practical, evidence-based guidance without hype.</p>
-                <div class="c-foot"><span class="c-rt">Nootropics &amp; Supplements</span><a href="#" class="c-rm">Read -&gt;</a></div>
+                <div class="c-foot"><span class="c-rt">Nootropics &amp; Supplements</span><a href="#" class="c-rm">Read &rarr;</a></div>
               </div>
             </article>
           </div>
@@ -154,8 +252,45 @@ const minutes = Math.max(1, Math.round(words / 200));</code></pre>
           <form class="sg-form" style="margin-top:.9rem;">
             <label for="sg-email">Newsletter Email</label>
             <input id="sg-email" type="email" placeholder="you@example.com" />
-            <button class="f-btn" type="button">Subscribe</button>
+            <button class="f-btn" type="button"><span class="btn-ico" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg></span><span>Subscribe</span></button>
           </form>
+        </section>
+
+        <section class="sg-block">
+          <h2>KPI Strip</h2>
+          <div class="sg-kpi-grid">
+            <div class="sg-kpi"><strong>4.8/5</strong><span>Reader trust rating</span></div>
+            <div class="sg-kpi"><strong>11</strong><span>Core nutrient guides</span></div>
+            <div class="sg-kpi"><strong>52</strong><span>Weekly briefs per year</span></div>
+            <div class="sg-kpi"><strong>100%</strong><span>Primary-source linked</span></div>
+          </div>
+        </section>
+
+        <section class="sg-block">
+          <h2>Timeline Block</h2>
+          <div class="sg-timeline">
+            <div class="sg-step"><span class="sg-step-dot">1</span><div class="sg-step-body"><strong>Assess baseline</strong><p>Track sleep, focus windows, and mental fatigue for 7 days.</p></div></div>
+            <div class="sg-step"><span class="sg-step-dot">2</span><div class="sg-step-body"><strong>Apply one variable</strong><p>Change one behavior at a time for clean signal quality.</p></div></div>
+            <div class="sg-step"><span class="sg-step-dot">3</span><div class="sg-step-body"><strong>Review outcomes</strong><p>Keep what improves performance and remove noise.</p></div></div>
+          </div>
+        </section>
+
+        <section class="sg-block">
+          <h2>FAQ Rows</h2>
+          <div class="sg-faq">
+            <div class="sg-faq-item"><div class="sg-faq-q">Is this medical advice?</div><div class="sg-faq-a">No. Educational content only. Discuss decisions with a qualified clinician.</div></div>
+            <div class="sg-faq-item"><div class="sg-faq-q">How often should content be updated?</div><div class="sg-faq-a">Review quarterly, and immediately when new human evidence changes recommendations.</div></div>
+            <div class="sg-faq-item"><div class="sg-faq-q">Can this be used in landing pages?</div><div class="sg-faq-a">Yes. These blocks are structured for both posts and conversion pages.</div></div>
+          </div>
+        </section>
+
+        <section class="sg-block">
+          <h2>Comparison Cards</h2>
+          <div class="sg-compare">
+            <article class="sg-compare-card"><h3>Myth</h3><p>"More supplements always means better cognition."</p></article>
+            <article class="sg-compare-card"><h3>Evidence</h3><p>Targeted compounds with correct dosage and timing outperform random stacks.</p></article>
+            <article class="sg-compare-card"><h3>Action</h3><p>Start with sleep and training, then layer supplements only where evidence is clear.</p></article>
+          </div>
         </section>
       </div>
     </div>
