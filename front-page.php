@@ -88,8 +88,8 @@ get_header();
 			<?php
 			$_stat_defaults = [
 				1 => [ '600+',  'Newsletter Subscribers' ],
-				2 => [ '100K+', 'Social Media Followers' ],
-				3 => [ '200M+', 'Views of social media'  ],
+				2 => [ '100K+', 'Social media following' ],
+				3 => [ '200M+', 'Social media views'    ],
 				4 => [ '5 min', 'Average Read Time'      ],
 			];
 			for ( $i = 1; $i <= 4; $i++ ) :
@@ -106,43 +106,43 @@ get_header();
 	</section>
 	<?php endif; ?>
 
-	<!-- ══ AUDIENCE BAND ══ -->
-	<div class="band-for rev" aria-hidden="true">
-		<div class="for-slider">
-			<div class="for-track">
-				<span class="for-pill">🧠 Entrepreneurs</span>
-				<span class="for-pill">📚 Students</span>
-				<span class="for-pill">💼 Executives</span>
-				<span class="for-pill">🔬 Researchers</span>
-				<span class="for-pill">💡 Founders</span>
-				<span class="for-pill">🏋️ Biohackers</span>
-				<span class="for-pill">🎯 High Achievers</span>
-				<span class="for-pill">🩺 Health Enthusiasts</span>
-				<span class="for-pill">📈 Ambitious Professionals</span>
-				<span class="for-pill">🧬 Longevity Seekers</span>
-				<span class="for-pill">🎓 Lifelong Learners</span>
-				<span class="for-pill">🚀 Peak Performers</span>
-				<span class="for-pill">🌿 Wellness Advocates</span>
-				<span class="for-pill">⚡ Productivity Nerds</span>
-				<span class="for-pill">🔭 Curious Minds</span>
+<!-- AUDIENCE BAND -->
+<div class="band rev" aria-hidden="true">
+	<div class="band-inner">
+		<span class="band-lbl">FOR:</span>
+		<div class="for-mq-wrap">
+			<div class="for-mq-track">
+				<span class="hero-pill">High Achievers</span>
+				<span class="hero-pill">Entrepreneurs</span>
+				<span class="hero-pill">CEOs</span>
+				<span class="hero-pill">Founders</span>
+				<span class="hero-pill">Investors</span>
+				<span class="hero-pill">Coaches</span>
+				<span class="hero-pill">Creators</span>
+				<span class="hero-pill">Executives</span>
+				<span class="hero-pill">Operators</span>
+				<span class="hero-pill">Business Owners</span>
+				<span class="hero-pill">Managers</span>
+				<span class="hero-pill">Creatives</span>
+				<span class="hero-pill">Peak Performers</span>
 				<!-- duplicate for seamless loop -->
-				<span class="for-pill">🧠 Entrepreneurs</span>
-				<span class="for-pill">📚 Students</span>
-				<span class="for-pill">💼 Executives</span>
-				<span class="for-pill">🔬 Researchers</span>
-				<span class="for-pill">💡 Founders</span>
-				<span class="for-pill">🏋️ Biohackers</span>
-				<span class="for-pill">🎯 High Achievers</span>
-				<span class="for-pill">🩺 Health Enthusiasts</span>
-				<span class="for-pill">📈 Ambitious Professionals</span>
-				<span class="for-pill">🧬 Longevity Seekers</span>
-				<span class="for-pill">🎓 Lifelong Learners</span>
-				<span class="for-pill">🚀 Peak Performers</span>
-				<span class="for-pill">🌿 Wellness Advocates</span>
-				<span class="for-pill">⚡ Productivity Nerds</span>
-				<span class="for-pill">🔭 Curious Minds</span>
+				<span class="hero-pill">High Achievers</span>
+				<span class="hero-pill">Entrepreneurs</span>
+				<span class="hero-pill">CEOs</span>
+				<span class="hero-pill">Founders</span>
+				<span class="hero-pill">Investors</span>
+				<span class="hero-pill">Coaches</span>
+				<span class="hero-pill">Creators</span>
+				<span class="hero-pill">Executives</span>
+				<span class="hero-pill">Operators</span>
+				<span class="hero-pill">Business Owners</span>
+				<span class="hero-pill">Managers</span>
+				<span class="hero-pill">Creatives</span>
+				<span class="hero-pill">Peak Performers</span>
 			</div>
 		</div>
+	</div>
+</div>
 	</div>
 
 	<!-- â•â• ARTICLES â•â• -->

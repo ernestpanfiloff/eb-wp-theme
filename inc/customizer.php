@@ -89,7 +89,7 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 	/* 6 - STATS BAR */
 	$wp_customize->add_section( 'eb_stats', [ 'title' => __( 'Stats Bar', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 30 ] );
 	eb_ctl( $wp_customize, 'eb_stats_visible', [ 'default' => '1', 'label' => __( 'Show Stats Bar', 'enhancingbrain' ), 'section' => 'eb_stats', 'type' => 'checkbox', 'transport' => 'refresh' ] );
-	foreach ( [ 1 => [ '600+', 'Newsletter Subscribers' ], 2 => [ '100K+', 'Social Media Followers' ], 3 => [ '200M+', 'Views of social media' ], 4 => [ '5 min', 'Average Read Time' ] ] as $i => [ $n, $l ] ) {
+	foreach ( [ 1 => [ '600+', 'Newsletter Subscribers' ], 2 => [ '100K+', 'Social media following' ], 3 => [ '200M+', 'Social media views' ], 4 => [ '5 min', 'Average Read Time' ] ] as $i => [ $n, $l ] ) {
 		eb_ctl( $wp_customize, "eb_stat_{$i}_number", [ 'default' => $n, 'label' => sprintf( __( 'Stat %d - Value', 'enhancingbrain' ), $i ), 'section' => 'eb_stats', 'type' => 'text' ] );
 		eb_ctl( $wp_customize, "eb_stat_{$i}_label",  [ 'default' => $l, 'label' => sprintf( __( 'Stat %d - Label', 'enhancingbrain' ), $i ), 'section' => 'eb_stats', 'type' => 'text' ] );
 	}
