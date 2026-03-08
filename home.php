@@ -1,0 +1,94 @@
+<?php
+/**
+ * Posts index (Articles page)
+ *
+ * @package enhancingbrain
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+get_header();
+
+$posts_page_id = (int) get_option( 'page_for_posts' );
+$page_title    = $posts_page_id ? get_the_title( $posts_page_id ) : __( 'All Articles', 'enhancingbrain' );
+$all_cats      = get_categories( [ 'hide_empty' => false ] );
+?>
+
+<main id="main-content" class="archive-page">
+	<div class="wrap">
+
+		<nav class="breadcrumbs" aria-label="<?php esc_attr_e( 'Breadcrumb', 'enhancingbrain' ); ?>">
+			<ol>
+				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'enhancingbrain' ); ?></a></li>
+				<li aria-hidden="true">></li>
+				<li aria-current="page"><?php echo esc_html( $page_title ); ?></li>
+			</ol>
+		</nav>
+
+		<header class="archive-header">
+			<div class="sh">
+				<div class="sh-left">
+					<span class="sh-ey" aria-hidden="true"><?php esc_html_e( 'Blog', 'enhancingbrain' ); ?></span>
+					<h1 class="sh-t"><?php echo esc_html( $page_title ); ?></h1>
+				</div>
+			</div>
+		</header>
+
+		<?php if ( $all_cats ) : ?>
+		<nav class="cat-filter" aria-label="<?php esc_attr_e( 'Filter by category', 'enhancingbrain' ); ?>">
+			<a href="<?php echo esc_url( home_url( '/articles' ) ); ?>" class="band-tag active">
+				<?php esc_html_e( 'All', 'enhancingbrain' ); ?>
+			</a>
+			<?php foreach ( $all_cats as $cat ) : ?>
+			<a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>" class="band-tag">
+				<?php echo esc_html( $cat->name ); ?>
+			</a>
+			<?php endforeach; ?>
+		</nav>
+		<?php endif; ?>
+
+		<?php if ( have_posts() ) : ?>
+		<div class="archive-grid grid3">
+			<?php while ( have_posts() ) : the_post(); ?>
+			<article class="card card-sm" aria-label="<?php echo esc_attr( get_the_title() ); ?>">
+				<?php if ( has_post_thumbnail() ) : ?>
+				<div class="c-thumb">
+					<a href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
+						<?php the_post_thumbnail( 'eb-card', [ 'loading' => 'lazy', 'decoding' => 'async', 'alt' => esc_attr( get_the_title() ) ] ); ?>
+					</a>
+				</div>
+				<?php endif; ?>
+				<div class="c-body">
+					<h2 class="c-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+					<p class="c-exc"><?php echo esc_html( get_the_excerpt() ); ?></p>
+					<div class="c-foot">
+						<span class="c-rt"><?php echo esc_html( eb_primary_category_name() ); ?></span>
+						<a href="<?php the_permalink(); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title() ) ); ?>"><?php esc_html_e( 'Read ->', 'enhancingbrain' ); ?></a>
+					</div>
+				</div>
+			</article>
+			<?php endwhile; ?>
+		</div>
+
+		<nav class="eb-pagination" aria-label="<?php esc_attr_e( 'Posts pagination', 'enhancingbrain' ); ?>">
+			<?php
+			the_posts_pagination( [
+				'mid_size'  => 2,
+				'prev_text' => __( '<- Previous', 'enhancingbrain' ),
+				'next_text' => __( 'Next ->', 'enhancingbrain' ),
+			] );
+			?>
+		</nav>
+
+		<?php else : ?>
+		<div class="no-posts">
+			<p><?php esc_html_e( 'No articles found. Check back soon.', 'enhancingbrain' ); ?></p>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="f-btn" style="display:inline-block;max-width:200px;margin-top:1rem;text-decoration:none;"><?php esc_html_e( '<- Back to Home', 'enhancingbrain' ); ?></a>
+		</div>
+		<?php endif; ?>
+
+	</div>
+</main>
+
+<?php get_footer(); ?>
+
