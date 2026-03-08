@@ -138,6 +138,18 @@
       background: rgba(11,191,150,0.18) !important;
       border: 1px solid rgba(11,191,150,0.58) !important;
     }
+    .for-mq-wrap {
+      position: relative; overflow: hidden; flex: 1; min-width: 0;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    }
+    .for-mq-track {
+      display: inline-flex; gap: 0.45rem; align-items: center;
+      white-space: nowrap; width: max-content;
+      animation: forMq 35s linear infinite;
+    }
+    @keyframes forMq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .for-mq-track { animation: none; } }
   </style>
 </head>
 <body>
@@ -257,19 +269,46 @@
       </div>
     </section>
 
-    <nav class="band rev" aria-label="Browse topics">
+    <div class="band rev" aria-hidden="true">
       <div class="band-inner">
-        <span class="band-lbl" aria-hidden="true">Topics</span>
-        <div class="band-scroll-wrap" id="bandWrap">
-          <ul class="band-tags" id="bandTags">
-            <li><a href="#" class="band-tag">Brain Health &amp; Longevity</a></li>
-            <li><a href="#" class="band-tag">Focus &amp; Productivity</a></li>
-            <li><a href="#" class="band-tag">Memory &amp; Learning</a></li>
-            <li><a href="#" class="band-tag">Nootropics &amp; Supplements</a></li>
-          </ul>
+        <span class="band-lbl">FOR:</span>
+        <div class="for-mq-wrap">
+          <div class="for-mq-track">
+            <span class="hero-pill">High Achievers</span>
+            <span class="hero-pill">Entrepreneurs</span>
+            <span class="hero-pill">Investors</span>
+            <span class="hero-pill">CEOs</span>
+            <span class="hero-pill">Founders</span>
+            <span class="hero-pill">Managers</span>
+            <span class="hero-pill">Operators</span>
+            <span class="hero-pill">Executives</span>
+            <span class="hero-pill">Business Owners</span>
+            <span class="hero-pill">Analysts</span>
+            <span class="hero-pill">Researchers</span>
+            <span class="hero-pill">Creatives</span>
+            <span class="hero-pill">Students</span>
+            <span class="hero-pill">Biohackers</span>
+            <span class="hero-pill">Peak Performers</span>
+            <!-- duplicate for seamless loop -->
+            <span class="hero-pill">High Achievers</span>
+            <span class="hero-pill">Entrepreneurs</span>
+            <span class="hero-pill">Investors</span>
+            <span class="hero-pill">CEOs</span>
+            <span class="hero-pill">Founders</span>
+            <span class="hero-pill">Managers</span>
+            <span class="hero-pill">Operators</span>
+            <span class="hero-pill">Executives</span>
+            <span class="hero-pill">Business Owners</span>
+            <span class="hero-pill">Analysts</span>
+            <span class="hero-pill">Researchers</span>
+            <span class="hero-pill">Creatives</span>
+            <span class="hero-pill">Students</span>
+            <span class="hero-pill">Biohackers</span>
+            <span class="hero-pill">Peak Performers</span>
+          </div>
         </div>
       </div>
-    </nav>
+    </div>
 
     <section class="articles rev" aria-labelledby="articles-heading">
       <div class="wrap">
