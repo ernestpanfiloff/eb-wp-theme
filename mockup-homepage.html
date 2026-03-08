@@ -138,38 +138,6 @@
       background: rgba(11,191,150,0.18) !important;
       border: 1px solid rgba(11,191,150,0.58) !important;
     }
-    /* ── FOR: audience marquee ── */
-    .band-for {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 0.9rem 0; overflow: hidden;
-    }
-    .band-for-lbl {
-      font-family: var(--mono, monospace); font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 0.12em; color: var(--muted, #888);
-      white-space: nowrap; flex-shrink: 0; padding-left: 1.5rem;
-    }
-    .for-slider {
-      position: relative; overflow: hidden; flex: 1; min-width: 0;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
-    }
-    .for-track {
-      display: inline-flex; gap: 0.5rem; align-items: center;
-      white-space: nowrap; width: max-content;
-      animation: forSlide 40s linear infinite;
-    }
-    .for-pill {
-      white-space: nowrap;
-      font-size: 0.75rem; font-weight: 500;
-      color: var(--muted, #888); padding: 0.25rem 0.75rem;
-      background: var(--white, #fff); border: 1px solid var(--border-dk, #e0e0e0);
-      border-radius: 100px;
-    }
-    @keyframes forSlide {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    @media (prefers-reduced-motion: reduce) { .for-track { animation: none; } }
   </style>
 </head>
 <body>
@@ -289,50 +257,19 @@
       </div>
     </section>
 
-    <div class="band-for rev" aria-hidden="true">
-      <span class="band-for-lbl">FOR:</span>
-      <div class="for-slider">
-        <div class="for-track">
-          <span class="for-pill">🧠 Entrepreneurs</span>
-          <span class="for-pill">💼 CEOs</span>
-          <span class="for-pill">💡 Founders</span>
-          <span class="for-pill">📈 Investors</span>
-          <span class="for-pill">🚀 Executives</span>
-          <span class="for-pill">🎯 High Achievers</span>
-          <span class="for-pill">📚 Students</span>
-          <span class="for-pill">🔬 Researchers</span>
-          <span class="for-pill">🩺 Health Enthusiasts</span>
-          <span class="for-pill">🧬 Longevity Seekers</span>
-          <span class="for-pill">🎓 Lifelong Learners</span>
-          <span class="for-pill">⚡ Productivity Nerds</span>
-          <span class="for-pill">🏋️ Biohackers</span>
-          <span class="for-pill">🌿 Wellness Advocates</span>
-          <span class="for-pill">🔭 Curious Minds</span>
-          <span class="for-pill">🎨 Creatives</span>
-          <span class="for-pill">📊 Analysts</span>
-          <span class="for-pill">🏆 Peak Performers</span>
-          <!-- duplicate for seamless loop -->
-          <span class="for-pill">🧠 Entrepreneurs</span>
-          <span class="for-pill">💼 CEOs</span>
-          <span class="for-pill">💡 Founders</span>
-          <span class="for-pill">📈 Investors</span>
-          <span class="for-pill">🚀 Executives</span>
-          <span class="for-pill">🎯 High Achievers</span>
-          <span class="for-pill">📚 Students</span>
-          <span class="for-pill">🔬 Researchers</span>
-          <span class="for-pill">🩺 Health Enthusiasts</span>
-          <span class="for-pill">🧬 Longevity Seekers</span>
-          <span class="for-pill">🎓 Lifelong Learners</span>
-          <span class="for-pill">⚡ Productivity Nerds</span>
-          <span class="for-pill">🏋️ Biohackers</span>
-          <span class="for-pill">🌿 Wellness Advocates</span>
-          <span class="for-pill">🔭 Curious Minds</span>
-          <span class="for-pill">🎨 Creatives</span>
-          <span class="for-pill">📊 Analysts</span>
-          <span class="for-pill">🏆 Peak Performers</span>
+    <nav class="band rev" aria-label="Browse topics">
+      <div class="band-inner">
+        <span class="band-lbl" aria-hidden="true">Topics</span>
+        <div class="band-scroll-wrap" id="bandWrap">
+          <ul class="band-tags" id="bandTags">
+            <li><a href="#" class="band-tag">Brain Health &amp; Longevity</a></li>
+            <li><a href="#" class="band-tag">Focus &amp; Productivity</a></li>
+            <li><a href="#" class="band-tag">Memory &amp; Learning</a></li>
+            <li><a href="#" class="band-tag">Nootropics &amp; Supplements</a></li>
+          </ul>
         </div>
       </div>
-    </div>
+    </nav>
 
     <section class="articles rev" aria-labelledby="articles-heading">
       <div class="wrap">
