@@ -140,9 +140,10 @@ get_header();
 	</div>
 </div>
 
-	<section class="topics rev" aria-labelledby="topics-heading">
-		<div class="wrap">
-			<div class="tgrid">
+		<section class="topics rev" aria-labelledby="topics-heading">
+			<div class="wrap">
+				<h2 id="topics-heading" class="sr-only"><?php esc_html_e( 'Explore Topics', 'enhancingbrain' ); ?></h2>
+				<div class="tgrid">
 				<?php
 				$topic_cats = get_categories( [ 'hide_empty' => false, 'number' => 8 ] );
 				$icons = [

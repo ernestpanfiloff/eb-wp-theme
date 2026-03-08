@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Enhancing Brain Theme Mockup</title>
@@ -150,6 +153,29 @@
     }
     @keyframes forMq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     @media (prefers-reduced-motion: reduce) { .for-mq-track { animation: none; } }
+    /* Prevent hidden mobile menu content from being tabbable/clickable */
+    .mob-menu {
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .mob-menu.open {
+      visibility: visible;
+      pointer-events: auto;
+    }
+    /* Reveal fallback: content stays visible when JS fails/blocked */
+    .rev {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    .js .rev {
+      opacity: 0 !important;
+      transform: translateY(18px) !important;
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .js .rev.on {
+      opacity: 1 !important;
+      transform: none !important;
+    }
   </style>
 </head>
 <body>
@@ -252,7 +278,7 @@
           <div class="f-foot">
             <span class="f-disc">No spam. No AI slop. Unsubscribe anytime.</span>
             <div class="f-proof" aria-label="99+ five-star reviews">
-              <div class="f-stars" aria-hidden="true">★★★★★</div>
+              <div class="f-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
               <span>99+ reviews</span>
             </div>
           </div>
@@ -274,33 +300,27 @@
         <span class="band-lbl">FOR:</span>
         <div class="for-mq-wrap">
           <div class="for-mq-track">
-            <span class="hero-pill">High Achievers</span>
-            <span class="hero-pill">Entrepreneurs</span>
             <span class="hero-pill">CEOs</span>
-            <span class="hero-pill">Founders</span>
-            <span class="hero-pill">Investors</span>
-            <span class="hero-pill">Coaches</span>
-            <span class="hero-pill">Creators</span>
-            <span class="hero-pill">Executives</span>
-            <span class="hero-pill">Operators</span>
-            <span class="hero-pill">Business Owners</span>
+            <span class="hero-pill">Owners</span>
             <span class="hero-pill">Managers</span>
             <span class="hero-pill">Creatives</span>
             <span class="hero-pill">Peak Performers</span>
+            <span class="hero-pill">High Achievers</span>
+            <span class="hero-pill">Entrepreneurs</span>
+            <span class="hero-pill">Founders</span>
+            <span class="hero-pill">Investors</span>
+            <span class="hero-pill">Coaches</span>
             <!-- duplicate for seamless loop -->
-            <span class="hero-pill">High Achievers</span>
-            <span class="hero-pill">Entrepreneurs</span>
             <span class="hero-pill">CEOs</span>
-            <span class="hero-pill">Founders</span>
-            <span class="hero-pill">Investors</span>
-            <span class="hero-pill">Coaches</span>
-            <span class="hero-pill">Creators</span>
-            <span class="hero-pill">Executives</span>
-            <span class="hero-pill">Operators</span>
-            <span class="hero-pill">Business Owners</span>
+            <span class="hero-pill">Owners</span>
             <span class="hero-pill">Managers</span>
             <span class="hero-pill">Creatives</span>
             <span class="hero-pill">Peak Performers</span>
+            <span class="hero-pill">High Achievers</span>
+            <span class="hero-pill">Entrepreneurs</span>
+            <span class="hero-pill">Founders</span>
+            <span class="hero-pill">Investors</span>
+            <span class="hero-pill">Coaches</span>
           </div>
         </div>
       </div>
@@ -308,11 +328,12 @@
 
     <section class="topics rev" aria-labelledby="topics-heading">
       <div class="wrap">
+        <h2 id="topics-heading" class="sr-only">Explore Topics</h2>
         <div class="tgrid">
-          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">&#x1F9E0;</span><span class="tc-n">Brain Health &amp; Longevity</span><span class="tc-d">Sleep, exercise, nutrition, neuroplasticity, and long-term cognitive protection.</span><span class="tc-c">17 articles</span></a>
-          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">&#x1F3AF;</span><span class="tc-n">Focus &amp; Productivity</span><span class="tc-d">Dopamine, attention control, deep work, and distraction-proof productivity.</span><span class="tc-c">12 articles</span></a>
-          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">&#x1F9E9;</span><span class="tc-n">Memory &amp; Learning</span><span class="tc-d">How memory forms, improves, and can be trained for better learning and recall.</span><span class="tc-c">6 articles</span></a>
-          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">&#x1F48A;</span><span class="tc-n">Nootropics &amp; Supplements</span><span class="tc-d">Evidence-based ingredient research, dosage context, and cognitive support guides.</span><span class="tc-c">8 articles</span></a>
+          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">&#x1F9E0;</span><span class="tc-n">Brain Health &amp; Longevity</span><span class="tc-d">Sleep, exercise, nutrition, neuroplasticity, and long-term cognitive protection.</span><span class="tc-c">6 articles</span></a>
+          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">&#x1F3AF;</span><span class="tc-n">Focus &amp; Productivity</span><span class="tc-d">Dopamine, attention control, deep work, and distraction-proof productivity.</span><span class="tc-c">1 article</span></a>
+          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">&#x1F9E9;</span><span class="tc-n">Memory &amp; Learning</span><span class="tc-d">How memory forms, improves, and can be trained for better learning and recall.</span><span class="tc-c">1 article</span></a>
+          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">&#x1F48A;</span><span class="tc-n">Nootropics &amp; Supplements</span><span class="tc-d">Evidence-based ingredient research, dosage context, and cognitive support guides.</span><span class="tc-c">1 article</span></a>
         </div>
       </div>
     </section>
@@ -329,29 +350,29 @@
         <div class="articles-grid">
           <div class="feat">
             <article class="card" aria-label="Featured article">
-              <div class="c-thumb"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80" alt="Neuroscience featured article" loading="eager" decoding="async" /></div>
+              <div class="c-thumb"><img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=1200&q=80" alt="Focused person writing" loading="eager" decoding="async" /></div>
               <div class="c-body">
-                <h3 class="c-title"><a href="#">Where does it come from?</a></h3>
-                <p class="c-exc">Most people optimise their business, their schedule, their tools - and completely ignore the operating system running all of it. Enhancing Brain gives entrepreneurs, professionals, and creators neuroscience tools to think sharper, perform better, and protect long-term brain health.</p>
-                <div class="c-foot"><span class="c-rt">Brain Health &amp; Longevity</span><a href="#" class="c-rm">Read article &rarr;</a></div>
+                <h3 class="c-title"><a href="#">What's the Difference Between Focus and Concentration?</a></h3>
+                <p class="c-exc">They're not the same. Focus is choosing what to think about. Concentration is how long you can hold it before your brain taps...</p>
+                <div class="c-foot"><span class="c-rt">Focus &amp; Productivity</span><a href="#" class="c-rm">Read article &rarr;</a></div>
               </div>
             </article>
 
             <div class="stack">
               <article class="card card-h" aria-label="Article card">
-                <div class="c-thumb"><img src="https://images.unsplash.com/photo-1516542076529-1ea3854896f2?auto=format&fit=crop&w=800&q=80" alt="Article thumbnail" loading="lazy" decoding="async" /></div>
-                <div class="c-body"><h3 class="c-title"><a href="#">Why do we use it?</a></h3><p class="c-exc">Most people optimise their business, their schedule, their tools - and completely ignore the operating system running all of it. Enhancing Brain gives entrepreneurs, professionals, and creators neuroscience tools to think sharper and perform better.</p><div class="c-foot"><span class="c-rt">Brain Health &amp; Longevity</span><a href="#" class="c-rm">Read &rarr;</a></div></div>
+                <div class="c-thumb"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" alt="Chewing gum and memory" loading="lazy" decoding="async" /></div>
+                <div class="c-body"><h3 class="c-title"><a href="#">How Chewing Gum affects your Memory</a></h3><p class="c-exc">Can Chewing Gum improve your memory? Yes, chewing gum can...</p><div class="c-foot"><span class="c-rt">Memory &amp; Learning</span><a href="#" class="c-rm">Read &rarr;</a></div></div>
               </article>
               <article class="card card-h" aria-label="Article card">
-                <div class="c-thumb"><img src="https://images.unsplash.com/photo-1499728603263-13726abce5fd?auto=format&fit=crop&w=800&q=80" alt="Article thumbnail" loading="lazy" decoding="async" /></div>
-                <div class="c-body"><h3 class="c-title"><a href="#">Where does it come from?</a></h3><p class="c-exc">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words which do not look even slightly believable.</p><div class="c-foot"><span class="c-rt">Brain Health &amp; Longevity</span><a href="#" class="c-rm">Read &rarr;</a></div></div>
+                <div class="c-thumb"><img src="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=800&q=80" alt="Mushroom supplement study" loading="lazy" decoding="async" /></div>
+                <div class="c-body"><h3 class="c-title"><a href="#">This Mushroom Improved Memory in 71% of People (real Study)</a></h3><p class="c-exc">Researchers in Japan gave one group a mushroom extract every day for 16...</p><div class="c-foot"><span class="c-rt">Nootropics &amp; Supplements</span><a href="#" class="c-rm">Read &rarr;</a></div></div>
               </article>
             </div>
           </div>
 
           <div class="grid3">
-            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80" alt="Grid article" loading="lazy" decoding="async" /></div><div class="c-body"><h3 class="c-title"><a href="#">Where can I get some?</a></h3><p class="c-exc">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p><div class="c-foot"><span class="c-rt">Brain Health &amp; Longevity</span><a href="#" class="c-rm">Read &rarr;</a></div></div></article>
-            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80" alt="Grid article" loading="lazy" decoding="async" /></div><div class="c-body"><h3 class="c-title"><a href="#">What is Lorem Ipsum?</a></h3><p class="c-exc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p><div class="c-foot"><span class="c-rt">Brain Health &amp; Longevity</span><a href="#" class="c-rm">Read &rarr;</a></div></div></article>
+            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=900&q=80" alt="Brain icon" loading="lazy" decoding="async" /></div><div class="c-body"><h3 class="c-title"><a href="#">Where does it come from?</a></h3><p class="c-exc">Most people optimise their business, their schedule, their tools - and completely...</p><div class="c-foot"><span class="c-rt">Brain Health &amp; Longevity</span><a href="#" class="c-rm">Read &rarr;</a></div></div></article>
+            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=900&q=80" alt="Brain icon" loading="lazy" decoding="async" /></div><div class="c-body"><h3 class="c-title"><a href="#">Why do we use it?</a></h3><p class="c-exc">Most people optimise their business, their schedule, their tools - and completely...</p><div class="c-foot"><span class="c-rt">Brain Health &amp; Longevity</span><a href="#" class="c-rm">Read &rarr;</a></div></div></article>
           </div>
         </div>
       </div>
@@ -476,9 +497,11 @@
       var mobMenu = document.getElementById('mobMenu');
       var mobClose = document.getElementById('mobClose');
       if (burger && mobMenu && mobClose) {
+        if ('inert' in mobMenu) mobMenu.inert = true;
         function openMob() {
           mobMenu.classList.add('open');
           mobMenu.setAttribute('aria-hidden', 'false');
+          if ('inert' in mobMenu) mobMenu.inert = false;
           burger.setAttribute('aria-expanded', 'true');
           document.body.style.overflow = 'hidden';
           mobClose.focus();
@@ -486,6 +509,7 @@
         function closeMob() {
           mobMenu.classList.remove('open');
           mobMenu.setAttribute('aria-hidden', 'true');
+          if ('inert' in mobMenu) mobMenu.inert = true;
           burger.setAttribute('aria-expanded', 'false');
           document.body.style.overflow = '';
           burger.focus();

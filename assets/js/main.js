@@ -20,6 +20,7 @@
   var mobMenu  = document.getElementById('mobMenu');
   var mobClose = document.getElementById('mobClose');
   var focusableSelector = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+  if (mobMenu && ('inert' in mobMenu)) mobMenu.inert = true;
 
   function trapFocus(e) {
     if (!mobMenu || !mobMenu.classList.contains('open') || e.key !== 'Tab') return;
@@ -41,6 +42,7 @@
     if (!burger || !mobMenu || !mobClose) return;
     mobMenu.classList.add('open');
     mobMenu.setAttribute('aria-hidden', 'false');
+    if ('inert' in mobMenu) mobMenu.inert = false;
     burger.setAttribute('aria-expanded', 'true');
     burger.setAttribute('aria-label', 'Close navigation menu');
     document.body.style.overflow = 'hidden';
@@ -50,6 +52,7 @@
     if (!burger || !mobMenu) return;
     mobMenu.classList.remove('open');
     mobMenu.setAttribute('aria-hidden', 'true');
+    if ('inert' in mobMenu) mobMenu.inert = true;
     burger.setAttribute('aria-expanded', 'false');
     burger.setAttribute('aria-label', 'Open navigation menu');
     document.body.style.overflow = '';

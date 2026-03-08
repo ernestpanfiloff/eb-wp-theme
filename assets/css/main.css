@@ -211,8 +211,10 @@ mark, .eb-hi {
   transform: translateX(100%);
   transition: transform .3s cubic-bezier(.4,0,.2,1);
   overflow-y: auto;
+  visibility: hidden;
+  pointer-events: none;
 }
-.mob-menu.open { transform: none; }
+.mob-menu.open { transform: none; visibility: visible; pointer-events: auto; }
 .mob-menu-head {
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 1.5rem; height: 60px;
@@ -763,8 +765,9 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
 /* ══════════════════════════════════════════
    SCROLL REVEAL
 ══════════════════════════════════════════ */
-.rev { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
-.rev.on { opacity: 1; transform: none; }
+.rev { opacity: 1; transform: none; }
+.js .rev { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.js .rev.on { opacity: 1; transform: none; }
 
 /* ══════════════════════════════════════════
    RESPONSIVE
