@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "enhancingbrain/disclaimer",
+  "version": "0.1.0",
+  "title": "EB Disclaimer",
+  "category": "widgets",
+  "icon": "warning",
+  "description": "Display a reusable health disclaimer block.",
+  "keywords": ["disclaimer", "note", "health"],
+  "textdomain": "enhancingbrain-core",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "default": "Not medical advice. For educational purposes only. Always consult a qualified healthcare professional before making changes to your health."
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}
+
