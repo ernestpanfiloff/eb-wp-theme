@@ -138,6 +138,38 @@
       background: rgba(11,191,150,0.18) !important;
       border: 1px solid rgba(11,191,150,0.58) !important;
     }
+    .for-slider {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+    }
+    .for-track {
+      display: inline-flex;
+      gap: 0.45rem;
+      align-items: center;
+      white-space: nowrap;
+      width: max-content;
+      animation: forSlide 38s linear infinite;
+    }
+    .for-pill {
+      white-space: nowrap;
+    }
+    .band-for {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      min-width: 0;
+      flex: 1;
+    }
+    @keyframes forSlide {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .for-track { animation: none; }
+    }
   </style>
 </head>
 <body>
@@ -210,9 +242,9 @@
         <div class="hero-divider" aria-hidden="true"></div>
 
         <div class="hero-l rev">
-          <div class="hero-eyebrow" aria-hidden="true">Neuroscience &middot; Applied</div>
-          <h1 id="hero-heading" class="hero-h1">Your brain is your <mark>highest-ROI asset.</mark> We help you maximise it.</h1>
-          <p class="hero-p">Most people optimise their business, their schedule, and their tools, but ignore the operating system running all of it. Enhancing Brain gives entrepreneurs, professionals, and creators neuroscience tools to think sharper, perform better, and protect long-term brain health.</p>
+          <div class="hero-eyebrow" aria-hidden="true">Welcome to Enhancing Brain</div>
+          <h1 id="hero-heading" class="hero-h1">Train your brain like your success depends on it. <mark>Because it does.</mark></h1>
+          <p class="hero-p">Learn how to improve focus, sharpen thinking, protect your brain from burnout, and perform at your best using neuroscience.</p>
           <div class="hero-pills" aria-label="What we offer">
             <span class="hero-pill">Science-backed</span>
             <span class="hero-pill">Primary sources</span>
@@ -223,9 +255,9 @@
         </div>
 
         <div class="hero-form rev" id="newsletter">
-          <span class="f-label" aria-hidden="true">Free Weekly Newsletter</span>
-          <h2 class="f-title">Your weekly brain brief.</h2>
-          <p class="f-desc">One email every Sunday. Real neuroscience, zero fluff.</p>
+          <span class="f-label" aria-hidden="true">#1 Newsletter on brain performance.</span>
+          <h2 class="f-title">Neuroscience for High Performers.</h2>
+          <p class="f-desc">Actionable tips on memory, focus, brain health, nootropics and more... Weekly 5-min reads.</p>
           <form class="f-inputs" action="#" method="post" novalidate>
             <div class="f-field">
               <label for="fname" class="sr-only">First name</label>
@@ -235,10 +267,10 @@
               <label for="femail" class="sr-only">Email address</label>
               <input type="email" id="femail" name="EMAIL" placeholder="Your best email" required />
             </div>
-            <button type="submit" class="f-btn"><span class="btn-ico" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg></span><span>Get the Free Newsletter &rarr;</span></button>
+            <button type="submit" class="f-btn"><span class="btn-ico" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg></span><span>Subscribe for free &rarr;</span></button>
           </form>
           <div class="f-foot">
-            <span class="f-disc">No spam, ever. Unsubscribe anytime.</span>
+            <span class="f-disc">No spam. No AI slop. Unsubscribe anytime.</span>
             <div class="f-proof" aria-label="Joined by 600+ readers">
               <div class="f-avs" aria-hidden="true"><div class="f-av"></div><div class="f-av"></div><div class="f-av"></div></div>
               <span>Joined by 600+ readers</span>
@@ -251,22 +283,50 @@
     <section class="stats" aria-label="Enhancing Brain by the numbers">
       <div class="stats-inner">
         <div class="st"><span class="st-n">600+</span><span class="st-l">Newsletter Subscribers</span></div>
-        <div class="st"><span class="st-n">80K+</span><span class="st-l">Instagram Followers</span></div>
-        <div class="st"><span class="st-n">100%</span><span class="st-l">Primary Sources</span></div>
+        <div class="st"><span class="st-n">100K+</span><span class="st-l">Social Media Followers</span></div>
+        <div class="st"><span class="st-n">200M+</span><span class="st-l">Views of social media</span></div>
         <div class="st"><span class="st-n">5 min</span><span class="st-l">Average Read Time</span></div>
       </div>
     </section>
 
-    <nav class="band rev" aria-label="Browse topics">
+    <nav class="band rev" aria-label="Audience">
       <div class="band-inner">
-        <span class="band-lbl" aria-hidden="true">Topics</span>
-        <div class="band-scroll-wrap" id="bandWrap">
-          <ul class="band-tags" id="bandTags">
-            <li><a href="#" class="band-tag">Brain Health &amp; Longevity</a></li>
-            <li><a href="#" class="band-tag">Focus &amp; Productivity</a></li>
-            <li><a href="#" class="band-tag">Memory &amp; Learning</a></li>
-            <li><a href="#" class="band-tag">Nootropics &amp; Supplements</a></li>
-          </ul>
+        <span class="band-lbl" aria-hidden="true">FOR:</span>
+        <div class="band-for">
+          <div class="for-slider" aria-label="Audience">
+            <div class="for-track">
+              <span class="hero-pill for-pill">Entrepreneurs</span>
+              <span class="hero-pill for-pill">Professionals</span>
+              <span class="hero-pill for-pill">Creators</span>
+              <span class="hero-pill for-pill">CEOs</span>
+              <span class="hero-pill for-pill">Founders</span>
+              <span class="hero-pill for-pill">Executives</span>
+              <span class="hero-pill for-pill">Investors</span>
+              <span class="hero-pill for-pill">Consultants</span>
+              <span class="hero-pill for-pill">Operators</span>
+              <span class="hero-pill for-pill">Directors</span>
+              <span class="hero-pill for-pill">Managers</span>
+              <span class="hero-pill for-pill">Sales Leaders</span>
+              <span class="hero-pill for-pill">Agency Owners</span>
+              <span class="hero-pill for-pill">Business Owners</span>
+              <span class="hero-pill for-pill">Coaches</span>
+              <span class="hero-pill for-pill" aria-hidden="true">Entrepreneurs</span>
+              <span class="hero-pill for-pill" aria-hidden="true">Professionals</span>
+              <span class="hero-pill for-pill" aria-hidden="true">Creators</span>
+              <span class="hero-pill for-pill" aria-hidden="true">CEOs</span>
+              <span class="hero-pill for-pill" aria-hidden="true">Founders</span>
+              <span class="hero-pill for-pill" aria-hidden="true">Executives</span>
+              <span class="hero-pill for-pill" aria-hidden="true">Investors</span>
+              <span class="hero-pill for-pill" aria-hidden="true">Consultants</span>
+              <span class="hero-pill for-pill" aria-hidden="true">Operators</span>
+              <span class="hero-pill for-pill" aria-hidden="true">Directors</span>
+              <span class="hero-pill for-pill" aria-hidden="true">Managers</span>
+              <span class="hero-pill for-pill" aria-hidden="true">Sales Leaders</span>
+              <span class="hero-pill for-pill" aria-hidden="true">Agency Owners</span>
+              <span class="hero-pill for-pill" aria-hidden="true">Business Owners</span>
+              <span class="hero-pill for-pill" aria-hidden="true">Coaches</span>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
@@ -479,31 +539,6 @@
           var open = mobSub.classList.toggle('open');
           mobTog.setAttribute('aria-expanded', String(open));
           mobSub.setAttribute('aria-hidden', String(!open));
-        });
-      }
-
-      var wrap = document.getElementById('bandWrap');
-      var tags = document.getElementById('bandTags');
-      if (wrap && tags) {
-        function checkEnd() {
-          wrap.classList.toggle('at-end', tags.scrollLeft + tags.clientWidth >= tags.scrollWidth - 4);
-        }
-        tags.addEventListener('scroll', checkEnd, { passive: true });
-        window.addEventListener('resize', checkEnd);
-        setTimeout(checkEnd, 300);
-
-        var down = false, sx = 0, sl = 0;
-        tags.addEventListener('mousedown', function(e) {
-          down = true; sx = e.pageX - tags.offsetLeft; sl = tags.scrollLeft;
-          tags.classList.add('grabbing');
-        });
-        document.addEventListener('mouseup', function() {
-          down = false; tags.classList.remove('grabbing');
-        });
-        tags.addEventListener('mousemove', function(e) {
-          if (!down) return;
-          e.preventDefault();
-          tags.scrollLeft = sl - (e.pageX - tags.offsetLeft - sx);
         });
       }
 
