@@ -48,10 +48,12 @@ add_action( 'after_setup_theme', 'eb_setup' );
    ENQUEUE
 â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 function eb_enqueue_assets() {
-	$ver = wp_get_theme()->get( 'Version' );
+	$ver     = wp_get_theme()->get( 'Version' );
+	$css_ver = file_exists( EB_DIR . '/assets/css/main.css' ) ? (string) filemtime( EB_DIR . '/assets/css/main.css' ) : $ver;
+	$js_ver  = file_exists( EB_DIR . '/assets/js/main.js' )   ? (string) filemtime( EB_DIR . '/assets/js/main.js' )   : $ver;
 	wp_enqueue_style(  'eb-fonts', 'https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=DM+Mono:wght@400&family=Playfair+Display:ital,wght@1,700&display=swap', [], null );
-	wp_enqueue_style(  'eb-main',  EB_URI . '/assets/css/main.css', [ 'eb-fonts' ], $ver );
-	wp_enqueue_script( 'eb-main',  EB_URI . '/assets/js/main.js',   [], $ver, true );
+	wp_enqueue_style(  'eb-main',  EB_URI . '/assets/css/main.css', [ 'eb-fonts' ], $css_ver );
+	wp_enqueue_script( 'eb-main',  EB_URI . '/assets/js/main.js',   [], $js_ver, true );
 }
 add_action( 'wp_enqueue_scripts', 'eb_enqueue_assets' );
 

@@ -832,6 +832,10 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
+.single-content .eb-hi em,
+.single-content .eb-hi i {
+  font-style: inherit;
+}
 .single-content code {
   background: var(--surface); border: 1px solid var(--border);
   padding: 0.1em 0.4em; border-radius: 3px;
