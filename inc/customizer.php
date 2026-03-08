@@ -67,21 +67,21 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 		'description' => __( 'Use [eb_highlight]text[/eb_highlight] for the green italic accent.', 'enhancingbrain' ),
 	] );
 	eb_ctl( $wp_customize, 'eb_hero_visible',     [ 'default' => '1',  'label' => __( 'Show Hero Section', 'enhancingbrain' ), 'section' => 'eb_hero', 'type' => 'checkbox', 'transport' => 'refresh' ] );
-	eb_ctl( $wp_customize, 'eb_hero_eyebrow',     [ 'default' => 'Neuroscience - Applied', 'label' => __( 'Eyebrow Label', 'enhancingbrain' ), 'section' => 'eb_hero', 'type' => 'text' ] );
-	eb_ctl( $wp_customize, 'eb_hero_headline',    [ 'default' => 'Your brain is your [eb_highlight]highest-ROI asset.[/eb_highlight] We help you maximise it.', 'label' => __( 'Headline', 'enhancingbrain' ), 'section' => 'eb_hero', 'type' => 'textarea' ] );
-	eb_ctl( $wp_customize, 'eb_hero_subheadline', [ 'default' => 'Most people optimise their business, their schedule, and their tools, but ignore the operating system running all of it. Enhancing Brain gives entrepreneurs, professionals, and creators neuroscience tools to think sharper, perform better, and protect long-term brain health.', 'label' => __( 'Subheadline', 'enhancingbrain' ), 'section' => 'eb_hero', 'type' => 'textarea' ] );
+	eb_ctl( $wp_customize, 'eb_hero_eyebrow',     [ 'default' => 'Welcome to Enhancing Brain', 'label' => __( 'Eyebrow Label', 'enhancingbrain' ), 'section' => 'eb_hero', 'type' => 'text' ] );
+	eb_ctl( $wp_customize, 'eb_hero_headline',    [ 'default' => 'Train your brain like your success depends on it. [eb_highlight]Because it does.[/eb_highlight]', 'label' => __( 'Headline', 'enhancingbrain' ), 'section' => 'eb_hero', 'type' => 'textarea' ] );
+	eb_ctl( $wp_customize, 'eb_hero_subheadline', [ 'default' => 'Learn how to improve focus, sharpen thinking, protect your brain from burnout, and perform at your best using neuroscience.', 'label' => __( 'Subheadline', 'enhancingbrain' ), 'section' => 'eb_hero', 'type' => 'textarea' ] );
 	eb_ctl( $wp_customize, 'eb_hero_pills',       [ 'default' => 'Science-backed, Primary sources, No BS, Free weekly newsletter, Not medical advice', 'label' => __( 'Pills (comma-separated)', 'enhancingbrain' ), 'section' => 'eb_hero', 'type' => 'text' ] );
 
 	/* 5 - NEWSLETTER CARD */
 	$wp_customize->add_section( 'eb_newsletter_card', [ 'title' => __( 'Newsletter Card', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 25 ] );
 	foreach ( [
-		'eb_nl_label'       => [ 'Free Weekly Newsletter', 'Card Label', 'text' ],
-		'eb_nl_title'       => [ 'Your weekly brain brief.', 'Card Title', 'text' ],
-		'eb_nl_desc'        => [ 'One email every Sunday. Real neuroscience, zero fluff.', 'Description', 'textarea' ],
-		'eb_nl_btn'         => [ 'Get the Free Newsletter →', 'Button Text', 'text' ],
+		'eb_nl_label'       => [ '#1 Newsletter on brain performance.', 'Card Label', 'text' ],
+		'eb_nl_title'       => [ 'Neuroscience for High Performers.', 'Card Title', 'text' ],
+		'eb_nl_desc'        => [ 'Actionable tips on memory, focus, brain health, nootropics and more... Weekly 5-min reads.', 'Description', 'textarea' ],
+		'eb_nl_btn'         => [ 'Subscribe for free →', 'Button Text', 'text' ],
 		'eb_nl_form_action' => [ '', 'Form Action URL (MailChimp/MailPoet endpoint)', 'url' ],
 		'eb_nl_proof'       => [ 'Joined by 600+ readers', 'Social Proof Text', 'text' ],
-		'eb_nl_disclaimer'  => [ 'No spam, ever. Unsubscribe anytime.', 'Card Disclaimer', 'text' ],
+		'eb_nl_disclaimer'  => [ 'No spam. No AI slop. Unsubscribe anytime.', 'Card Disclaimer', 'text' ],
 	] as $id => [ $default, $label, $type ] ) {
 		eb_ctl( $wp_customize, $id, [ 'default' => $default, 'label' => __( $label, 'enhancingbrain' ), 'section' => 'eb_newsletter_card', 'type' => $type ] );
 	}
@@ -89,7 +89,7 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 	/* 6 - STATS BAR */
 	$wp_customize->add_section( 'eb_stats', [ 'title' => __( 'Stats Bar', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 30 ] );
 	eb_ctl( $wp_customize, 'eb_stats_visible', [ 'default' => '1', 'label' => __( 'Show Stats Bar', 'enhancingbrain' ), 'section' => 'eb_stats', 'type' => 'checkbox', 'transport' => 'refresh' ] );
-	foreach ( [ 1 => [ '600+', 'Newsletter Subscribers' ], 2 => [ '80K+', 'Instagram Followers' ], 3 => [ '100%', 'Primary Sources' ], 4 => [ '5 min', 'Avg. Read Time' ] ] as $i => [ $n, $l ] ) {
+	foreach ( [ 1 => [ '600+', 'Newsletter Subscribers' ], 2 => [ '100K+', 'Social Media Followers' ], 3 => [ '200M+', 'Views of social media' ], 4 => [ '5 min', 'Average Read Time' ] ] as $i => [ $n, $l ] ) {
 		eb_ctl( $wp_customize, "eb_stat_{$i}_number", [ 'default' => $n, 'label' => sprintf( __( 'Stat %d - Value', 'enhancingbrain' ), $i ), 'section' => 'eb_stats', 'type' => 'text' ] );
 		eb_ctl( $wp_customize, "eb_stat_{$i}_label",  [ 'default' => $l, 'label' => sprintf( __( 'Stat %d - Label', 'enhancingbrain' ), $i ), 'section' => 'eb_stats', 'type' => 'text' ] );
 	}

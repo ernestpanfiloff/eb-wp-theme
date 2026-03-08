@@ -16,16 +16,16 @@ get_header();
 			<div class="hero-divider" aria-hidden="true"></div>
 
 			<div class="hero-l rev">
-				<?php $eyebrow = get_theme_mod( 'eb_hero_eyebrow', 'Neuroscience - Applied' ); ?>
+				<?php $eyebrow = get_theme_mod( 'eb_hero_eyebrow', 'Welcome to Enhancing Brain' ); ?>
 				<?php if ( $eyebrow ) : ?>
 				<div class="hero-eyebrow" aria-hidden="true"><?php echo esc_html( $eyebrow ); ?></div>
 				<?php endif; ?>
 
 				<h1 id="hero-heading" class="hero-h1">
-					<?php echo eb_customizer_text( 'eb_hero_headline', 'Your brain is your [eb_highlight]highest-ROI asset.[/eb_highlight] We help you maximise it.' ); ?>
+					<?php echo eb_customizer_text( 'eb_hero_headline', 'Train your brain like your success depends on it. [eb_highlight]Because it does.[/eb_highlight]' ); ?>
 				</h1>
 
-				<p class="hero-p"><?php echo esc_html( get_theme_mod( 'eb_hero_subheadline', 'Most people optimise their business, their schedule, and their tools, but ignore the operating system running all of it. Enhancing Brain gives entrepreneurs, professionals, and creators neuroscience tools to think sharper, perform better, and protect long-term brain health.' ) ); ?></p>
+				<p class="hero-p"><?php echo esc_html( get_theme_mod( 'eb_hero_subheadline', 'Learn how to improve focus, sharpen thinking, protect your brain from burnout, and perform at your best using neuroscience.' ) ); ?></p>
 
 				<?php
 				$pills_raw = get_theme_mod( 'eb_hero_pills', 'Science-backed, Primary sources, No BS, Free weekly newsletter, Not medical advice' );
@@ -42,9 +42,9 @@ get_header();
 
 			<!-- Newsletter form -->
 			<div class="hero-form rev" id="newsletter">
-				<span class="f-label" aria-hidden="true"><?php echo esc_html( get_theme_mod( 'eb_nl_label', 'Free Weekly Newsletter' ) ); ?></span>
-				<h2 class="f-title"><?php echo esc_html( get_theme_mod( 'eb_nl_title', 'Your weekly brain brief.' ) ); ?></h2>
-				<p class="f-desc"><?php echo esc_html( get_theme_mod( 'eb_nl_desc', 'One email every Sunday. Real neuroscience, zero fluff.' ) ); ?></p>
+				<span class="f-label" aria-hidden="true"><?php echo esc_html( get_theme_mod( 'eb_nl_label', '#1 Newsletter on brain performance.' ) ); ?></span>
+				<h2 class="f-title"><?php echo esc_html( get_theme_mod( 'eb_nl_title', 'Neuroscience for High Performers.' ) ); ?></h2>
+				<p class="f-desc"><?php echo esc_html( get_theme_mod( 'eb_nl_desc', 'Actionable tips on memory, focus, brain health, nootropics and more... Weekly 5-min reads.' ) ); ?></p>
 
 				<?php $action = get_theme_mod( 'eb_nl_form_action', '' ); ?>
 				<form class="f-inputs" action="<?php echo esc_url( $action ?: '#' ); ?>" method="post" novalidate aria-label="<?php esc_attr_e( 'Newsletter signup', 'enhancingbrain' ); ?>">
@@ -61,12 +61,12 @@ get_header();
 						<span class="btn-ico" aria-hidden="true">
 							<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>
 						</span>
-						<span><?php echo esc_html( get_theme_mod( 'eb_nl_btn', 'Get the Free Newsletter →' ) ); ?></span>
+						<span><?php echo esc_html( get_theme_mod( 'eb_nl_btn', 'Subscribe for free →' ) ); ?></span>
 					</button>
 				</form>
 
 				<div class="f-foot">
-					<span class="f-disc"><?php echo esc_html( get_theme_mod( 'eb_nl_disclaimer', 'No spam, ever. Unsubscribe anytime.' ) ); ?></span>
+					<span class="f-disc"><?php echo esc_html( get_theme_mod( 'eb_nl_disclaimer', 'No spam. No AI slop. Unsubscribe anytime.' ) ); ?></span>
 					<div class="f-proof" aria-label="<?php echo esc_attr( get_theme_mod( 'eb_nl_proof', 'Joined by 600+ readers' ) ); ?>">
 						<div class="f-avs" aria-hidden="true">
 							<div class="f-av"></div>
@@ -88,9 +88,9 @@ get_header();
 			<?php
 			$_stat_defaults = [
 				1 => [ '600+',  'Newsletter Subscribers' ],
-				2 => [ '80K+',  'Instagram Followers'    ],
-				3 => [ '100%',  'Primary Sources'        ],
-				4 => [ '5 min', 'Avg. Read Time'         ],
+				2 => [ '100K+', 'Social Media Followers' ],
+				3 => [ '200M+', 'Views of social media'  ],
+				4 => [ '5 min', 'Average Read Time'      ],
 			];
 			for ( $i = 1; $i <= 4; $i++ ) :
 				$num = get_theme_mod( "eb_stat_{$i}_number", $_stat_defaults[$i][0] );
@@ -106,26 +106,44 @@ get_header();
 	</section>
 	<?php endif; ?>
 
-	<!-- â•â• TOPICS BAND â•â• -->
-	<?php
-	$categories = get_categories( [ 'hide_empty' => false ] );
-	if ( $categories ) :
-	?>
-	<nav class="band rev" aria-label="<?php esc_attr_e( 'Browse topics', 'enhancingbrain' ); ?>">
-		<div class="band-inner">
-			<span class="band-lbl" aria-hidden="true"><?php esc_html_e( 'Topics', 'enhancingbrain' ); ?></span>
-			<div class="band-scroll-wrap" id="bandWrap">
-				<ul class="band-tags" id="bandTags">
-					<?php foreach ( $categories as $cat ) : ?>
-					<li><a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>" class="band-tag">
-						<?php echo esc_html( $cat->name ); ?>
-					</a></li>
-					<?php endforeach; ?>
-				</ul>
+	<!-- ══ AUDIENCE BAND ══ -->
+	<div class="band-for rev" aria-hidden="true">
+		<div class="for-slider">
+			<div class="for-track">
+				<span class="for-pill">🧠 Entrepreneurs</span>
+				<span class="for-pill">📚 Students</span>
+				<span class="for-pill">💼 Executives</span>
+				<span class="for-pill">🔬 Researchers</span>
+				<span class="for-pill">💡 Founders</span>
+				<span class="for-pill">🏋️ Biohackers</span>
+				<span class="for-pill">🎯 High Achievers</span>
+				<span class="for-pill">🩺 Health Enthusiasts</span>
+				<span class="for-pill">📈 Ambitious Professionals</span>
+				<span class="for-pill">🧬 Longevity Seekers</span>
+				<span class="for-pill">🎓 Lifelong Learners</span>
+				<span class="for-pill">🚀 Peak Performers</span>
+				<span class="for-pill">🌿 Wellness Advocates</span>
+				<span class="for-pill">⚡ Productivity Nerds</span>
+				<span class="for-pill">🔭 Curious Minds</span>
+				<!-- duplicate for seamless loop -->
+				<span class="for-pill">🧠 Entrepreneurs</span>
+				<span class="for-pill">📚 Students</span>
+				<span class="for-pill">💼 Executives</span>
+				<span class="for-pill">🔬 Researchers</span>
+				<span class="for-pill">💡 Founders</span>
+				<span class="for-pill">🏋️ Biohackers</span>
+				<span class="for-pill">🎯 High Achievers</span>
+				<span class="for-pill">🩺 Health Enthusiasts</span>
+				<span class="for-pill">📈 Ambitious Professionals</span>
+				<span class="for-pill">🧬 Longevity Seekers</span>
+				<span class="for-pill">🎓 Lifelong Learners</span>
+				<span class="for-pill">🚀 Peak Performers</span>
+				<span class="for-pill">🌿 Wellness Advocates</span>
+				<span class="for-pill">⚡ Productivity Nerds</span>
+				<span class="for-pill">🔭 Curious Minds</span>
 			</div>
 		</div>
-	</nav>
-	<?php endif; ?>
+	</div>
 
 	<!-- â•â• ARTICLES â•â• -->
 	<?php if ( get_theme_mod( 'eb_articles_visible', '1' ) ) :
