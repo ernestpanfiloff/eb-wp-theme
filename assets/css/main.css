@@ -571,7 +571,10 @@ mark, .eb-hi {
 .card-h .c-body  { padding: 1rem 1.15rem; display: flex; flex-direction: column; }
 .card-h .c-exc {
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   line-height: 1.7;
+  max-height: 5.1em;
+  overflow: hidden;
   margin-bottom: 0.45rem;
 }
 .card-h .c-foot { margin-top: auto; }
