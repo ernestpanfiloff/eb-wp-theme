@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enhancing Brain Theme Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header id="site-header">
+    <div class="nav">
+      <a class="logo" href="#" aria-label="Enhancing Brain home">Enhancing<span class="a">Brain</span></a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links" role="list">
+          <li>
+            <a href="#">Articles
+              <span class="nav-arrow" aria-hidden="true">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </a>
+            <div class="nav-dd" role="menu">
+              <a href="#" role="menuitem">All Articles <small>Latest evidence-based posts</small></a>
+              <a href="#" role="menuitem">Focus & Productivity <small>Attention and deep work</small></a>
+              <a href="#" role="menuitem">Memory & Learning <small>Retention and recall</small></a>
+            </div>
+          </li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Resources</a></li>
+        </ul>
+      </nav>
+
+      <a href="#newsletter" class="nav-cta">Newsletter</a>
+
+      <button class="burger" id="burger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mob-menu" id="mobMenu" aria-hidden="true">
+    <div class="mob-menu-head">
+      <a class="mob-menu-logo" href="#">Enhancing<span class="a">Brain</span></a>
+      <button class="mob-close" id="mobClose" aria-label="Close navigation menu">x</button>
+    </div>
+    <div class="mob-body">
+      <ul class="mob-nav-list" role="list">
+        <li>
+          <a id="mobArticlesTog" href="#" aria-expanded="false" aria-controls="mobSub">Articles</a>
+          <div class="mob-sub" id="mobSub" aria-hidden="true">
+            <a href="#">All Articles</a>
+            <a href="#">Brain Health</a>
+            <a href="#">Nootropics</a>
+          </div>
+        </li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Resources</a></li>
+      </ul>
+      <div class="mob-cta"><a href="#newsletter">Get the Free Newsletter -&gt;</a></div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-grid">
+        <div class="hero-divider" aria-hidden="true"></div>
+
+        <div class="hero-l rev">
+          <div class="hero-eyebrow" aria-hidden="true">Neuroscience · Applied</div>
+          <h1 id="hero-heading" class="hero-h1">Your brain is your <mark>highest-ROI asset.</mark> We help you maximise it.</h1>
+          <p class="hero-p">Most people optimise their business, schedule, and tools - and ignore the operating system running all of it. This mockup shows the structure and look of your WordPress homepage.</p>
+          <div class="hero-pills" aria-label="What we offer">
+            <span class="hero-pill">Science-backed</span>
+            <span class="hero-pill">Primary sources</span>
+            <span class="hero-pill">No fluff</span>
+            <span class="hero-pill">Weekly newsletter</span>
+          </div>
+        </div>
+
+        <div class="hero-form rev" id="newsletter">
+          <span class="f-label" aria-hidden="true">Free Weekly Newsletter</span>
+          <h2 class="f-title">Your weekly brain brief.</h2>
+          <p class="f-desc">One email every Sunday. Real neuroscience, zero fluff.</p>
+          <form class="f-inputs" action="#" method="post" novalidate>
+            <div class="f-field">
+              <label for="fname" class="sr-only">First name</label>
+              <input type="text" id="fname" name="FNAME" placeholder="Your first name" />
+            </div>
+            <div class="f-field">
+              <label for="femail" class="sr-only">Email address</label>
+              <input type="email" id="femail" name="EMAIL" placeholder="Your best email" required />
+            </div>
+            <button type="submit" class="f-btn">Get The Free Newsletter -&gt;</button>
+          </form>
+          <div class="f-foot">
+            <span class="f-disc">No spam, ever. Unsubscribe anytime.</span>
+            <div class="f-proof" aria-label="Joined by 600+ readers">
+              <div class="f-avs" aria-hidden="true"><div class="f-av"></div><div class="f-av"></div><div class="f-av"></div></div>
+              <span>Joined by 600+ readers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Enhancing Brain by the numbers">
+      <div class="stats-inner">
+        <div class="st"><span class="st-n">600+</span><span class="st-l">Newsletter Subscribers</span></div>
+        <div class="st"><span class="st-n">80K+</span><span class="st-l">Instagram Followers</span></div>
+        <div class="st"><span class="st-n">100%</span><span class="st-l">Primary Sources</span></div>
+        <div class="st"><span class="st-n">5 min</span><span class="st-l">Average Read Time</span></div>
+      </div>
+    </section>
+
+    <nav class="band rev" aria-label="Browse topics">
+      <div class="band-inner">
+        <span class="band-lbl" aria-hidden="true">Topics</span>
+        <div class="band-scroll-wrap" id="bandWrap">
+          <div class="band-tags" id="bandTags" role="list">
+            <a href="#" class="band-tag" role="listitem">Brain Health</a>
+            <a href="#" class="band-tag" role="listitem">Focus</a>
+            <a href="#" class="band-tag" role="listitem">Memory</a>
+            <a href="#" class="band-tag" role="listitem">Sleep</a>
+            <a href="#" class="band-tag" role="listitem">Nootropics</a>
+            <a href="#" class="band-tag" role="listitem">Stress</a>
+            <a href="#" class="band-tag" role="listitem">Nutrition</a>
+            <a href="#" class="band-tag" role="listitem">Longevity</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="articles rev" aria-labelledby="articles-heading">
+      <div class="wrap">
+        <div class="sh">
+          <div class="sh-left">
+            <span class="sh-ey" aria-hidden="true">Blog</span>
+            <h2 id="articles-heading" class="sh-t">Latest Articles</h2>
+          </div>
+          <a href="#" class="sh-link">View all articles -&gt;</a>
+        </div>
+
+        <div class="articles-grid">
+          <div class="feat">
+            <article class="card" aria-label="Featured article">
+              <div class="c-thumb"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80" alt="Neuroscience featured article" /></div>
+              <div class="c-body">
+                <h3 class="c-title"><a href="#">What improves attention in entrepreneurs? A practical neuroscience primer</a></h3>
+                <p class="c-exc">A simple, evidence-backed framework for managing focus, mental fatigue, and cognitive load.</p>
+                <div class="c-foot"><span class="c-rt">5 min read</span><a href="#" class="c-rm">Read article -&gt;</a></div>
+              </div>
+            </article>
+
+            <div class="stack">
+              <article class="card card-h" aria-label="Article card">
+                <div class="c-thumb"><img src="https://images.unsplash.com/photo-1516542076529-1ea3854896f2?auto=format&fit=crop&w=800&q=80" alt="Article thumbnail" /></div>
+                <div class="c-body"><h3 class="c-title"><a href="#">Memory retention for high-volume learning</a></h3><div class="c-foot"><span class="c-rt">4 min</span><a href="#" class="c-rm">Read -&gt;</a></div></div>
+              </article>
+              <article class="card card-h" aria-label="Article card">
+                <div class="c-thumb"><img src="https://images.unsplash.com/photo-1499728603263-13726abce5fd?auto=format&fit=crop&w=800&q=80" alt="Article thumbnail" /></div>
+                <div class="c-body"><h3 class="c-title"><a href="#">Sleep architecture and creative output</a></h3><div class="c-foot"><span class="c-rt">6 min</span><a href="#" class="c-rm">Read -&gt;</a></div></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="grid3">
+            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=80" alt="Grid article" /></div><div class="c-body"><h3 class="c-title"><a href="#">Caffeine timing and sustained focus</a></h3><p class="c-exc">Use caffeine with circadian timing, not habit, to reduce crashes and improve clarity.</p><div class="c-foot"><span class="c-rt">3 min</span><a href="#" class="c-rm">Read -&gt;</a></div></div></article>
+            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1499728603263-13726abce5fd?auto=format&fit=crop&w=900&q=80" alt="Grid article" /></div><div class="c-body"><h3 class="c-title"><a href="#">Nootropics: what evidence actually says</a></h3><p class="c-exc">A clear guide to human data, dosage caveats, and realistic outcomes for supplements.</p><div class="c-foot"><span class="c-rt">7 min</span><a href="#" class="c-rm">Read -&gt;</a></div></div></article>
+            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=900&q=80" alt="Grid article" /></div><div class="c-body"><h3 class="c-title"><a href="#">Stress physiology and sharper decisions</a></h3><p class="c-exc">How to regulate arousal under pressure and avoid cognitive narrowing in key moments.</p><div class="c-foot"><span class="c-rt">5 min</span><a href="#" class="c-rm">Read -&gt;</a></div></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lm rev" aria-labelledby="lm-heading">
+      <div class="wrap">
+        <div class="lm-card">
+          <div class="lm-grid-bg" aria-hidden="true"></div>
+          <div class="lm-body">
+            <p class="lm-ey" aria-hidden="true">Free Download</p>
+            <h2 id="lm-heading" class="lm-t">The <mark>Brain Stack</mark> - 11 nutrients your brain actually needs.</h2>
+            <p class="lm-d">Science-backed breakdown of 11 core brain nutrients for focus, memory, mental clarity, and long-term health.</p>
+            <ul class="lm-ul">
+              <li>What each nutrient does in the brain</li>
+              <li>Why it matters for high performance</li>
+              <li>Food sources and supplementation guidance</li>
+              <li>Backed by peer-reviewed human trials</li>
+            </ul>
+            <a href="#" class="lm-btn">Comment "STACK" on Instagram -&gt;</a>
+          </div>
+          <div class="lm-vis" aria-hidden="true">
+            <div class="lm-pc">
+              <div class="lm-pt">The Brain Stack</div>
+              <div class="lm-ps">11 core nutrients</div>
+              <div class="lm-ns">
+                <div class="lm-n">Omega-3 DHA<div class="lm-b"><div class="lm-bf" style="width:90%"></div></div></div>
+                <div class="lm-n">Lion's Mane<div class="lm-b"><div class="lm-bf" style="width:75%"></div></div></div>
+                <div class="lm-n">Bacopa<div class="lm-b"><div class="lm-bf" style="width:80%"></div></div></div>
+                <div class="lm-n">Magnesium<div class="lm-b"><div class="lm-bf" style="width:85%"></div></div></div>
+                <div class="lm-n">+ 7 more<div class="lm-b"><div class="lm-bf" style="width:100%"></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="topics rev" aria-labelledby="topics-heading">
+      <div class="wrap">
+        <div class="sh">
+          <div class="sh-left">
+            <span class="sh-ey" aria-hidden="true">Blog</span>
+            <h2 id="topics-heading" class="sh-t">Browse Articles by Topic</h2>
+          </div>
+          <a href="#" class="sh-link">View all articles -&gt;</a>
+        </div>
+        <div class="tgrid">
+          <a href="#" class="tc"><span class="tc-icon">Brain</span><span class="tc-n">Brain Health</span><span class="tc-d">Longevity, resilience, cognition</span><span class="tc-c">26 articles</span></a>
+          <a href="#" class="tc"><span class="tc-icon">Focus</span><span class="tc-n">Focus & Productivity</span><span class="tc-d">Attention and deep work systems</span><span class="tc-c">19 articles</span></a>
+          <a href="#" class="tc"><span class="tc-icon">Memory</span><span class="tc-n">Memory & Learning</span><span class="tc-d">Retention and accelerated learning</span><span class="tc-c">14 articles</span></a>
+          <a href="#" class="tc"><span class="tc-icon">Sleep</span><span class="tc-n">Sleep Optimization</span><span class="tc-d">Recovery and cognitive reset</span><span class="tc-c">11 articles</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer">
+    <div class="ft-main">
+      <div class="ft-brand">
+        <a class="ft-logo" href="#">Enhancing<span class="a">Brain</span></a>
+        <p class="ft-tag">Neuroscience for high performers. Peer-reviewed research translated into what actually matters.</p>
+        <p class="ft-dis">Not medical advice. For educational purposes only. Always consult a qualified healthcare professional.</p>
+        <div class="ft-soc">
+          <a class="s-btn" href="#" aria-label="Instagram">IG</a>
+          <a class="s-btn" href="#" aria-label="YouTube">YT</a>
+          <a class="s-btn" href="#" aria-label="X">X</a>
+        </div>
+      </div>
+
+      <div class="ft-col">
+        <h4>Content</h4>
+        <ul>
+          <li><a href="#">All Articles</a></li>
+          <li><a href="#">Brain Health</a></li>
+          <li><a href="#">Focus & Productivity</a></li>
+          <li><a href="#">Memory & Learning</a></li>
+        </ul>
+      </div>
+
+      <div class="ft-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">The Brain Stack</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Style Guide</a></li>
+        </ul>
+      </div>
+
+      <div class="ft-col">
+        <h4>Research From</h4>
+        <ul>
+          <li><a href="#">PubMed</a></li>
+          <li><a href="#">NIH</a></li>
+          <li><a href="#">Nature Neuroscience</a></li>
+          <li><a href="#">Huberman Lab</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ft-bot">
+      <p class="ft-copy">© 2026 Enhancing Brain. All rights reserved.</p>
+      <span class="ft-pill">Not a doctor · Educational use only</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      if ('IntersectionObserver' in window) {
+        const ro = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) { e.target.classList.add('on'); ro.unobserve(e.target); }
+          });
+        }, { threshold: 0.06, rootMargin: '0px 0px -24px 0px' });
+        document.querySelectorAll('.rev').forEach(function(el) { ro.observe(el); });
+      } else {
+        document.querySelectorAll('.rev').forEach(function(el) { el.classList.add('on'); });
+      }
+
+      var burger = document.getElementById('burger');
+      var mobMenu = document.getElementById('mobMenu');
+      var mobClose = document.getElementById('mobClose');
+      if (burger && mobMenu && mobClose) {
+        function openMob() {
+          mobMenu.classList.add('open');
+          mobMenu.setAttribute('aria-hidden', 'false');
+          burger.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
+          mobClose.focus();
+        }
+        function closeMob() {
+          mobMenu.classList.remove('open');
+          mobMenu.setAttribute('aria-hidden', 'true');
+          burger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+          burger.focus();
+        }
+        burger.addEventListener('click', function() {
+          mobMenu.classList.contains('open') ? closeMob() : openMob();
+        });
+        mobClose.addEventListener('click', closeMob);
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && mobMenu.classList.contains('open')) closeMob();
+        });
+      }
+
+      var mobTog = document.getElementById('mobArticlesTog');
+      var mobSub = document.getElementById('mobSub');
+      if (mobTog && mobSub) {
+        mobTog.addEventListener('click', function(e) {
+          e.preventDefault();
+          var open = mobSub.classList.toggle('open');
+          mobTog.setAttribute('aria-expanded', String(open));
+          mobSub.setAttribute('aria-hidden', String(!open));
+        });
+      }
+
+      var wrap = document.getElementById('bandWrap');
+      var tags = document.getElementById('bandTags');
+      if (wrap && tags) {
+        function checkEnd() {
+          wrap.classList.toggle('at-end', tags.scrollLeft + tags.clientWidth >= tags.scrollWidth - 4);
+        }
+        tags.addEventListener('scroll', checkEnd, { passive: true });
+        window.addEventListener('resize', checkEnd);
+        setTimeout(checkEnd, 300);
+
+        var down = false, sx = 0, sl = 0;
+        tags.addEventListener('mousedown', function(e) {
+          down = true; sx = e.pageX - tags.offsetLeft; sl = tags.scrollLeft;
+          tags.classList.add('grabbing');
+        });
+        document.addEventListener('mouseup', function() {
+          down = false; tags.classList.remove('grabbing');
+        });
+        tags.addEventListener('mousemove', function(e) {
+          if (!down) return;
+          e.preventDefault();
+          tags.scrollLeft = sl - (e.pageX - tags.offsetLeft - sx);
+        });
+      }
+
+      document.querySelectorAll('.card').forEach(function(card) {
+        var primary = card.querySelector('.c-title a');
+        if (!primary) return;
+        card.addEventListener('click', function(e) {
+          if (e.target.closest('a, button')) return;
+          window.location.href = primary.href;
+        });
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+          var href = a.getAttribute('href');
+          if (!href || href === '#') return;
+          var target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

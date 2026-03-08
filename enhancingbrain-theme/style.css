@@ -1,0 +1,17 @@
+/*
+Theme Name:        Enhancing Brain
+Theme URI:         https://www.enhancingbrain.com
+Author:            Enhancing Brain
+Author URI:        https://www.enhancingbrain.com
+Description:       Custom theme for Enhancing Brain — neuroscience for high performers. Science-backed, minimal, fast.
+Version:           1.0.0
+Requires at least: 6.0
+Tested up to:      6.7
+Requires PHP:      8.0
+License:           GNU General Public License v2 or later
+License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:       enhancingbrain
+Tags:              blog, custom-colors, custom-logo, custom-menu, featured-images, full-width-template, two-columns, right-sidebar, rtl-language-support, sticky-post, threaded-comments, translation-ready
+*/
+
+/* This file intentionally left minimal — all styles live in assets/css/main.css */
