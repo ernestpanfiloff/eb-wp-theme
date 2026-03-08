@@ -67,13 +67,9 @@ get_header();
 
 				<div class="f-foot">
 					<span class="f-disc"><?php echo esc_html( get_theme_mod( 'eb_nl_disclaimer', 'No spam. No AI slop. Unsubscribe anytime.' ) ); ?></span>
-					<div class="f-proof" aria-label="<?php echo esc_attr( get_theme_mod( 'eb_nl_proof', 'Joined by 600+ readers' ) ); ?>">
-						<div class="f-avs" aria-hidden="true">
-							<div class="f-av"></div>
-							<div class="f-av"></div>
-							<div class="f-av"></div>
-						</div>
-						<span><?php echo esc_html( get_theme_mod( 'eb_nl_proof', 'Joined by 600+ readers' ) ); ?></span>
+					<div class="f-proof" aria-label="99+ five-star reviews">
+						<div class="f-stars" aria-hidden="true">★★★★★</div>
+						<span>99+ reviews</span>
 					</div>
 				</div>
 			</div>

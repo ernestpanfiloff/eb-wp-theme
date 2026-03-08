@@ -375,13 +375,7 @@ mark, .eb-hi {
 }
 .f-disc { font-size: 0.7rem; color: var(--subtle); }
 .f-proof { display: flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; color: var(--muted); }
-.f-avs { display: flex; }
-.f-av {
-  width: 22px; height: 22px; border-radius: 50%;
-  background: var(--accent-mid); border: 2px solid var(--white);
-  margin-left: -5px;
-}
-.f-av:first-child { margin-left: 0; }
+.f-stars { color: #f5a623; font-size: 0.85rem; letter-spacing: 0.05em; line-height: 1; }
 .f-proof strong { color: var(--ink); }
 
 /* ══════════════════════════════════════════
