@@ -158,6 +158,32 @@ get_header();
 			$all_posts[] = get_post();
 		endwhile;
 		wp_reset_postdata();
+	<section class="topics rev" aria-labelledby="topics-heading">
+		<div class="wrap">
+			<div class="tgrid">
+				<?php
+				$topic_cats = get_categories( [ 'hide_empty' => false, 'number' => 8 ] );
+				$icons = [
+				'brain-health-longevity' => '&#x1F9E0;',
+				'focus-productivity' => '&#x1F3AF;',
+				'memory-learning' => '&#x1F9E9;',
+				'nootropics-supplements' => '&#x1F48A;',
+			];
+			foreach ( $topic_cats as $i => $cat ) :
+					$count = absint( $cat->count ) . ' ' . _n( 'article', 'articles', $cat->count, 'enhancingbrain' );
+				?>
+				<a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>" class="tc">
+					<span class="tc-icon" aria-hidden="true"><?php echo wp_kses_post( $icons[ $cat->slug ] ?? '&#x1F4D6;' ); ?></span>
+					<span class="tc-n"><?php echo esc_html( $cat->name ); ?></span>
+					<?php if ( $cat->description ) : ?>
+					<span class="tc-d"><?php echo esc_html( $cat->description ); ?></span>
+					<?php endif; ?>
+					<span class="tc-c"><?php echo esc_html( $count ); ?></span>
+				</a>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
 	?>
 	<section class="articles rev" aria-labelledby="articles-heading">
 		<div class="wrap">
@@ -324,42 +350,7 @@ get_header();
 	<?php endif; ?>
 
 	<!-- â•â• TOPICS â•â• -->
-	<?php if ( get_theme_mod( 'eb_topics_visible', '1' ) ) : ?>
-	<section class="topics rev" aria-labelledby="topics-heading">
-		<div class="wrap">
-			<div class="sh">
-				<div class="sh-left">
-					<span class="sh-ey" aria-hidden="true"><?php echo esc_html( get_theme_mod( 'eb_topics_eyebrow', 'Blog' ) ); ?></span>
-					<h2 id="topics-heading" class="sh-t"><?php echo esc_html( get_theme_mod( 'eb_topics_heading', 'Browse Articles by Topic' ) ); ?></h2>
-				</div>
-				<a href="<?php echo esc_url( home_url( '/articles' ) ); ?>" class="sh-link">
-					<?php echo esc_html( get_theme_mod( 'eb_topics_link', 'View all articles →' ) ); ?>
-				</a>
-			</div>
-			<div class="tgrid">
-				<?php
-				$topic_cats = get_categories( [ 'hide_empty' => false, 'number' => 8 ] );
-				$icons = [
-				'brain-health-longevity' => '&#x1F9E0;',
-				'focus-productivity' => '&#x1F3AF;',
-				'memory-learning' => '&#x1F9E9;',
-				'nootropics-supplements' => '&#x1F48A;',
-			];
-			foreach ( $topic_cats as $i => $cat ) :
-					$count = absint( $cat->count ) . ' ' . _n( 'article', 'articles', $cat->count, 'enhancingbrain' );
-				?>
-				<a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>" class="tc">
-					<span class="tc-icon" aria-hidden="true"><?php echo wp_kses_post( $icons[ $cat->slug ] ?? '&#x1F4D6;' ); ?></span>
-					<span class="tc-n"><?php echo esc_html( $cat->name ); ?></span>
-					<?php if ( $cat->description ) : ?>
-					<span class="tc-d"><?php echo esc_html( $cat->description ); ?></span>
-					<?php endif; ?>
-					<span class="tc-c"><?php echo esc_html( $count ); ?></span>
-				</a>
-				<?php endforeach; ?>
-			</div>
-		</div>
-	</section>
+	<?php if ( get_theme_mod( 'eb_topics_visible', '1' ) ) : ?>
 	<?php endif; // eb_topics_visible ?>
 
 </main>
