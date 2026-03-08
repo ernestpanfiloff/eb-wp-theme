@@ -193,7 +193,7 @@ get_header();
 					<span class="sh-ey" aria-hidden="true"><?php echo esc_html( get_theme_mod( 'eb_articles_eyebrow', 'Blog' ) ); ?></span>
 					<h2 id="articles-heading" class="sh-t"><?php echo esc_html( get_theme_mod( 'eb_articles_heading', 'Latest Articles' ) ); ?></h2>
 				</div>
-				<a href="<?php echo esc_url( home_url( '/articles' ) ); ?>" class="sh-link">
+				<a href="<?php echo esc_url( eb_articles_url() ); ?>" class="sh-link">
 					<?php echo esc_html( get_theme_mod( 'eb_articles_link_text', 'View all articles →' ) ); ?>
 				</a>
 			</div>

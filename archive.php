@@ -31,7 +31,7 @@
 			if ( $all_cats ) :
 		?>
 		<nav class="cat-filter" aria-label="<?php esc_attr_e( 'Filter by category', 'enhancingbrain' ); ?>">
-			<a href="<?php echo esc_url( home_url( '/articles' ) ); ?>" class="band-tag <?php echo ! is_category() ? 'active' : ''; ?>">
+			<a href="<?php echo esc_url( eb_articles_url() ); ?>" class="band-tag <?php echo ! is_category() ? 'active' : ''; ?>">
 				<?php esc_html_e( 'All', 'enhancingbrain' ); ?>
 			</a>
 			<?php foreach ( $all_cats as $cat ) : ?>

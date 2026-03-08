@@ -149,6 +149,54 @@ function eb_archive_description() {
 	if ( $desc ) echo '<div class="archive-description">' . wp_kses_post( $desc ) . '</div>';
 }
 
+/**
+ * Canonical URL for the posts index ("All Articles") page.
+ */
+function eb_articles_url(): string {
+	$posts_page_id = (int) get_option( 'page_for_posts' );
+	if ( $posts_page_id > 0 ) {
+		$link = get_permalink( $posts_page_id );
+		if ( is_string( $link ) && $link !== '' ) {
+			return $link;
+		}
+	}
+	return home_url( '/articles' );
+}
+
+/**
+ * Keep legacy /articles links working even if posts page slug changed.
+ */
+function eb_redirect_legacy_articles_slug(): void {
+	if ( is_admin() || wp_doing_ajax() || ( defined( 'REST_REQUEST' ) && REST_REQUEST ) ) {
+		return;
+	}
+
+	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? wp_unslash( $_SERVER['REQUEST_URI'] ) : '/';
+	$req_path    = wp_parse_url( home_url( $request_uri ), PHP_URL_PATH );
+	$legacy_path = wp_parse_url( home_url( '/articles' ), PHP_URL_PATH );
+	if ( ! is_string( $req_path ) || ! is_string( $legacy_path ) ) {
+		return;
+	}
+
+	if ( trailingslashit( $req_path ) !== trailingslashit( $legacy_path ) ) {
+		return;
+	}
+
+	$target      = eb_articles_url();
+	$target_path = wp_parse_url( $target, PHP_URL_PATH );
+	if ( ! is_string( $target_path ) ) {
+		return;
+	}
+
+	if ( trailingslashit( $target_path ) === trailingslashit( $legacy_path ) ) {
+		return;
+	}
+
+	wp_safe_redirect( $target, 301 );
+	exit;
+}
+add_action( 'template_redirect', 'eb_redirect_legacy_articles_slug', 1 );
+
 function eb_body_classes( $classes ) {
 	if ( is_singular() ) $classes[] = 'is-singular';
 	return $classes;

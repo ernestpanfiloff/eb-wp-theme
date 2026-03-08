@@ -36,7 +36,7 @@ $all_cats      = get_categories( [ 'hide_empty' => false ] );
 
 		<?php if ( $all_cats ) : ?>
 		<nav class="cat-filter" aria-label="<?php esc_attr_e( 'Filter by category', 'enhancingbrain' ); ?>">
-			<a href="<?php echo esc_url( home_url( '/articles' ) ); ?>" class="band-tag active">
+			<a href="<?php echo esc_url( eb_articles_url() ); ?>" class="band-tag active">
 				<?php esc_html_e( 'All', 'enhancingbrain' ); ?>
 			</a>
 			<?php foreach ( $all_cats as $cat ) : ?>
@@ -91,4 +91,3 @@ $all_cats      = get_categories( [ 'hide_empty' => false ] );
 </main>
 
 <?php get_footer(); ?>
-
