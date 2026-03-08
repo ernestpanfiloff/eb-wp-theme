@@ -8,18 +8,6 @@
 		<meta itemprop="dateModified"  content="<?php echo esc_attr( get_the_modified_date( 'c' ) ); ?>"/>
 		<meta itemprop="author"        content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"/>
 
-		<!-- Hero image -->
-		<?php if ( has_post_thumbnail() ) : ?>
-		<div class="single-thumb">
-			<?php the_post_thumbnail( 'eb-hero', [
-				'loading' => 'eager',
-				'decoding'=> 'async',
-				'itemprop'=> 'image',
-				'alt'     => esc_attr( get_the_title() ),
-			] ); ?>
-		</div>
-		<?php endif; ?>
-
 		<div class="wrap single-wrap">
 
 			<!-- Breadcrumbs -->
@@ -36,26 +24,24 @@
 			</nav>
 
 			<header class="single-header">
-				<!-- Category -->
-				<?php $cats = get_the_category(); if ( $cats ) : ?>
-				<a href="<?php echo esc_url( get_category_link( $cats[0]->term_id ) ); ?>" class="c-mc single-cat"><?php echo esc_html( $cats[0]->name ); ?></a>
-				<?php endif; ?>
-
 				<h1 class="single-title" itemprop="headline"><?php the_title(); ?></h1>
 
+				<?php
+				$word_count = str_word_count( wp_strip_all_tags( get_post_field( 'post_content', get_the_ID() ) ) );
+				$read_time  = max( 1, (int) ceil( $word_count / 200 ) );
+				?>
 				<div class="single-meta">
-					<span class="single-rt"><?php echo esc_html( eb_primary_category_name() ); ?></span>
+					<span class="meta-item">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+						<time class="single-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
+					</span>
 					<span class="single-sep" aria-hidden="true">-</span>
-					<span class="single-date">
-						<time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
+					<span class="meta-item">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><polyline points="12,7 12,12 15,14"/></svg>
+						<span class="single-rt"><?php echo esc_html( $read_time . ' min read' ); ?></span>
 					</span>
 				</div>
 			</header>
-
-			<!-- Disclaimer -->
-			<aside class="eb-disclaimer" role="note">
-				<p><?php echo esc_html( get_theme_mod( 'eb_disclaimer_text', 'The information in this article is for educational purposes only and is not medical advice. Always consult a qualified healthcare professional before making changes to your health.' ) ); ?></p>
-			</aside>
 
 			<!-- Content -->
 			<div class="single-content entry-content" itemprop="articleBody">
