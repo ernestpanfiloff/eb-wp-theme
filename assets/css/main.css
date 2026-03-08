@@ -570,7 +570,7 @@ mark, .eb-hi {
 .card-h .c-title { font-size: 0.95rem; }
 .card-h .c-body  { padding: 1rem 1.15rem; display: flex; flex-direction: column; }
 .card-h .c-exc {
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   line-height: 1.7;
   margin-bottom: 0.45rem;
 }
