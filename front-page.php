@@ -139,25 +139,7 @@ get_header();
 		</div>
 	</div>
 </div>
-	</div>
 
-	<!-- â•â• ARTICLES â•â• -->
-	<?php if ( get_theme_mod( 'eb_articles_visible', '1' ) ) :
-	$posts_count = absint( get_theme_mod( 'eb_articles_count', 5 ) );
-	$featured    = new WP_Query( [
-		'posts_per_page' => $posts_count,
-		'post_status'    => 'publish',
-		'orderby'        => 'date',
-		'order'          => 'DESC',
-		'no_found_rows'  => true,
-		'ignore_sticky_posts' => true,
-	] );
-	if ( $featured->have_posts() ) :
-		$all_posts = [];
-		while ( $featured->have_posts() ) : $featured->the_post();
-			$all_posts[] = get_post();
-		endwhile;
-		wp_reset_postdata();
 	<section class="topics rev" aria-labelledby="topics-heading">
 		<div class="wrap">
 			<div class="tgrid">
@@ -184,6 +166,24 @@ get_header();
 			</div>
 		</div>
 	</section>
+
+	<!-- â•â• ARTICLES â•â• -->
+	<?php if ( get_theme_mod( 'eb_articles_visible', '1' ) ) :
+	$posts_count = absint( get_theme_mod( 'eb_articles_count', 5 ) );
+	$featured    = new WP_Query( [
+		'posts_per_page' => $posts_count,
+		'post_status'    => 'publish',
+		'orderby'        => 'date',
+		'order'          => 'DESC',
+		'no_found_rows'  => true,
+		'ignore_sticky_posts' => true,
+	] );
+	if ( $featured->have_posts() ) :
+		$all_posts = [];
+		while ( $featured->have_posts() ) : $featured->the_post();
+			$all_posts[] = get_post();
+		endwhile;
+		wp_reset_postdata();
 	?>
 	<section class="articles rev" aria-labelledby="articles-heading">
 		<div class="wrap">
