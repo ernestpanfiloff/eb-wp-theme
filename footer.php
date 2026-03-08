@@ -31,7 +31,7 @@
 		<!-- Content column -->
 		<?php if ( get_theme_mod( 'eb_footer_show_content_col', '1' ) ) : ?>
 		<div class="ft-col">
-			<h4><?php echo esc_html( get_theme_mod( 'eb_footer_col1_heading', 'Content' ) ); ?></h4>
+			<h2 class="ft-col-title"><?php echo esc_html( get_theme_mod( 'eb_footer_col1_heading', 'Content' ) ); ?></h2>
 			<ul>
 				<?php
 				$links = eb_parse_menu_items( get_theme_mod( 'eb_footer_col1_links',
@@ -48,7 +48,7 @@
 		<!-- Resources column -->
 		<?php if ( get_theme_mod( 'eb_footer_show_resources_col', '1' ) ) : ?>
 		<div class="ft-col">
-			<h4><?php echo esc_html( get_theme_mod( 'eb_footer_col2_heading', 'Resources' ) ); ?></h4>
+			<h2 class="ft-col-title"><?php echo esc_html( get_theme_mod( 'eb_footer_col2_heading', 'Resources' ) ); ?></h2>
 			<ul>
 				<?php
 				$links = eb_parse_menu_items( get_theme_mod( 'eb_footer_col2_links',
@@ -65,7 +65,7 @@
 		<!-- Research From column -->
 		<?php if ( get_theme_mod( 'eb_footer_show_research_col', '1' ) ) : ?>
 		<div class="ft-col">
-			<h4><?php echo esc_html( get_theme_mod( 'eb_footer_col3_heading', 'Research From' ) ); ?></h4>
+			<h2 class="ft-col-title"><?php echo esc_html( get_theme_mod( 'eb_footer_col3_heading', 'Research From' ) ); ?></h2>
 			<ul>
 				<?php
 				$links = eb_parse_menu_items( get_theme_mod( 'eb_footer_col3_links',
@@ -82,9 +82,9 @@
 	</div><!-- /.ft-main -->
 
 	<div class="ft-bot">
-		<p class="ft-copy"><?php echo esc_html( get_theme_mod( 'eb_footer_copyright', '© ' . gmdate( 'Y' ) . ' Enhancing Brain. All rights reserved.' ) ); ?></p>
+		<p class="ft-copy"><?php echo esc_html( get_theme_mod( 'eb_footer_copyright', '(c) ' . gmdate( 'Y' ) . ' Enhancing Brain. All rights reserved.' ) ); ?></p>
 		<?php if ( get_theme_mod( 'eb_footer_show_disclaimer_pill', '1' ) ) : ?>
-		<span class="ft-pill"><?php echo esc_html( get_theme_mod( 'eb_footer_disclaimer_pill_text', '⚠ Not a doctor · Educational use only' ) ); ?></span>
+		<span class="ft-pill"><?php echo esc_html( get_theme_mod( 'eb_footer_disclaimer_pill_text', 'Not a doctor - Educational use only' ) ); ?></span>
 		<?php endif; ?>
 	</div>
 </footer>

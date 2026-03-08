@@ -8,6 +8,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    .nav-cta,
+    .f-btn,
+    .lm-btn,
+    .mob-cta a,
+    .c-rm,
+    .sh-link {
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s !important;
+    }
+    .nav-cta:hover,
+    .f-btn:hover,
+    .lm-btn:hover,
+    .mob-cta a:hover,
+    .c-rm:hover,
+    .sh-link:hover {
+      transform: none !important;
+    }
+    .card-h .c-title { margin-bottom: 0.3rem; }
+    .card-h .c-body {
+      display: flex;
+      flex-direction: column;
+    }
+    .card-h .c-exc {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.35;
+      max-height: 4.05em;
+      margin-bottom: 0.45rem;
+      font-size: 0.76rem;
+    }
+    .card-h .c-foot { margin-top: auto; }
+    .nav-dd a small {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to content</a>
@@ -25,9 +65,10 @@
               </span>
             </a>
             <div class="nav-dd" role="menu">
-              <a href="#" role="menuitem">All Articles <small>Latest evidence-based posts</small></a>
-              <a href="#" role="menuitem">Focus & Productivity <small>Attention and deep work</small></a>
-              <a href="#" role="menuitem">Memory & Learning <small>Retention and recall</small></a>
+              <a href="#" role="menuitem">Brain Health &amp; Longevity <small>Sleep, exercise, nutrition, and brain aging</small></a>
+              <a href="#" role="menuitem">Focus &amp; Productivity <small>Dopamine, deep work, and sustained attention</small></a>
+              <a href="#" role="menuitem">Memory &amp; Learning <small>Neuroplasticity, recall, and learning systems</small></a>
+              <a href="#" role="menuitem">Nootropics &amp; Supplements <small>Evidence-based compounds for cognitive support</small></a>
             </div>
           </li>
           <li><a href="#">About</a></li>
@@ -35,7 +76,10 @@
         </ul>
       </nav>
 
-      <a href="#newsletter" class="nav-cta">Newsletter</a>
+      <a href="#newsletter" class="nav-cta">
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>
+        Newsletter
+      </a>
 
       <button class="burger" id="burger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobMenu">
         <span aria-hidden="true"></span>
@@ -55,9 +99,10 @@
         <li>
           <a id="mobArticlesTog" href="#" aria-expanded="false" aria-controls="mobSub">Articles</a>
           <div class="mob-sub" id="mobSub" aria-hidden="true">
-            <a href="#">All Articles</a>
-            <a href="#">Brain Health</a>
-            <a href="#">Nootropics</a>
+            <a href="#">Brain Health &amp; Longevity</a>
+            <a href="#">Focus &amp; Productivity</a>
+            <a href="#">Memory &amp; Learning</a>
+            <a href="#">Nootropics &amp; Supplements</a>
           </div>
         </li>
         <li><a href="#">About</a></li>
@@ -75,7 +120,7 @@
         <div class="hero-divider" aria-hidden="true"></div>
 
         <div class="hero-l rev">
-          <div class="hero-eyebrow" aria-hidden="true">Neuroscience · Applied</div>
+          <div class="hero-eyebrow" aria-hidden="true">Neuroscience &middot; Applied</div>
           <h1 id="hero-heading" class="hero-h1">Your brain is your <mark>highest-ROI asset.</mark> We help you maximise it.</h1>
           <p class="hero-p">Most people optimise their business, schedule, and tools - and ignore the operating system running all of it. This mockup shows the structure and look of your WordPress homepage.</p>
           <div class="hero-pills" aria-label="What we offer">
@@ -126,14 +171,10 @@
         <span class="band-lbl" aria-hidden="true">Topics</span>
         <div class="band-scroll-wrap" id="bandWrap">
           <div class="band-tags" id="bandTags" role="list">
-            <a href="#" class="band-tag" role="listitem">Brain Health</a>
-            <a href="#" class="band-tag" role="listitem">Focus</a>
-            <a href="#" class="band-tag" role="listitem">Memory</a>
-            <a href="#" class="band-tag" role="listitem">Sleep</a>
-            <a href="#" class="band-tag" role="listitem">Nootropics</a>
-            <a href="#" class="band-tag" role="listitem">Stress</a>
-            <a href="#" class="band-tag" role="listitem">Nutrition</a>
-            <a href="#" class="band-tag" role="listitem">Longevity</a>
+            <a href="#" class="band-tag" role="listitem">Brain Health &amp; Longevity</a>
+            <a href="#" class="band-tag" role="listitem">Focus &amp; Productivity</a>
+            <a href="#" class="band-tag" role="listitem">Memory &amp; Learning</a>
+            <a href="#" class="band-tag" role="listitem">Nootropics &amp; Supplements</a>
           </div>
         </div>
       </div>
@@ -156,26 +197,26 @@
               <div class="c-body">
                 <h3 class="c-title"><a href="#">What improves attention in entrepreneurs? A practical neuroscience primer</a></h3>
                 <p class="c-exc">A simple, evidence-backed framework for managing focus, mental fatigue, and cognitive load.</p>
-                <div class="c-foot"><span class="c-rt">5 min read</span><a href="#" class="c-rm">Read article -&gt;</a></div>
+                <div class="c-foot"><span class="c-rt">Focus &amp; Productivity</span><a href="#" class="c-rm">Read article -&gt;</a></div>
               </div>
             </article>
 
             <div class="stack">
               <article class="card card-h" aria-label="Article card">
                 <div class="c-thumb"><img src="https://images.unsplash.com/photo-1516542076529-1ea3854896f2?auto=format&fit=crop&w=800&q=80" alt="Article thumbnail" /></div>
-                <div class="c-body"><h3 class="c-title"><a href="#">Memory retention for high-volume learning</a></h3><div class="c-foot"><span class="c-rt">4 min</span><a href="#" class="c-rm">Read -&gt;</a></div></div>
+                <div class="c-body"><h3 class="c-title"><a href="#">Memory retention for high-volume learning</a></h3><p class="c-exc">Use retrieval practice, spaced review, and deliberate recall prompts to lock in key ideas for high-volume learning without adding extra study hours.</p><div class="c-foot"><span class="c-rt">Memory &amp; Learning</span><a href="#" class="c-rm">Read -&gt;</a></div></div>
               </article>
               <article class="card card-h" aria-label="Article card">
                 <div class="c-thumb"><img src="https://images.unsplash.com/photo-1499728603263-13726abce5fd?auto=format&fit=crop&w=800&q=80" alt="Article thumbnail" /></div>
-                <div class="c-body"><h3 class="c-title"><a href="#">Sleep architecture and creative output</a></h3><div class="c-foot"><span class="c-rt">6 min</span><a href="#" class="c-rm">Read -&gt;</a></div></div>
+                <div class="c-body"><h3 class="c-title"><a href="#">Sleep architecture and creative output</a></h3><p class="c-exc">How more stable deep sleep and REM cycles improve cognitive flexibility, decision quality, emotional regulation, and next-day creative performance.</p><div class="c-foot"><span class="c-rt">Brain Health &amp; Longevity</span><a href="#" class="c-rm">Read -&gt;</a></div></div>
               </article>
             </div>
           </div>
 
           <div class="grid3">
-            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=80" alt="Grid article" /></div><div class="c-body"><h3 class="c-title"><a href="#">Caffeine timing and sustained focus</a></h3><p class="c-exc">Use caffeine with circadian timing, not habit, to reduce crashes and improve clarity.</p><div class="c-foot"><span class="c-rt">3 min</span><a href="#" class="c-rm">Read -&gt;</a></div></div></article>
-            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1499728603263-13726abce5fd?auto=format&fit=crop&w=900&q=80" alt="Grid article" /></div><div class="c-body"><h3 class="c-title"><a href="#">Nootropics: what evidence actually says</a></h3><p class="c-exc">A clear guide to human data, dosage caveats, and realistic outcomes for supplements.</p><div class="c-foot"><span class="c-rt">7 min</span><a href="#" class="c-rm">Read -&gt;</a></div></div></article>
-            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=900&q=80" alt="Grid article" /></div><div class="c-body"><h3 class="c-title"><a href="#">Stress physiology and sharper decisions</a></h3><p class="c-exc">How to regulate arousal under pressure and avoid cognitive narrowing in key moments.</p><div class="c-foot"><span class="c-rt">5 min</span><a href="#" class="c-rm">Read -&gt;</a></div></div></article>
+            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=80" alt="Grid article" /></div><div class="c-body"><h3 class="c-title"><a href="#">Caffeine timing and sustained focus</a></h3><p class="c-exc">Use caffeine with circadian timing, not habit, to reduce crashes and improve clarity.</p><div class="c-foot"><span class="c-rt">Focus &amp; Productivity</span><a href="#" class="c-rm">Read -&gt;</a></div></div></article>
+            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1499728603263-13726abce5fd?auto=format&fit=crop&w=900&q=80" alt="Grid article" /></div><div class="c-body"><h3 class="c-title"><a href="#">Nootropics: what evidence actually says</a></h3><p class="c-exc">A clear guide to human data, dosage caveats, and realistic outcomes for supplements.</p><div class="c-foot"><span class="c-rt">Nootropics &amp; Supplements</span><a href="#" class="c-rm">Read -&gt;</a></div></div></article>
+            <article class="card card-sm" aria-label="Grid article"><div class="c-thumb"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=900&q=80" alt="Grid article" /></div><div class="c-body"><h3 class="c-title"><a href="#">Stress physiology and sharper decisions</a></h3><p class="c-exc">How to regulate arousal under pressure and avoid cognitive narrowing in key moments.</p><div class="c-foot"><span class="c-rt">Brain Health &amp; Longevity</span><a href="#" class="c-rm">Read -&gt;</a></div></div></article>
           </div>
         </div>
       </div>
@@ -224,10 +265,10 @@
           <a href="#" class="sh-link">View all articles -&gt;</a>
         </div>
         <div class="tgrid">
-          <a href="#" class="tc"><span class="tc-icon">Brain</span><span class="tc-n">Brain Health</span><span class="tc-d">Longevity, resilience, cognition</span><span class="tc-c">26 articles</span></a>
-          <a href="#" class="tc"><span class="tc-icon">Focus</span><span class="tc-n">Focus & Productivity</span><span class="tc-d">Attention and deep work systems</span><span class="tc-c">19 articles</span></a>
-          <a href="#" class="tc"><span class="tc-icon">Memory</span><span class="tc-n">Memory & Learning</span><span class="tc-d">Retention and accelerated learning</span><span class="tc-c">14 articles</span></a>
-          <a href="#" class="tc"><span class="tc-icon">Sleep</span><span class="tc-n">Sleep Optimization</span><span class="tc-d">Recovery and cognitive reset</span><span class="tc-c">11 articles</span></a>
+          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">ðŸ§ </span><span class="tc-n">Brain Health &amp; Longevity</span><span class="tc-d">Sleep, exercise, nutrition, neuroplasticity, and long-term cognitive protection.</span><span class="tc-c">17 articles</span></a>
+          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">ðŸŽ¯</span><span class="tc-n">Focus &amp; Productivity</span><span class="tc-d">Dopamine, attention control, deep work, and distraction-proof productivity.</span><span class="tc-c">12 articles</span></a>
+          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">ðŸ§©</span><span class="tc-n">Memory &amp; Learning</span><span class="tc-d">How memory forms, improves, and can be trained for better learning and recall.</span><span class="tc-c">6 articles</span></a>
+          <a href="#" class="tc"><span class="tc-icon" aria-hidden="true">ðŸ’Š</span><span class="tc-n">Nootropics &amp; Supplements</span><span class="tc-d">Evidence-based ingredient research, dosage context, and cognitive support guides.</span><span class="tc-c">8 articles</span></a>
         </div>
       </div>
     </section>
@@ -250,9 +291,10 @@
         <h4>Content</h4>
         <ul>
           <li><a href="#">All Articles</a></li>
-          <li><a href="#">Brain Health</a></li>
-          <li><a href="#">Focus & Productivity</a></li>
-          <li><a href="#">Memory & Learning</a></li>
+          <li><a href="#">Brain Health &amp; Longevity</a></li>
+          <li><a href="#">Focus &amp; Productivity</a></li>
+          <li><a href="#">Memory &amp; Learning</a></li>
+          <li><a href="#">Nootropics &amp; Supplements</a></li>
         </ul>
       </div>
 
@@ -278,8 +320,8 @@
     </div>
 
     <div class="ft-bot">
-      <p class="ft-copy">© 2026 Enhancing Brain. All rights reserved.</p>
-      <span class="ft-pill">Not a doctor · Educational use only</span>
+      <p class="ft-copy">&copy; 2026 Enhancing Brain. All rights reserved.</p>
+      <span class="ft-pill">Not a doctor &middot; Educational use only</span>
     </div>
   </footer>
 

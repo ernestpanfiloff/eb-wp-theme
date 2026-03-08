@@ -1,6 +1,6 @@
 <?php
 /**
- * Enhancing Brain — Customizer
+ * Enhancing Brain - Customizer
  */
 defined( 'ABSPATH' ) || exit;
 
@@ -11,12 +11,12 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 
 	/* MAIN PANEL */
 	$wp_customize->add_panel( 'eb_panel', [
-		'title'    => __( '⚡ Enhancing Brain', 'enhancingbrain' ),
+		'title'    => __( 'Enhancing Brain', 'enhancingbrain' ),
 		'priority' => 30,
 	] );
 
-	/* ── 1 · BRANDING ── */
-	$wp_customize->add_section( 'eb_branding', [ 'title' => __( '🏷 Branding & Identity', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 10 ] );
+	/* 1 - BRANDING */
+	$wp_customize->add_section( 'eb_branding', [ 'title' => __( 'Branding and Identity', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 10 ] );
 
 	$wp_customize->add_setting( 'blogname', [ 'default' => 'Enhancing Brain', 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage' ] );
 	$wp_customize->add_control( 'blogname', [ 'label' => __( 'Site Name', 'enhancingbrain' ), 'section' => 'eb_branding', 'type' => 'text' ] );
@@ -30,8 +30,8 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 		'section' => 'eb_branding', 'type' => 'textarea',
 	] );
 
-	/* ── 2 · COLOURS ── */
-	$wp_customize->add_section( 'eb_colours', [ 'title' => __( '🎨 Colours', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 15 ] );
+	/* 2 - COLOURS */
+	$wp_customize->add_section( 'eb_colours', [ 'title' => __( 'Colours', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 15 ] );
 	foreach ( [
 		'eb_color_accent'    => [ '#0bbf96', 'Accent Green'      ],
 		'eb_color_accent_dk' => [ '#089e7d', 'Accent Green Dark' ],
@@ -43,10 +43,10 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $id, [ 'label' => __( $label, 'enhancingbrain' ), 'section' => 'eb_colours' ] ) );
 	}
 
-	/* ── 3 · NAVIGATION ── */
-	$default_nav = "Home | /\nArticles | /articles\nAbout | /about";
+	/* 3 - NAVIGATION */
+	$default_nav = "Home | /\nArticles | /articles\n  Brain Health & Longevity | /category/brain-health-longevity | Sleep, exercise, nutrition, and brain aging\n  Focus & Productivity | /category/focus-productivity | Dopamine, deep work, and sustained attention\n  Memory & Learning | /category/memory-learning | Neuroplasticity, recall, and learning systems\n  Nootropics & Supplements | /category/nootropics-supplements | Evidence-based compounds for cognitive support\nAbout | /about";
 	$wp_customize->add_section( 'eb_nav', [
-		'title'       => __( '🔗 Navigation & Header', 'enhancingbrain' ),
+		'title'       => __( 'Navigation and Header', 'enhancingbrain' ),
 		'panel'       => 'eb_panel', 'priority' => 18,
 		'description' => __( "Build your menu below. One item per line: Label | /url\nIndent sub-items with 2 spaces for a dropdown:\n  Sub Item | /url\n\nAdd as many items as you like.", 'enhancingbrain' ),
 	] );
@@ -56,29 +56,29 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 		'section'     => 'eb_nav', 'type' => 'textarea', 'transport' => 'refresh',
 	] );
 	eb_ctl( $wp_customize, 'eb_nav_show_cta',      [ 'default' => '1',          'label' => __( 'Show CTA Button',              'enhancingbrain' ), 'section' => 'eb_nav', 'type' => 'checkbox' ] );
-	eb_ctl( $wp_customize, 'eb_nav_cta_text',      [ 'default' => 'Newsletter', 'label' => __( 'CTA Button — Text',            'enhancingbrain' ), 'section' => 'eb_nav', 'type' => 'text' ] );
-	eb_ctl( $wp_customize, 'eb_nav_cta_url',       [ 'default' => '#newsletter','label' => __( 'CTA Button — Link URL',        'enhancingbrain' ), 'section' => 'eb_nav', 'type' => 'text' ] );
+	eb_ctl( $wp_customize, 'eb_nav_cta_text',      [ 'default' => 'Get the Free Newsletter ->', 'label' => __( 'CTA Button - Text',            'enhancingbrain' ), 'section' => 'eb_nav', 'type' => 'text' ] );
+	eb_ctl( $wp_customize, 'eb_nav_cta_url',       [ 'default' => '#newsletter','label' => __( 'CTA Button - Link URL',        'enhancingbrain' ), 'section' => 'eb_nav', 'type' => 'text' ] );
 	eb_ctl( $wp_customize, 'eb_nav_cta_show_icon', [ 'default' => '1',          'label' => __( 'Show email icon on CTA button','enhancingbrain' ), 'section' => 'eb_nav', 'type' => 'checkbox' ] );
 
-	/* ── 4 · HERO ── */
+	/* 4 - HERO */
 	$wp_customize->add_section( 'eb_hero', [
-		'title'       => __( '🦸 Hero Section', 'enhancingbrain' ),
+		'title'       => __( 'Hero Section', 'enhancingbrain' ),
 		'panel'       => 'eb_panel', 'priority' => 20,
 		'description' => __( 'Use [eb_highlight]text[/eb_highlight] for the green italic accent.', 'enhancingbrain' ),
 	] );
 	eb_ctl( $wp_customize, 'eb_hero_visible',     [ 'default' => '1',  'label' => __( 'Show Hero Section', 'enhancingbrain' ), 'section' => 'eb_hero', 'type' => 'checkbox', 'transport' => 'refresh' ] );
-	eb_ctl( $wp_customize, 'eb_hero_eyebrow',     [ 'default' => 'Neuroscience · Applied', 'label' => __( 'Eyebrow Label', 'enhancingbrain' ), 'section' => 'eb_hero', 'type' => 'text' ] );
+	eb_ctl( $wp_customize, 'eb_hero_eyebrow',     [ 'default' => 'Neuroscience - Applied', 'label' => __( 'Eyebrow Label', 'enhancingbrain' ), 'section' => 'eb_hero', 'type' => 'text' ] );
 	eb_ctl( $wp_customize, 'eb_hero_headline',    [ 'default' => 'Your brain is your [eb_highlight]highest-ROI asset.[/eb_highlight] We help you maximise it.', 'label' => __( 'Headline', 'enhancingbrain' ), 'section' => 'eb_hero', 'type' => 'textarea' ] );
-	eb_ctl( $wp_customize, 'eb_hero_subheadline', [ 'default' => 'Most people optimise their business, their schedule, their tools — and completely ignore the operating system running all of it. Enhancing Brain gives entrepreneurs, professionals, and creators the neuroscience tools and resources to perform at their peak, think sharper, and protect what matters most long-term.', 'label' => __( 'Subheadline', 'enhancingbrain' ), 'section' => 'eb_hero', 'type' => 'textarea' ] );
+	eb_ctl( $wp_customize, 'eb_hero_subheadline', [ 'default' => 'Most people optimise their business, their schedule, and their tools, but ignore the operating system running all of it. Enhancing Brain gives entrepreneurs, professionals, and creators neuroscience tools to think sharper, perform better, and protect long-term brain health.', 'label' => __( 'Subheadline', 'enhancingbrain' ), 'section' => 'eb_hero', 'type' => 'textarea' ] );
 	eb_ctl( $wp_customize, 'eb_hero_pills',       [ 'default' => 'Science-backed, Primary sources, No BS, Free weekly newsletter, Not medical advice', 'label' => __( 'Pills (comma-separated)', 'enhancingbrain' ), 'section' => 'eb_hero', 'type' => 'text' ] );
 
-	/* ── 5 · NEWSLETTER CARD ── */
-	$wp_customize->add_section( 'eb_newsletter_card', [ 'title' => __( '📧 Newsletter Card', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 25 ] );
+	/* 5 - NEWSLETTER CARD */
+	$wp_customize->add_section( 'eb_newsletter_card', [ 'title' => __( 'Newsletter Card', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 25 ] );
 	foreach ( [
 		'eb_nl_label'       => [ 'Free Weekly Newsletter', 'Card Label', 'text' ],
 		'eb_nl_title'       => [ 'Your weekly brain brief.', 'Card Title', 'text' ],
 		'eb_nl_desc'        => [ 'One email every Sunday. Real neuroscience, zero fluff.', 'Description', 'textarea' ],
-		'eb_nl_btn'         => [ 'Get The Free Newsletter →', 'Button Text', 'text' ],
+		'eb_nl_btn'         => [ 'Get the Free Newsletter ->', 'Button Text', 'text' ],
 		'eb_nl_form_action' => [ '', 'Form Action URL (MailChimp/MailPoet endpoint)', 'url' ],
 		'eb_nl_proof'       => [ 'Joined by 600+ readers', 'Social Proof Text', 'text' ],
 		'eb_nl_disclaimer'  => [ 'No spam, ever. Unsubscribe anytime.', 'Card Disclaimer', 'text' ],
@@ -86,50 +86,50 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 		eb_ctl( $wp_customize, $id, [ 'default' => $default, 'label' => __( $label, 'enhancingbrain' ), 'section' => 'eb_newsletter_card', 'type' => $type ] );
 	}
 
-	/* ── 6 · STATS BAR ── */
-	$wp_customize->add_section( 'eb_stats', [ 'title' => __( '📊 Stats Bar', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 30 ] );
+	/* 6 - STATS BAR */
+	$wp_customize->add_section( 'eb_stats', [ 'title' => __( 'Stats Bar', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 30 ] );
 	eb_ctl( $wp_customize, 'eb_stats_visible', [ 'default' => '1', 'label' => __( 'Show Stats Bar', 'enhancingbrain' ), 'section' => 'eb_stats', 'type' => 'checkbox', 'transport' => 'refresh' ] );
 	foreach ( [ 1 => [ '600+', 'Newsletter Subscribers' ], 2 => [ '80K+', 'Instagram Followers' ], 3 => [ '100%', 'Primary Sources' ], 4 => [ '5 min', 'Avg. Read Time' ] ] as $i => [ $n, $l ] ) {
-		eb_ctl( $wp_customize, "eb_stat_{$i}_number", [ 'default' => $n, 'label' => sprintf( __( 'Stat %d — Value', 'enhancingbrain' ), $i ), 'section' => 'eb_stats', 'type' => 'text' ] );
-		eb_ctl( $wp_customize, "eb_stat_{$i}_label",  [ 'default' => $l, 'label' => sprintf( __( 'Stat %d — Label', 'enhancingbrain' ), $i ), 'section' => 'eb_stats', 'type' => 'text' ] );
+		eb_ctl( $wp_customize, "eb_stat_{$i}_number", [ 'default' => $n, 'label' => sprintf( __( 'Stat %d - Value', 'enhancingbrain' ), $i ), 'section' => 'eb_stats', 'type' => 'text' ] );
+		eb_ctl( $wp_customize, "eb_stat_{$i}_label",  [ 'default' => $l, 'label' => sprintf( __( 'Stat %d - Label', 'enhancingbrain' ), $i ), 'section' => 'eb_stats', 'type' => 'text' ] );
 	}
 
-	/* ── 7 · ARTICLES ── */
-	$wp_customize->add_section( 'eb_articles', [ 'title' => __( '📝 Articles Section', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 35 ] );
+	/* 7 - ARTICLES */
+	$wp_customize->add_section( 'eb_articles', [ 'title' => __( 'Articles Section', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 35 ] );
 	eb_ctl( $wp_customize, 'eb_articles_visible',   [ 'default' => '1',                   'label' => __( 'Show Articles Section',  'enhancingbrain' ), 'section' => 'eb_articles', 'type' => 'checkbox', 'transport' => 'refresh' ] );
 	eb_ctl( $wp_customize, 'eb_articles_eyebrow',   [ 'default' => 'Blog',                'label' => __( 'Eyebrow Text',           'enhancingbrain' ), 'section' => 'eb_articles', 'type' => 'text' ] );
 	eb_ctl( $wp_customize, 'eb_articles_heading',   [ 'default' => 'Latest Articles',     'label' => __( 'Section Heading',        'enhancingbrain' ), 'section' => 'eb_articles', 'type' => 'text' ] );
-	eb_ctl( $wp_customize, 'eb_articles_link_text', [ 'default' => 'View all articles →', 'label' => __( 'View All Link Text',     'enhancingbrain' ), 'section' => 'eb_articles', 'type' => 'text' ] );
+	eb_ctl( $wp_customize, 'eb_articles_link_text', [ 'default' => 'View all articles ->', 'label' => __( 'View All Link Text',     'enhancingbrain' ), 'section' => 'eb_articles', 'type' => 'text' ] );
 	eb_ctl( $wp_customize, 'eb_articles_count',     [ 'default' => '6',                   'label' => __( 'Number of Posts',        'enhancingbrain' ), 'section' => 'eb_articles', 'type' => 'number' ] );
 
-	/* ── 8 · LEAD MAGNET ── */
-	$wp_customize->add_section( 'eb_lead_magnet', [ 'title' => __( '🧠 Lead Magnet Block', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 40 ] );
+	/* 8 - LEAD MAGNET */
+	$wp_customize->add_section( 'eb_lead_magnet', [ 'title' => __( 'Lead Magnet Block', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 40 ] );
 	eb_ctl( $wp_customize, 'eb_lm_visible',   [ 'default' => '1', 'label' => __( 'Show Lead Magnet Block', 'enhancingbrain' ), 'section' => 'eb_lead_magnet', 'type' => 'checkbox', 'transport' => 'refresh' ] );
 	foreach ( [
 		'eb_lm_eyebrow'  => [ 'Free Download', 'Eyebrow Label', 'text' ],
-		'eb_lm_headline' => [ 'The [eb_highlight]Brain Stack[/eb_highlight] — 11 nutrients your brain actually needs.', 'Headline', 'textarea' ],
+		'eb_lm_headline' => [ 'The [eb_highlight]Brain Stack[/eb_highlight] - 11 nutrients your brain actually needs.', 'Headline', 'textarea' ],
 		'eb_lm_desc'     => [ 'Science-backed breakdown of 11 core brain nutrients for focus, memory, mental clarity, and long-term health. Explained simply, no hype.', 'Description', 'textarea' ],
 		'eb_lm_bullet_1' => [ 'What each nutrient does in the brain',       'Bullet 1', 'text' ],
 		'eb_lm_bullet_2' => [ 'Why it matters for high performance',         'Bullet 2', 'text' ],
 		'eb_lm_bullet_3' => [ 'Food sources and supplementation guidance',   'Bullet 3', 'text' ],
 		'eb_lm_bullet_4' => [ 'Backed by peer-reviewed human trials',        'Bullet 4', 'text' ],
-		'eb_lm_btn_text' => [ 'Comment "STACK" on Instagram →',              'Button Text', 'text' ],
+		'eb_lm_btn_text' => [ 'Comment "STACK" on Instagram ->',              'Button Text', 'text' ],
 		'eb_lm_btn_url'  => [ 'https://www.instagram.com/enhancingbrain',    'Button URL',  'url'  ],
 	] as $id => [ $default, $label, $type ] ) {
 		eb_ctl( $wp_customize, $id, [ 'default' => $default, 'label' => __( $label, 'enhancingbrain' ), 'section' => 'eb_lead_magnet', 'type' => $type ] );
 	}
 
-	/* ── 9 · TOPICS ── */
-	$wp_customize->add_section( 'eb_topics', [ 'title' => __( '📚 Topics Section', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 45 ] );
+	/* 9 - TOPICS */
+	$wp_customize->add_section( 'eb_topics', [ 'title' => __( 'Topics Section', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 45 ] );
 	eb_ctl( $wp_customize, 'eb_topics_visible', [ 'default' => '1',                          'label' => __( 'Show Topics Section',  'enhancingbrain' ), 'section' => 'eb_topics', 'type' => 'checkbox', 'transport' => 'refresh' ] );
 	eb_ctl( $wp_customize, 'eb_topics_eyebrow', [ 'default' => 'Browse Articles by Topic',   'label' => __( 'Eyebrow',              'enhancingbrain' ), 'section' => 'eb_topics', 'type' => 'text' ] );
 	eb_ctl( $wp_customize, 'eb_topics_heading', [ 'default' => 'Explore Topics',             'label' => __( 'Section Heading',      'enhancingbrain' ), 'section' => 'eb_topics', 'type' => 'text' ] );
-	eb_ctl( $wp_customize, 'eb_topics_link',    [ 'default' => 'All articles →',             'label' => __( 'View All Link Text',   'enhancingbrain' ), 'section' => 'eb_topics', 'type' => 'text' ] );
+	eb_ctl( $wp_customize, 'eb_topics_link',    [ 'default' => 'All articles ->',             'label' => __( 'View All Link Text',   'enhancingbrain' ), 'section' => 'eb_topics', 'type' => 'text' ] );
 
-	/* ── 10 · FOOTER ── */
+	/* 10 - FOOTER */
 	$default_footer_nav = "Home | /\nArticles | /articles\nAbout | /about\nPrivacy Policy | /privacy-policy";
 	$wp_customize->add_section( 'eb_footer', [
-		'title'       => __( '🔻 Footer', 'enhancingbrain' ),
+		'title'       => __( 'Footer', 'enhancingbrain' ),
 		'panel'       => 'eb_panel', 'priority' => 60,
 		'description' => __( 'Footer column links use the same format as the nav menu: Label | /url, one per line.', 'enhancingbrain' ),
 	] );
@@ -143,8 +143,8 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 
 	/* Content */
 	eb_ctl( $wp_customize, 'eb_footer_tagline',              [ 'default' => 'Neuroscience for high performers. Peer-reviewed research translated into what actually matters.', 'label' => __( 'Footer Tagline', 'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'textarea' ] );
-	eb_ctl( $wp_customize, 'eb_footer_copyright',            [ 'default' => '© ' . gmdate( 'Y' ) . ' Enhancing Brain. All rights reserved.', 'label' => __( 'Copyright Text', 'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
-	eb_ctl( $wp_customize, 'eb_footer_disclaimer_pill_text', [ 'default' => '⚠ Not a doctor · Educational use only', 'label' => __( 'Disclaimer Pill Text', 'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
+	eb_ctl( $wp_customize, 'eb_footer_copyright',            [ 'default' => '(c) ' . gmdate( 'Y' ) . ' Enhancing Brain. All rights reserved.', 'label' => __( 'Copyright Text', 'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
+	eb_ctl( $wp_customize, 'eb_footer_disclaimer_pill_text', [ 'default' => 'Not a doctor - Educational use only', 'label' => __( 'Disclaimer Pill Text', 'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
 
 	/* Social */
 	eb_ctl( $wp_customize, 'eb_footer_ig_url', [ 'default' => 'https://www.instagram.com/enhancingbrain', 'label' => __( 'Instagram URL', 'enhancingbrain' ),                 'section' => 'eb_footer', 'type' => 'url' ] );
@@ -156,7 +156,7 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 	eb_ctl( $wp_customize, 'eb_footer_col2_heading', [ 'default' => 'Resources',    'label' => __( '"Resources" Column Heading',    'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
 	eb_ctl( $wp_customize, 'eb_footer_col3_heading', [ 'default' => 'Research From','label' => __( '"Research From" Column Heading','enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
 
-	/* Footer column links — unlimited textarea format */
+	/* Footer column links - unlimited textarea format */
 	eb_ctl( $wp_customize, 'eb_footer_col1_links', [
 		'default' => "All Articles | /articles\nBrain Health | /category/brain-health-longevity\nFocus & Productivity | /category/focus-productivity\nMemory & Learning | /category/memory-learning\nNootropics | /category/nootropics-supplements",
 		'label'       => __( '"Content" Column Links (Label | /url, one per line)', 'enhancingbrain' ),
@@ -173,13 +173,13 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 		'section'     => 'eb_footer', 'type' => 'textarea', 'transport' => 'refresh',
 	] );
 
-	/* ── 11 · TYPOGRAPHY ── */
-	$wp_customize->add_section( 'eb_typography', [ 'title' => __( '🔤 Typography', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 70 ] );
+	/* 11 - TYPOGRAPHY */
+	$wp_customize->add_section( 'eb_typography', [ 'title' => __( 'Typography', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 70 ] );
 	$wp_customize->add_setting( 'eb_base_font_size', [ 'default' => '15', 'sanitize_callback' => 'absint', 'transport' => 'postMessage' ] );
 	$wp_customize->add_control( 'eb_base_font_size', [ 'label' => __( 'Base Font Size (px)', 'enhancingbrain' ), 'section' => 'eb_typography', 'type' => 'range', 'input_attrs' => [ 'min' => 13, 'max' => 18, 'step' => 1 ] ] );
 
-	/* ── 12 · ADVANCED ── */
-	$wp_customize->add_section( 'eb_advanced', [ 'title' => __( '⚙️ Advanced / Scripts', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 90 ] );
+	/* 12 - ADVANCED */
+	$wp_customize->add_section( 'eb_advanced', [ 'title' => __( 'Advanced / Scripts', 'enhancingbrain' ), 'panel' => 'eb_panel', 'priority' => 90 ] );
 	eb_ctl( $wp_customize, 'eb_head_scripts',   [ 'default' => '', 'label' => __( 'Custom <head> code', 'enhancingbrain' ),         'section' => 'eb_advanced', 'type' => 'textarea', 'transport' => 'refresh' ] );
 	eb_ctl( $wp_customize, 'eb_footer_scripts', [ 'default' => '', 'label' => __( 'Custom footer code (before </body>)', 'enhancingbrain' ), 'section' => 'eb_advanced', 'type' => 'textarea', 'transport' => 'refresh' ] );
 }
@@ -202,7 +202,7 @@ function eb_ctl( WP_Customize_Manager $wpc, string $id, array $args ) {
 }
 function eb_sanitize_cb( $val ) { return $val ? '1' : ''; }
 
-/* CSS vars → <head> */
+/* CSS vars -> <head> */
 function eb_customizer_css() {
 	$vars = [
 		'--accent'    => sanitize_hex_color( get_theme_mod( 'eb_color_accent',    '#0bbf96' ) ),
@@ -230,3 +230,4 @@ function eb_custom_footer_scripts() {
 	if ( $c ) echo "\n" . wp_unslash( $c ) . "\n";
 }
 add_action( 'wp_footer', 'eb_custom_footer_scripts', 100 );
+

@@ -27,10 +27,10 @@
 				<ol>
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'enhancingbrain' ); ?></a></li>
 					<?php $cats = get_the_category(); if ( $cats ) : ?>
-					<li aria-hidden="true">›</li>
+					<li aria-hidden="true">></li>
 					<li><a href="<?php echo esc_url( get_category_link( $cats[0]->term_id ) ); ?>"><?php echo esc_html( $cats[0]->name ); ?></a></li>
 					<?php endif; ?>
-					<li aria-hidden="true">›</li>
+					<li aria-hidden="true">></li>
 					<li aria-current="page"><?php the_title(); ?></li>
 				</ol>
 			</nav>
@@ -44,8 +44,8 @@
 				<h1 class="single-title" itemprop="headline"><?php the_title(); ?></h1>
 
 				<div class="single-meta">
-					<span class="single-rt">⏱ <?php echo esc_html( eb_read_time() ); ?> min read</span>
-					<span class="single-sep" aria-hidden="true">·</span>
+					<span class="single-rt"><?php echo esc_html( eb_primary_category_name() ); ?></span>
+					<span class="single-sep" aria-hidden="true">-</span>
 					<span class="single-date">
 						<time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
 					</span>
@@ -109,8 +109,8 @@
 							</div>
 							<h3 class="c-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 							<div class="c-foot">
-								<span class="c-rt">⏱ <?php echo esc_html( eb_read_time() ); ?> min</span>
-								<a href="<?php the_permalink(); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title() ) ); ?>"><?php esc_html_e( 'Read →', 'enhancingbrain' ); ?></a>
+								<span class="c-rt"><?php echo esc_html( eb_primary_category_name() ); ?></span>
+								<a href="<?php the_permalink(); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title() ) ); ?>"><?php esc_html_e( 'Read ->', 'enhancingbrain' ); ?></a>
 							</div>
 						</div>
 					</article>

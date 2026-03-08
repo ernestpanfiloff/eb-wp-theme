@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enhancing Brain Style Guide Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    .sg-page { padding: 2.5rem 0 5rem; background: var(--bg); }
+    .sg-wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+    .sg-head { margin-bottom: 2rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+    .sg-kicker { font-family: var(--mono); font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-dk); }
+    .sg-title { font-size: clamp(1.8rem, 3vw, 2.5rem); margin-top: .45rem; }
+    .sg-grid { display: grid; grid-template-columns: 1fr; gap: 1.15rem; }
+    .sg-block { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+    .sg-block h2 { font-size: 1rem; margin-bottom: .8rem; }
+    .sg-palette { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .65rem; }
+    .sg-swatch { min-height: 90px; border-radius: 6px; padding: .75rem; display: flex; flex-direction: column; justify-content: flex-end; font-family: var(--mono); font-size: .68rem; border: 1px solid rgba(0,0,0,.08); }
+    .sg-type > * + * { margin-top: .65rem; }
+    .sg-row { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+    .sg-callout { border-left: 4px solid var(--accent); background: var(--accent-lt); padding: .9rem 1rem; border-radius: 0 6px 6px 0; }
+    .sg-callout.warn { border-left-color: var(--warn); background: rgba(184,112,16,.08); }
+    .sg-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: .75rem; }
+    .sg-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+    .sg-table th, .sg-table td { border: 1px solid var(--border); padding: .55rem .65rem; text-align: left; }
+    .sg-table th { background: var(--ink); color: #fff; font-family: var(--head); }
+    .sg-prose h3 { margin-top: 1.2rem; font-size: 1.15rem; }
+    .sg-prose p { margin-top: .65rem; }
+    .sg-prose ul, .sg-prose ol { margin-top: .65rem; padding-left: 1.2rem; }
+    .sg-prose li { margin-top: .35rem; color: var(--muted); }
+    .sg-prose blockquote { margin-top: .75rem; border-left: 4px solid var(--accent); padding: .8rem 1rem; background: var(--accent-lt); border-radius: 0 6px 6px 0; }
+    .sg-prose code { background: var(--surface); border: 1px solid var(--border); padding: .1rem .3rem; border-radius: 4px; font-family: var(--mono); font-size: .85em; }
+    .sg-prose pre { margin-top: .75rem; background: var(--ink); color: #d1fae5; border-radius: 6px; padding: .9rem; overflow-x: auto; }
+    .sg-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: .6rem; }
+    .sg-stat { border: 1px solid var(--border); border-radius: 6px; padding: .8rem; background: #fff; }
+    .sg-stat strong { display: block; font-size: 1.2rem; font-family: var(--head); color: var(--ink); }
+    .sg-form { display: grid; gap: .6rem; max-width: 420px; }
+  </style>
+</head>
+<body>
+  <main class="sg-page">
+    <div class="sg-wrap">
+      <header class="sg-head">
+        <span class="sg-kicker">Enhancing Brain</span>
+        <h1 class="sg-title">Massy Style Guide Mockup</h1>
+        <p>Comprehensive, on-brand reference for posts, pages, and reusable UI elements.</p>
+      </header>
+
+      <div class="sg-grid">
+        <section class="sg-block">
+          <h2>Color Palette</h2>
+          <div class="sg-palette">
+            <div class="sg-swatch" style="background:#0e1420;color:#fff;">Ink<br>#0e1420</div>
+            <div class="sg-swatch" style="background:#0bbf96;color:#0e1420;">Accent<br>#0bbf96</div>
+            <div class="sg-swatch" style="background:#089e7d;color:#fff;">Accent Dark<br>#089e7d</div>
+            <div class="sg-swatch" style="background:#fafaf8;">Background<br>#fafaf8</div>
+            <div class="sg-swatch" style="background:#ffffff;">White<br>#ffffff</div>
+            <div class="sg-swatch" style="background:#f3f4f6;">Surface<br>#f3f4f6</div>
+          </div>
+        </section>
+
+        <section class="sg-block sg-type">
+          <h2>Typography</h2>
+          <h1>H1: Your brain is your <mark>highest-ROI asset</mark></h1>
+          <h2>H2: Applied neuroscience for high performers</h2>
+          <h3>H3: Focus, memory, and long-term brain health</h3>
+          <p>Body: Plus Jakarta Sans with high readability and calm contrast.</p>
+          <p><strong>Strong text</strong>, <em>emphasis text</em>, and <code>inline code</code> examples.</p>
+        </section>
+
+        <section class="sg-block">
+          <h2>Buttons + Pills + Badges</h2>
+          <div class="sg-row">
+            <a href="#" class="nav-cta"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>Newsletter</a>
+            <button class="f-btn" type="button" style="max-width:220px;">Primary Action</button>
+            <a href="#" class="lm-btn">Lead Magnet CTA</a>
+            <span class="hero-pill">Science-backed</span>
+            <span class="band-tag active">Focus &amp; Productivity</span>
+            <span class="ft-pill">Not medical advice</span>
+          </div>
+        </section>
+
+        <section class="sg-block">
+          <h2>Card Blocks</h2>
+          <div class="sg-cards">
+            <article class="card card-sm">
+              <div class="c-body">
+                <h3 class="c-title"><a href="#">Deep work and dopamine stability</a></h3>
+                <p class="c-exc">How to structure your week for sustained cognitive output.</p>
+                <div class="c-foot"><span class="c-rt">Focus &amp; Productivity</span><a href="#" class="c-rm">Read -&gt;</a></div>
+              </div>
+            </article>
+            <article class="card card-sm">
+              <div class="c-body">
+                <h3 class="c-title"><a href="#">Nutrient basics for long-term cognition</a></h3>
+                <p class="c-exc">Practical, evidence-based guidance without hype.</p>
+                <div class="c-foot"><span class="c-rt">Nootropics &amp; Supplements</span><a href="#" class="c-rm">Read -&gt;</a></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="sg-block">
+          <h2>Callouts + Quote Blocks</h2>
+          <aside class="sg-callout"><p>Clinical note: this content is educational and not individual medical advice.</p></aside>
+          <aside class="sg-callout warn" style="margin-top:.6rem;"><p>Warning callout variant for caution or contraindication context.</p></aside>
+          <blockquote style="margin-top:.8rem;"><p>"Your brain adapts to what you repeatedly do. Repetition is biology, not motivation."</p></blockquote>
+        </section>
+
+        <section class="sg-block">
+          <h2>Table Patterns</h2>
+          <table class="sg-table">
+            <thead>
+              <tr><th>Topic</th><th>Primary Mechanism</th><th>Evidence Level</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Sleep consistency</td><td>Memory consolidation</td><td>Strong</td></tr>
+              <tr><td>Aerobic training</td><td>BDNF signaling</td><td>Strong</td></tr>
+              <tr><td>Caffeine timing</td><td>Adenosine modulation</td><td>Moderate</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="sg-block sg-prose">
+          <h2>Post Body Elements</h2>
+          <p>Example paragraph with <a href="#">a content link</a> and highlighted phrase <mark>that should feel premium</mark>.</p>
+          <h3>Ordered Framework</h3>
+          <ol>
+            <li>Identify the cognitive bottleneck.</li>
+            <li>Apply a behavioral intervention for 14 days.</li>
+            <li>Review outcomes and tighten variables.</li>
+          </ol>
+          <h3>Bullet List</h3>
+          <ul>
+            <li>Short, scannable bullets.</li>
+            <li>Clean spacing for readability.</li>
+            <li>Consistent hierarchy for long posts.</li>
+          </ul>
+          <pre><code>// Example inline snippet for technical posts
+const minutes = Math.max(1, Math.round(words / 200));</code></pre>
+        </section>
+
+        <section class="sg-block">
+          <h2>Stats + Form Elements</h2>
+          <div class="sg-stats">
+            <div class="sg-stat"><strong>17</strong><span>Brain Health &amp; Longevity posts</span></div>
+            <div class="sg-stat"><strong>12</strong><span>Focus &amp; Productivity posts</span></div>
+            <div class="sg-stat"><strong>6</strong><span>Memory &amp; Learning posts</span></div>
+            <div class="sg-stat"><strong>8</strong><span>Nootropics &amp; Supplements posts</span></div>
+          </div>
+          <form class="sg-form" style="margin-top:.9rem;">
+            <label for="sg-email">Newsletter Email</label>
+            <input id="sg-email" type="email" placeholder="you@example.com" />
+            <button class="f-btn" type="button">Subscribe</button>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

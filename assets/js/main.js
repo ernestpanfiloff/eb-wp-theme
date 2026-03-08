@@ -19,8 +19,26 @@
   var burger   = document.getElementById('burger');
   var mobMenu  = document.getElementById('mobMenu');
   var mobClose = document.getElementById('mobClose');
+  var focusableSelector = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+  function trapFocus(e) {
+    if (!mobMenu || !mobMenu.classList.contains('open') || e.key !== 'Tab') return;
+    var focusables = mobMenu.querySelectorAll(focusableSelector);
+    if (!focusables.length) return;
+    var first = focusables[0];
+    var last = focusables[focusables.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
 
   function openMob() {
+    if (!burger || !mobMenu || !mobClose) return;
     mobMenu.classList.add('open');
     mobMenu.setAttribute('aria-hidden', 'false');
     burger.setAttribute('aria-expanded', 'true');
@@ -29,6 +47,7 @@
     mobClose.focus();
   }
   function closeMob() {
+    if (!burger || !mobMenu) return;
     mobMenu.classList.remove('open');
     mobMenu.setAttribute('aria-hidden', 'true');
     burger.setAttribute('aria-expanded', 'false');
@@ -37,25 +56,30 @@
     burger.focus();
   }
 
-  burger.addEventListener('click', function() {
-    mobMenu.classList.contains('open') ? closeMob() : openMob();
-  });
-  mobClose.addEventListener('click', closeMob);
+  if (burger && mobMenu && mobClose) {
+    burger.addEventListener('click', function() {
+      mobMenu.classList.contains('open') ? closeMob() : openMob();
+    });
+    mobClose.addEventListener('click', closeMob);
 
-  // ESC closes
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && mobMenu.classList.contains('open')) closeMob();
-  });
+    // ESC closes, TAB focus trap while open.
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobMenu.classList.contains('open')) closeMob();
+      trapFocus(e);
+    });
+  }
 
   // Mobile sub-menu
   var mobTog = document.getElementById('mobArticlesTog');
   var mobSub = document.getElementById('mobSub');
-  mobTog.addEventListener('click', function(e) {
-    e.preventDefault();
-    var open = mobSub.classList.toggle('open');
-    mobTog.setAttribute('aria-expanded', String(open));
-    mobSub.setAttribute('aria-hidden', String(!open));
-  });
+  if (mobTog && mobSub) {
+    mobTog.addEventListener('click', function(e) {
+      e.preventDefault();
+      var open = mobSub.classList.toggle('open');
+      mobTog.setAttribute('aria-expanded', String(open));
+      mobSub.setAttribute('aria-hidden', String(!open));
+    });
+  }
 
   /* ── Topics band scroll ── */
   var wrap = document.getElementById('bandWrap');

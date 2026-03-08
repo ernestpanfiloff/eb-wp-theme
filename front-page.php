@@ -1,13 +1,13 @@
 <?php
 /**
- * Front page template — Enhancing Brain homepage
+ * Front page template â€” Enhancing Brain homepage
  */
 get_header();
 ?>
 
 <main id="main-content">
 
-	<!-- ══ HERO ══ -->
+	<!-- â•â• HERO â•â• -->
 	<?php if ( get_theme_mod( 'eb_hero_visible', '1' ) ) : ?>
 	<section class="hero" aria-labelledby="hero-heading">
 		<div class="hero-bg"   aria-hidden="true"></div>
@@ -16,7 +16,7 @@ get_header();
 			<div class="hero-divider" aria-hidden="true"></div>
 
 			<div class="hero-l rev">
-				<?php $eyebrow = get_theme_mod( 'eb_hero_eyebrow', 'Neuroscience · Applied' ); ?>
+				<?php $eyebrow = get_theme_mod( 'eb_hero_eyebrow', 'Neuroscience - Applied' ); ?>
 				<?php if ( $eyebrow ) : ?>
 				<div class="hero-eyebrow" aria-hidden="true"><?php echo esc_html( $eyebrow ); ?></div>
 				<?php endif; ?>
@@ -25,7 +25,7 @@ get_header();
 					<?php echo eb_customizer_text( 'eb_hero_headline', 'Your brain is your [eb_highlight]highest-ROI asset.[/eb_highlight] We help you maximise it.' ); ?>
 				</h1>
 
-				<p class="hero-p"><?php echo esc_html( get_theme_mod( 'eb_hero_subheadline', 'Most people optimise their business, their schedule, their tools — and completely ignore the operating system running all of it. Enhancing Brain gives entrepreneurs, professionals, and creators the neuroscience tools and resources to perform at their peak, think sharper, and protect what matters most long-term.' ) ); ?></p>
+				<p class="hero-p"><?php echo esc_html( get_theme_mod( 'eb_hero_subheadline', 'Most people optimise their business, their schedule, and their tools, but ignore the operating system running all of it. Enhancing Brain gives entrepreneurs, professionals, and creators neuroscience tools to think sharper, perform better, and protect long-term brain health.' ) ); ?></p>
 
 				<?php
 				$pills_raw = get_theme_mod( 'eb_hero_pills', 'Science-backed, Primary sources, No BS, Free weekly newsletter, Not medical advice' );
@@ -57,7 +57,12 @@ get_header();
 						<label for="femail" class="sr-only"><?php esc_html_e( 'Email address', 'enhancingbrain' ); ?></label>
 						<input type="email" id="femail" name="EMAIL" placeholder="<?php esc_attr_e( 'Your best email', 'enhancingbrain' ); ?>" required autocomplete="email"/>
 					</div>
-					<button type="submit" class="f-btn"><?php echo esc_html( get_theme_mod( 'eb_nl_btn', 'Get The Free Newsletter →' ) ); ?></button>
+					<button type="submit" class="f-btn">
+						<span class="btn-ico" aria-hidden="true">
+							<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>
+						</span>
+						<span><?php echo esc_html( get_theme_mod( 'eb_nl_btn', 'Get the Free Newsletter ->' ) ); ?></span>
+					</button>
 				</form>
 
 				<div class="f-foot">
@@ -76,7 +81,7 @@ get_header();
 	</section>
 	<?php endif; // eb_hero_visible ?>
 
-	<!-- ══ STATS BAR ══ -->
+	<!-- â•â• STATS BAR â•â• -->
 	<?php if ( get_theme_mod( 'eb_stats_visible', '1' ) ) : ?>
 	<section class="stats" aria-label="<?php esc_attr_e( 'Enhancing Brain by the numbers', 'enhancingbrain' ); ?>">
 		<div class="stats-inner">
@@ -101,7 +106,7 @@ get_header();
 	</section>
 	<?php endif; ?>
 
-	<!-- ══ TOPICS BAND ══ -->
+	<!-- â•â• TOPICS BAND â•â• -->
 	<?php
 	$categories = get_categories( [ 'hide_empty' => false ] );
 	if ( $categories ) :
@@ -110,19 +115,19 @@ get_header();
 		<div class="band-inner">
 			<span class="band-lbl" aria-hidden="true"><?php esc_html_e( 'Topics', 'enhancingbrain' ); ?></span>
 			<div class="band-scroll-wrap" id="bandWrap">
-				<div class="band-tags" id="bandTags" role="list">
+				<ul class="band-tags" id="bandTags">
 					<?php foreach ( $categories as $cat ) : ?>
-					<a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>" class="band-tag" role="listitem">
+					<li><a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>" class="band-tag">
 						<?php echo esc_html( $cat->name ); ?>
-					</a>
+					</a></li>
 					<?php endforeach; ?>
-				</div>
+				</ul>
 			</div>
 		</div>
 	</nav>
 	<?php endif; ?>
 
-	<!-- ══ ARTICLES ══ -->
+	<!-- â•â• ARTICLES â•â• -->
 	<?php if ( get_theme_mod( 'eb_articles_visible', '1' ) ) :
 	$posts_count = absint( get_theme_mod( 'eb_articles_count', 5 ) );
 	$featured    = new WP_Query( [
@@ -130,6 +135,8 @@ get_header();
 		'post_status'    => 'publish',
 		'orderby'        => 'date',
 		'order'          => 'DESC',
+		'no_found_rows'  => true,
+		'ignore_sticky_posts' => true,
 	] );
 	if ( $featured->have_posts() ) :
 		$all_posts = [];
@@ -146,7 +153,7 @@ get_header();
 					<h2 id="articles-heading" class="sh-t"><?php echo esc_html( get_theme_mod( 'eb_articles_heading', 'Latest Articles' ) ); ?></h2>
 				</div>
 				<a href="<?php echo esc_url( home_url( '/articles' ) ); ?>" class="sh-link">
-					<?php echo esc_html( get_theme_mod( 'eb_articles_link_text', 'View all articles →' ) ); ?>
+					<?php echo esc_html( get_theme_mod( 'eb_articles_link_text', 'View all articles ->' ) ); ?>
 				</a>
 			</div>
 
@@ -177,9 +184,9 @@ get_header();
 						<h3 class="c-title"><a href="<?php echo esc_url( get_permalink( $main ) ); ?>"><?php echo esc_html( get_the_title( $main ) ); ?></a></h3>
 						<p class="c-exc"><?php echo esc_html( get_the_excerpt( $main ) ); ?></p>
 						<div class="c-foot">
-							<span class="c-rt" aria-label="<?php echo esc_attr( eb_read_time( $main->ID ) ); ?> minute read">⏱ <?php echo esc_html( eb_read_time( $main->ID ) ); ?> min read</span>
+							<span class="c-rt"><?php echo esc_html( eb_primary_category_name( $main->ID ) ); ?></span>
 							<a href="<?php echo esc_url( get_permalink( $main ) ); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title( $main ) ) ); ?>">
-								<?php esc_html_e( 'Read article →', 'enhancingbrain' ); ?>
+								<?php esc_html_e( 'Read article ->', 'enhancingbrain' ); ?>
 							</a>
 						</div>
 					</div>
@@ -204,10 +211,11 @@ get_header();
 						<div class="c-body">
 							<?php if ( ! has_post_thumbnail( $post ) ) echo eb_category_badge( $post->ID ); ?>
 							<h3 class="c-title"><a href="<?php echo esc_url( get_permalink( $post ) ); ?>"><?php echo esc_html( get_the_title( $post ) ); ?></a></h3>
+							<p class="c-exc"><?php echo esc_html( get_the_excerpt( $post ) ); ?></p>
 							<div class="c-foot">
-								<span class="c-rt" aria-label="<?php echo esc_attr( eb_read_time( $post->ID ) ); ?> minute read">⏱ <?php echo esc_html( eb_read_time( $post->ID ) ); ?> min</span>
+								<span class="c-rt"><?php echo esc_html( eb_primary_category_name( $post->ID ) ); ?></span>
 								<a href="<?php echo esc_url( get_permalink( $post ) ); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title( $post ) ) ); ?>">
-									<?php esc_html_e( 'Read →', 'enhancingbrain' ); ?>
+									<?php esc_html_e( 'Read ->', 'enhancingbrain' ); ?>
 								</a>
 							</div>
 						</div>
@@ -240,9 +248,9 @@ get_header();
 						<h3 class="c-title"><a href="<?php echo esc_url( get_permalink( $post ) ); ?>"><?php echo esc_html( get_the_title( $post ) ); ?></a></h3>
 						<p class="c-exc"><?php echo esc_html( get_the_excerpt( $post ) ); ?></p>
 						<div class="c-foot">
-							<span class="c-rt" aria-label="<?php echo esc_attr( eb_read_time( $post->ID ) ); ?> minute read">⏱ <?php echo esc_html( eb_read_time( $post->ID ) ); ?> min</span>
+							<span class="c-rt"><?php echo esc_html( eb_primary_category_name( $post->ID ) ); ?></span>
 							<a href="<?php echo esc_url( get_permalink( $post ) ); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title( $post ) ) ); ?>">
-								<?php esc_html_e( 'Read →', 'enhancingbrain' ); ?>
+								<?php esc_html_e( 'Read ->', 'enhancingbrain' ); ?>
 							</a>
 						</div>
 					</div>
@@ -256,7 +264,7 @@ get_header();
 	<?php endif; // $featured->have_posts() ?>
 	<?php endif; // eb_articles_visible ?>
 
-	<!-- ══ LEAD MAGNET ══ -->
+	<!-- â•â• LEAD MAGNET â•â• -->
 	<?php if ( get_theme_mod( 'eb_lm_visible', '1' ) ) : ?>
 	<section class="lm rev" aria-labelledby="lm-heading">
 		<div class="wrap">
@@ -264,7 +272,7 @@ get_header();
 				<div class="lm-grid-bg" aria-hidden="true"></div>
 				<div class="lm-body">
 					<p class="lm-ey" aria-hidden="true"><?php echo esc_html( get_theme_mod( 'eb_lm_eyebrow', 'Free Download' ) ); ?></p>
-					<h2 id="lm-heading" class="lm-t"><?php echo eb_customizer_text( 'eb_lm_headline', 'The [eb_highlight]Brain Stack[/eb_highlight] — 11 nutrients your brain actually needs.' ); ?></h2>
+					<h2 id="lm-heading" class="lm-t"><?php echo eb_customizer_text( 'eb_lm_headline', 'The [eb_highlight]Brain Stack[/eb_highlight] - 11 nutrients your brain actually needs.' ); ?></h2>
 					<p class="lm-d"><?php echo esc_html( get_theme_mod( 'eb_lm_desc', 'Science-backed breakdown of 11 core brain nutrients for focus, memory, mental clarity, and long-term health. Explained simply, no hype.' ) ); ?></p>
 					<?php
 					$_bullet_defaults = [ 1 => 'What each nutrient does in the brain', 2 => 'Why it matters for high performance', 3 => 'Food sources and supplementation guidance', 4 => 'Backed by peer-reviewed human trials' ];
@@ -283,7 +291,7 @@ get_header();
 					<?php endif; ?>
 					<a href="<?php echo esc_url( get_theme_mod( 'eb_lm_btn_url', 'https://www.instagram.com/enhancingbrain' ) ); ?>"
 					   target="_blank" rel="noopener noreferrer" class="lm-btn">
-						<?php echo esc_html( get_theme_mod( 'eb_lm_btn_text', 'Comment "STACK" on Instagram →' ) ); ?>
+						<?php echo esc_html( get_theme_mod( 'eb_lm_btn_text', 'Comment "STACK" on Instagram ->' ) ); ?>
 					</a>
 				</div>
 				<div class="lm-vis" aria-hidden="true">
@@ -295,7 +303,7 @@ get_header();
 							<div class="lm-n">Lion's Mane<div class="lm-b"><div class="lm-bf" style="width:75%"></div></div></div>
 							<div class="lm-n">Bacopa<div class="lm-b"><div class="lm-bf" style="width:80%"></div></div></div>
 							<div class="lm-n">Magnesium<div class="lm-b"><div class="lm-bf" style="width:85%"></div></div></div>
-							<div class="lm-n">+ 7 more…<div class="lm-b"><div class="lm-bf" style="width:100%"></div></div></div>
+							<div class="lm-n">+ 7 more...<div class="lm-b"><div class="lm-bf" style="width:100%"></div></div></div>
 						</div>
 					</div>
 				</div>
@@ -304,7 +312,7 @@ get_header();
 	</section>
 	<?php endif; ?>
 
-	<!-- ══ TOPICS ══ -->
+	<!-- â•â• TOPICS â•â• -->
 	<?php if ( get_theme_mod( 'eb_topics_visible', '1' ) ) : ?>
 	<section class="topics rev" aria-labelledby="topics-heading">
 		<div class="wrap">
@@ -314,18 +322,23 @@ get_header();
 					<h2 id="topics-heading" class="sh-t"><?php echo esc_html( get_theme_mod( 'eb_topics_heading', 'Browse Articles by Topic' ) ); ?></h2>
 				</div>
 				<a href="<?php echo esc_url( home_url( '/articles' ) ); ?>" class="sh-link">
-					<?php echo esc_html( get_theme_mod( 'eb_topics_link', 'View all articles →' ) ); ?>
+					<?php echo esc_html( get_theme_mod( 'eb_topics_link', 'View all articles ->' ) ); ?>
 				</a>
 			</div>
 			<div class="tgrid">
 				<?php
 				$topic_cats = get_categories( [ 'hide_empty' => false, 'number' => 8 ] );
-				$icons = [ '🧠', '🎯', '🧬', '💊', '😴', '⚡', '🔬', '🧪' ];
-				foreach ( $topic_cats as $i => $cat ) :
-					$count = $cat->count . ' ' . _n( 'article', 'articles', $cat->count, 'enhancingbrain' );
+				$icons = [
+				'brain-health-longevity' => '&#x1F9E0;',
+				'focus-productivity' => '&#x1F3AF;',
+				'memory-learning' => '&#x1F9E9;',
+				'nootropics-supplements' => '&#x1F48A;',
+			];
+			foreach ( $topic_cats as $i => $cat ) :
+					$count = absint( $cat->count );
 				?>
 				<a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>" class="tc">
-					<span class="tc-icon" aria-hidden="true"><?php echo $icons[ $i % count( $icons ) ]; ?></span>
+					<span class="tc-icon" aria-hidden="true"><?php echo wp_kses_post( $icons[ $cat->slug ] ?? '&#x1F4D6;' ); ?></span>
 					<span class="tc-n"><?php echo esc_html( $cat->name ); ?></span>
 					<?php if ( $cat->description ) : ?>
 					<span class="tc-d"><?php echo esc_html( $cat->description ); ?></span>
@@ -341,3 +354,6 @@ get_header();
 </main>
 
 <?php get_footer(); ?>
+
+
+

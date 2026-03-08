@@ -25,7 +25,7 @@
 			<?php if ( get_theme_mod( 'eb_nav_cta_show_icon', '1' ) ) : ?>
 			<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>
 			<?php endif; ?>
-			<?php echo esc_html( get_theme_mod( 'eb_nav_cta_text', 'Newsletter' ) ); ?>
+			<?php echo esc_html( get_theme_mod( 'eb_nav_cta_text', 'Get the Free Newsletter ->' ) ); ?>
 		</a>
 		<?php endif; ?>
 
@@ -49,9 +49,13 @@
 		<?php if ( get_theme_mod( 'eb_nav_show_cta', '1' ) ) : ?>
 		<div class="mob-cta">
 			<a href="<?php echo esc_url( get_theme_mod( 'eb_nav_cta_url', '#newsletter' ) ); ?>">
-				<?php echo esc_html( get_theme_mod( 'eb_nav_cta_text', 'Get the Free Newsletter →' ) ); ?>
+				<?php if ( get_theme_mod( 'eb_nav_cta_show_icon', '1' ) ) : ?>
+				<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>
+				<?php endif; ?>
+				<?php echo esc_html( get_theme_mod( 'eb_nav_cta_text', 'Get the Free Newsletter ->' ) ); ?>
 			</a>
 		</div>
 		<?php endif; ?>
 	</div>
 </div>
+

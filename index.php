@@ -1,6 +1,6 @@
 <?php
 /**
- * Fallback index — WordPress requires this file.
+ * Fallback index - WordPress requires this file.
  * Redirects to archive for posts, or shows posts list.
  */
 get_header();
@@ -23,8 +23,8 @@ get_header();
 					<h2 class="c-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					<p class="c-exc"><?php the_excerpt(); ?></p>
 					<div class="c-foot">
-						<span class="c-rt">⏱ <?php echo esc_html( eb_read_time() ); ?> min</span>
-						<a href="<?php the_permalink(); ?>" class="c-rm"><?php esc_html_e( 'Read →', 'enhancingbrain' ); ?></a>
+						<span class="c-rt"><?php echo esc_html( eb_primary_category_name( get_the_ID() ) ); ?></span>
+						<a href="<?php the_permalink(); ?>" class="c-rm"><?php esc_html_e( 'Read ->', 'enhancingbrain' ); ?></a>
 					</div>
 				</div>
 			</article>
