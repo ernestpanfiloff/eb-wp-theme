@@ -8,7 +8,7 @@
 			<ol>
 				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'enhancingbrain' ); ?></a></li>
 				<li aria-hidden="true">></li>
-				<li aria-current="page"><?php the_archive_title(); ?></li>
+				<li aria-current="page"><?php echo esc_html( is_category() ? single_cat_title( '', false ) : get_the_archive_title() ); ?></li>
 			</ol>
 		</nav>
 
@@ -19,7 +19,7 @@
 					<span class="sh-ey" aria-hidden="true">
 						<?php echo is_category() ? esc_html__( 'Category', 'enhancingbrain' ) : esc_html__( 'Archive', 'enhancingbrain' ); ?>
 					</span>
-					<h1 class="sh-t"><?php the_archive_title(); ?></h1>
+					<h1 class="sh-t"><?php echo esc_html( is_category() ? single_cat_title( '', false ) : get_the_archive_title() ); ?></h1>
 				</div>
 			</div>
 			<?php eb_archive_description(); ?>
@@ -57,7 +57,7 @@
 				<?php endif; ?>
 				<div class="c-body">
 					<h2 class="c-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-					<p class="c-exc"><?php the_excerpt(); ?></p>
+					<p class="c-exc"><?php echo esc_html( get_the_excerpt() ); ?></p>
 					<div class="c-foot">
 						<span class="c-rt"><?php echo esc_html( eb_primary_category_name() ); ?></span>
 						<a href="<?php the_permalink(); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title() ) ); ?>"><?php esc_html_e( 'Read →', 'enhancingbrain' ); ?></a>
