@@ -113,7 +113,6 @@ get_header();
 				<a href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
 					<?php the_post_thumbnail( 'eb-card', [ 'loading' => 'lazy', 'alt' => esc_attr( get_the_title() ) ] ); ?>
 				</a>
-				<?php echo eb_category_badge(); ?>
 			</div>
 			<?php endif; ?>
 			<div class="c-body">

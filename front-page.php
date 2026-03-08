@@ -169,7 +169,6 @@ get_header();
 				<article class="card" aria-label="<?php echo esc_attr( get_the_title( $main ) ); ?>">
 					<?php if ( has_post_thumbnail( $main ) ) : ?>
 					<div class="c-thumb">
-						<?php echo eb_category_badge( $main->ID ); ?>
 						<a href="<?php echo esc_url( get_permalink( $main ) ); ?>" tabindex="-1" aria-hidden="true">
 							<?php echo get_the_post_thumbnail( $main, 'eb-featured', [
 								'alt'     => esc_attr( get_the_title( $main ) ),
@@ -198,7 +197,6 @@ get_header();
 					<article class="card card-h" aria-label="<?php echo esc_attr( get_the_title( $post ) ); ?>">
 						<?php if ( has_post_thumbnail( $post ) ) : ?>
 						<div class="c-thumb">
-							<?php echo eb_category_badge( $post->ID ); ?>
 							<a href="<?php echo esc_url( get_permalink( $post ) ); ?>" tabindex="-1" aria-hidden="true">
 								<?php echo get_the_post_thumbnail( $post, 'eb-card-thumb', [
 									'alt'     => esc_attr( get_the_title( $post ) ),
@@ -233,7 +231,6 @@ get_header();
 				<article class="card card-sm" aria-label="<?php echo esc_attr( get_the_title( $post ) ); ?>">
 					<?php if ( has_post_thumbnail( $post ) ) : ?>
 					<div class="c-thumb">
-						<?php echo eb_category_badge( $post->ID ); ?>
 						<a href="<?php echo esc_url( get_permalink( $post ) ); ?>" tabindex="-1" aria-hidden="true">
 							<?php echo get_the_post_thumbnail( $post, 'eb-card', [
 								'alt'     => esc_attr( get_the_title( $post ) ),
