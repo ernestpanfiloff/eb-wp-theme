@@ -170,7 +170,7 @@ get_header();
 
 	<!-- â•â• ARTICLES â•â• -->
 	<?php if ( get_theme_mod( 'eb_articles_visible', '1' ) ) :
-	$posts_count = absint( get_theme_mod( 'eb_articles_count', 5 ) );
+	$posts_count = max( 6, absint( get_theme_mod( 'eb_articles_count', 6 ) ) );
 	$featured    = new WP_Query( [
 		'posts_per_page' => $posts_count,
 		'post_status'    => 'publish',
