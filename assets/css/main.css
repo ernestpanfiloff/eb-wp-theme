@@ -836,6 +836,7 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
 .single-content h2 { font-size: 1.5rem; margin: 2.5rem 0 0.9rem; color: var(--ink); }
 .single-content h3 { font-size: 1.2rem; margin: 2rem 0 0.7rem; color: var(--ink); }
 .single-content p  { margin-bottom: 1.4rem; }
+.single-content blockquote p { margin-bottom: 0; }
 .single-content a  { color: var(--accent-dk); text-decoration: underline; text-underline-offset: 3px; }
 .single-content ul, .single-content ol { padding-left: 1.5rem; margin-bottom: 1.4rem; }
 .single-content li { margin-bottom: 0.4rem; color: var(--muted); }
