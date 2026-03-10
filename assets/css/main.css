@@ -47,6 +47,20 @@ a      { color: var(--accent); text-decoration: none; transition: color .2s; }
 a:hover { color: var(--accent-dk); }
 p      { color: var(--muted); line-height: 1.8; }
 ul     { list-style: none; }
+blockquote {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-lt);
+  border-radius: var(--radius);
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+}
+blockquote p {
+  color: var(--ink);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.7;
+  margin: 0;
+}
 
 h1, h2, h3, h4 {
   font-family: var(--head);
@@ -825,11 +839,7 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
 .single-content a  { color: var(--accent-dk); text-decoration: underline; text-underline-offset: 3px; }
 .single-content ul, .single-content ol { padding-left: 1.5rem; margin-bottom: 1.4rem; }
 .single-content li { margin-bottom: 0.4rem; color: var(--muted); }
-.single-content blockquote {
-  border-left: 3px solid var(--accent); padding: 1rem 1.25rem; margin: 2rem 0;
-  background: var(--accent-lt); border-radius: 0 4px 4px 0;
-}
-.single-content blockquote p { font-style: italic; color: var(--ink); margin: 0; font-size: 1.05rem; }
+.single-content blockquote { margin: 2rem 0; }
 .single-content table { width: 100%; border-collapse: collapse; margin-bottom: 1.4rem; font-size: 0.9rem; }
 .single-content th   { text-align: left; padding: 0.6rem 0.75rem; background: var(--ink); color: #fff; font-family: var(--head); font-size: 0.78rem; }
 .single-content td   { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); }
