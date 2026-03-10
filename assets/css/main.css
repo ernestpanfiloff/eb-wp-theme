@@ -55,10 +55,10 @@ blockquote {
   padding: 1rem 1.25rem;
 }
 blockquote p {
-  color: var(--ink);
-  font-size: 1.05rem;
-  font-style: italic;
-  line-height: 1.7;
+  color: inherit;
+  font-size: inherit;
+  font-style: normal;
+  line-height: inherit;
   margin: 0;
 }
 
