@@ -15,15 +15,8 @@ get_header();
 
 	<section class="contact-hero">
 		<div class="wrap">
-			<nav class="breadcrumbs" aria-label="<?php esc_attr_e( 'Breadcrumb', 'enhancingbrain' ); ?>">
-				<ol>
-					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'enhancingbrain' ); ?></a></li>
-					<li aria-hidden="true">></li>
-					<li aria-current="page"><span class="sr-only"><?php the_title(); ?></span><span aria-hidden="true">...</span></li>
-				</ol>
-			</nav>
 			<span class="contact-kicker"><?php esc_html_e( 'Get in touch', 'enhancingbrain' ); ?></span>
-			<h1 class="contact-title"><?php the_title(); ?></h1>
+			<h1 class="contact-title"><?php esc_html_e( "We'd love to hear from you.", 'enhancingbrain' ); ?></h1>
 			<p class="contact-sub"><?php esc_html_e( 'Questions, collaborations, or just want to say hi, reach out any time.', 'enhancingbrain' ); ?></p>
 		</div>
 	</section>
@@ -96,6 +89,27 @@ get_header();
 					<button type="button" class="f-btn"><?php esc_html_e( 'Send message', 'enhancingbrain' ); ?></button>
 					<p class="form-disclaimer"><?php esc_html_e( 'We respect your privacy. Your info is never shared or sold.', 'enhancingbrain' ); ?></p>
 				</form>
+			</div>
+		</div>
+	</section>
+
+	<section class="contact-faq">
+		<div class="wrap">
+			<span class="contact-label"><?php esc_html_e( 'Common questions', 'enhancingbrain' ); ?></span>
+			<h2 class="contact-faq-title"><?php esc_html_e( 'Before you reach out', 'enhancingbrain' ); ?></h2>
+			<div class="contact-faq-grid">
+				<article class="contact-faq-item">
+					<h3><?php esc_html_e( 'Do you offer 1-on-1 coaching?', 'enhancingbrain' ); ?></h3>
+					<p><?php esc_html_e( 'Not currently. Enhancing Brain is focused on content, the weekly newsletter, and the community.', 'enhancingbrain' ); ?></p>
+				</article>
+				<article class="contact-faq-item">
+					<h3><?php esc_html_e( 'Can you recommend a supplement for me?', 'enhancingbrain' ); ?></h3>
+					<p><?php esc_html_e( "We're not medical professionals. Everything here is educational. Always work with a qualified clinician for personal decisions.", 'enhancingbrain' ); ?></p>
+				</article>
+				<article class="contact-faq-item">
+					<h3><?php esc_html_e( 'Are you open to collaborations?', 'enhancingbrain' ); ?></h3>
+					<p><?php esc_html_e( 'Yes, selectively. If your project aligns with science-backed brain health, send us the details.', 'enhancingbrain' ); ?></p>
+				</article>
 			</div>
 		</div>
 	</section>

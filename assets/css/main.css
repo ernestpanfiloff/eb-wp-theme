@@ -922,8 +922,22 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
 ══════════════════════════════════════════ */
 .contact-page { padding-bottom: 4rem; }
 .contact-hero {
-  padding: 2.2rem 0 1.2rem;
-  border-bottom: 1px solid var(--border);
+  background: var(--ink);
+  padding: 3.6rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 85% at 50% 120%, rgba(11,191,150,0.16), transparent);
+  pointer-events: none;
+}
+.contact-hero .wrap {
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 .contact-kicker {
   display: inline-block;
@@ -931,7 +945,7 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
   font-size: 0.62rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--accent-dk);
+  color: var(--accent);
   margin-bottom: 0.7rem;
 }
 .contact-title {
@@ -939,14 +953,16 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 0.55rem;
+  color: #fff;
 }
 .contact-sub {
   font-size: 0.92rem;
-  color: var(--muted);
+  color: rgba(255,255,255,0.62);
   max-width: 650px;
+  margin: 0 auto;
 }
 
-.contact-main { padding-top: 2.4rem; }
+.contact-main { padding-top: 2.6rem; }
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.45fr;
@@ -1100,11 +1116,47 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
   margin-top: -0.3rem;
 }
 
+.contact-faq {
+  margin-top: 2.6rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+.contact-faq-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 1.15rem;
+}
+.contact-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+.contact-faq-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.contact-faq-item h3 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.35;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.contact-faq-item p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.65;
+  padding: 0.8rem 1rem;
+}
+
 @media (max-width: 900px) {
   .contact-grid { grid-template-columns: 1fr; }
+  .contact-faq-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
-  .contact-hero { padding-top: 1.7rem; }
+  .contact-hero { padding: 2.8rem 0 3rem; }
   .contact-main { padding-top: 1.7rem; }
   .form-row { grid-template-columns: 1fr; }
   .form-panel { padding: 1.2rem; }
