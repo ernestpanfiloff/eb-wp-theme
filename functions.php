@@ -366,8 +366,9 @@ function eb_render_primary_nav( string $ul_class = 'nav-links' ): void {
 		$is_cur  = ( $item['url'] !== '/' && $item['url'] !== '#' && strpos( $current, $item['url'] ) === 0 )
 		           || ( $item['url'] === '/' && ( $current === '/' || $current === '' ) );
 		$classes = $has_sub ? 'menu-item-has-children' : '';
+		$item_url = $has_sub ? '#' : $item['url'];
 		echo '<li' . ( $classes ? ' class="' . esc_attr( $classes ) . '"' : '' ) . '>';
-		echo '<a href="' . esc_url( $item['url'] ) . '"'
+		echo '<a href="' . esc_url( $item_url ) . '"'
 			. ( $is_cur ? ' aria-current="page"' : '' )
 			. ( $has_sub ? ' aria-haspopup="true"' : '' ) . '>'
 			. esc_html( $item['label'] );

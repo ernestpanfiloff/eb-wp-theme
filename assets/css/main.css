@@ -872,6 +872,10 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
 .single-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 2rem 0; }
 .related-posts { margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--ink); }
 .related-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; }
+.related-posts .card-sm { height: 100%; }
+.related-posts .card-sm .c-body { display: flex; flex-direction: column; flex: 1; }
+.related-posts .card-sm .c-title { margin-bottom: auto; }
+.related-posts .card-sm .c-foot { margin-top: 1rem; }
 
 /* ══════════════════════════════════════════
    ARCHIVE

@@ -8,7 +8,7 @@
 			<ol>
 				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'enhancingbrain' ); ?></a></li>
 				<li aria-hidden="true">></li>
-				<li aria-current="page"><?php echo esc_html( is_category() ? single_cat_title( '', false ) : get_the_archive_title() ); ?></li>
+				<li aria-current="page"><span class="sr-only"><?php echo esc_html( is_category() ? single_cat_title( '', false ) : get_the_archive_title() ); ?></span><span aria-hidden="true">...</span></li>
 			</ol>
 		</nav>
 
@@ -31,9 +31,6 @@
 			if ( $all_cats ) :
 		?>
 		<nav class="cat-filter" aria-label="<?php esc_attr_e( 'Filter by category', 'enhancingbrain' ); ?>">
-			<a href="<?php echo esc_url( eb_articles_url() ); ?>" class="band-tag <?php echo ! is_category() ? 'active' : ''; ?>">
-				<?php esc_html_e( 'All', 'enhancingbrain' ); ?>
-			</a>
 			<?php foreach ( $all_cats as $cat ) : ?>
 			<a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>"
 			   class="band-tag <?php echo is_category( $cat->term_id ) ? 'active' : ''; ?>">

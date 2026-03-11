@@ -152,13 +152,13 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 	eb_ctl( $wp_customize, 'eb_footer_x_url',  [ 'default' => '', 'label' => __( 'X / Twitter URL (blank = hidden)',  'enhancingbrain' ),                                     'section' => 'eb_footer', 'type' => 'url' ] );
 
 	/* Footer column headings */
-	eb_ctl( $wp_customize, 'eb_footer_col1_heading', [ 'default' => 'Categories',      'label' => __( '"Content" Column Heading',      'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
+	eb_ctl( $wp_customize, 'eb_footer_col1_heading', [ 'default' => 'Blog Categories',      'label' => __( '"Content" Column Heading',      'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
 	eb_ctl( $wp_customize, 'eb_footer_col2_heading', [ 'default' => 'Resources',    'label' => __( '"Resources" Column Heading',    'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
 	eb_ctl( $wp_customize, 'eb_footer_col3_heading', [ 'default' => 'Research','label' => __( '"Research From" Column Heading','enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
 
 	/* Footer column links - unlimited textarea format */
 	eb_ctl( $wp_customize, 'eb_footer_col1_links', [
-		'default' => "All Articles | /articles\nBrain Health | /category/brain-health-longevity\nFocus & Productivity | /category/focus-productivity\nMemory & Learning | /category/memory-learning\nNootropics | /category/nootropics-supplements",
+		'default' => "Blog | /articles\nBrain Health | /category/brain-health-longevity\nFocus & Productivity | /category/focus-productivity\nMemory & Learning | /category/memory-learning\nNootropics | /category/nootropics-supplements",
 		'label'       => __( '"Content" Column Links (Label | /url, one per line)', 'enhancingbrain' ),
 		'section'     => 'eb_footer', 'type' => 'textarea', 'transport' => 'refresh',
 	] );

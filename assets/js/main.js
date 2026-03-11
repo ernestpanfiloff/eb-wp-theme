@@ -135,4 +135,11 @@
     });
   });
 
+  /* ── Parent nav items with dropdown should not navigate ── */
+  document.querySelectorAll('.nav-links > li.menu-item-has-children > a[href="#"], .mob-nav-list > li.menu-item-has-children > a[href="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+    });
+  });
+
 })();

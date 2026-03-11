@@ -19,7 +19,7 @@
 					<li><a href="<?php echo esc_url( get_category_link( $cats[0]->term_id ) ); ?>"><?php echo esc_html( $cats[0]->name ); ?></a></li>
 					<?php endif; ?>
 					<li aria-hidden="true">></li>
-					<li aria-current="page"><?php the_title(); ?></li>
+					<li aria-current="page"><span class="sr-only"><?php the_title(); ?></span><span aria-hidden="true">...</span></li>
 				</ol>
 			</nav>
 
@@ -89,9 +89,6 @@
 						</div>
 						<?php endif; ?>
 						<div class="c-body">
-							<div class="c-meta" aria-hidden="true">
-								<?php $rc = get_the_category(); if ( $rc ) echo '<span class="c-mc">' . esc_html( $rc[0]->name ) . '</span>'; ?>
-							</div>
 							<h3 class="c-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 							<div class="c-foot">
 								<span class="c-rt"><?php echo esc_html( eb_primary_category_name() ); ?></span>

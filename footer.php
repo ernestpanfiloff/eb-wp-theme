@@ -45,11 +45,11 @@
 		<!-- Content column -->
 		<?php if ( get_theme_mod( 'eb_footer_show_content_col', '1' ) ) : ?>
 		<div class="ft-col">
-			<h2 class="ft-col-title"><?php echo esc_html( get_theme_mod( 'eb_footer_col1_heading', 'Categories' ) ); ?></h2>
+			<h2 class="ft-col-title"><?php echo esc_html( get_theme_mod( 'eb_footer_col1_heading', 'Blog Categories' ) ); ?></h2>
 			<ul>
 				<?php
 				$links = eb_parse_menu_items( get_theme_mod( 'eb_footer_col1_links',
-					"All Articles | /articles\nBrain Health | /category/brain-health-longevity\nFocus & Productivity | /category/focus-productivity\nMemory & Learning | /category/memory-learning\nNootropics | /category/nootropics-supplements"
+					"Blog | /articles\nBrain Health | /category/brain-health-longevity\nFocus & Productivity | /category/focus-productivity\nMemory & Learning | /category/memory-learning\nNootropics | /category/nootropics-supplements"
 				) );
 				foreach ( $links as $link ) :
 				?>
