@@ -92,7 +92,7 @@
 							<h3 class="c-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 							<div class="c-foot">
 								<span class="c-rt"><?php echo esc_html( eb_primary_category_name() ); ?></span>
-								<a href="<?php the_permalink(); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title() ) ); ?>"><?php esc_html_e( 'Read →', 'enhancingbrain' ); ?></a>
+								<a href="<?php the_permalink(); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title() ) ); ?>"><?php esc_html_e( 'Read ->', 'enhancingbrain' ); ?></a>
 							</div>
 						</div>
 					</article>

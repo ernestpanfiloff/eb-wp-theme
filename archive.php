@@ -57,7 +57,7 @@
 					<p class="c-exc"><?php echo esc_html( get_the_excerpt() ); ?></p>
 					<div class="c-foot">
 						<span class="c-rt"><?php echo esc_html( eb_primary_category_name() ); ?></span>
-						<a href="<?php the_permalink(); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title() ) ); ?>"><?php esc_html_e( 'Read →', 'enhancingbrain' ); ?></a>
+						<a href="<?php the_permalink(); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title() ) ); ?>"><?php esc_html_e( 'Read ->', 'enhancingbrain' ); ?></a>
 					</div>
 				</div>
 			</article>
@@ -69,8 +69,8 @@
 			<?php
 			the_posts_pagination( [
 				'mid_size'  => 2,
-				'prev_text' => __( '← Previous', 'enhancingbrain' ),
-				'next_text' => __( 'Next →',     'enhancingbrain' ),
+				'prev_text' => __( '<- Previous', 'enhancingbrain' ),
+				'next_text' => __( 'Next ->', 'enhancingbrain' ),
 			] );
 			?>
 		</nav>
@@ -78,7 +78,7 @@
 		<?php else : ?>
 		<div class="no-posts">
 			<p><?php esc_html_e( 'No articles found. Check back soon.', 'enhancingbrain' ); ?></p>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="f-btn" style="display:inline-block;max-width:200px;margin-top:1rem;text-decoration:none;"><?php esc_html_e( '← Back to Home', 'enhancingbrain' ); ?></a>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="f-btn cta-inline-btn"><?php esc_html_e( '<- Back to Home', 'enhancingbrain' ); ?></a>
 		</div>
 		<?php endif; ?>
 

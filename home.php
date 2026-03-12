@@ -83,7 +83,7 @@ $all_cats      = get_categories( [ 'hide_empty' => false ] );
 		<?php else : ?>
 		<div class="no-posts">
 			<p><?php esc_html_e( 'No articles found. Check back soon.', 'enhancingbrain' ); ?></p>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="f-btn" style="display:inline-block;max-width:200px;margin-top:1rem;text-decoration:none;"><?php esc_html_e( '<- Back to Home', 'enhancingbrain' ); ?></a>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="f-btn cta-inline-btn"><?php esc_html_e( '<- Back to Home', 'enhancingbrain' ); ?></a>
 		</div>
 		<?php endif; ?>
 

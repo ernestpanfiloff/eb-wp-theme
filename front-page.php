@@ -226,7 +226,7 @@ get_header();
 						<div class="c-foot">
 							<span class="c-rt"><?php echo esc_html( eb_primary_category_name( $main->ID ) ); ?></span>
 							<a href="<?php echo esc_url( get_permalink( $main ) ); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title( $main ) ) ); ?>">
-								<?php esc_html_e( 'Read article →', 'enhancingbrain' ); ?>
+								<?php esc_html_e( 'Read ->', 'enhancingbrain' ); ?>
 							</a>
 						</div>
 					</div>
@@ -254,7 +254,7 @@ get_header();
 							<div class="c-foot">
 								<span class="c-rt"><?php echo esc_html( eb_primary_category_name( $post->ID ) ); ?></span>
 								<a href="<?php echo esc_url( get_permalink( $post ) ); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title( $post ) ) ); ?>">
-									<?php esc_html_e( 'Read →', 'enhancingbrain' ); ?>
+									<?php esc_html_e( 'Read ->', 'enhancingbrain' ); ?>
 								</a>
 							</div>
 						</div>
@@ -288,7 +288,7 @@ get_header();
 						<div class="c-foot">
 							<span class="c-rt"><?php echo esc_html( eb_primary_category_name( $post->ID ) ); ?></span>
 							<a href="<?php echo esc_url( get_permalink( $post ) ); ?>" class="c-rm" aria-label="<?php printf( esc_attr__( 'Read: %s', 'enhancingbrain' ), esc_attr( get_the_title( $post ) ) ); ?>">
-								<?php esc_html_e( 'Read →', 'enhancingbrain' ); ?>
+								<?php esc_html_e( 'Read ->', 'enhancingbrain' ); ?>
 							</a>
 						</div>
 					</div>

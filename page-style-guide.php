@@ -4,29 +4,32 @@
  * Full design system reference for Enhancing Brain.
  * Access at: /style-guide/
  */
+
+defined( 'ABSPATH' ) || exit;
+
 get_header();
 ?>
 <main id="main-content" class="sg-page">
 <div class="wrap sg-wrap">
 
-<header class="single-header" style="max-width:760px;margin:0 auto 3rem;">
-	<span class="c-mc" style="display:block;margin-bottom:.75rem;">Enhancing Brain</span>
+<header class="single-header sg-intro">
+	<span class="c-mc sg-brand">Enhancing Brain</span>
 	<h1 class="single-title">Style Guide</h1>
-	<p style="color:var(--muted);font-size:.9rem;">Brand colors, typography, cards, article blocks, and reusable UI patterns for posts and pages.</p>
+	<p class="sg-muted">Brand colors, typography, cards, article blocks, and reusable UI patterns for posts and pages.</p>
 </header>
 
 <section class="sg-section">
 	<h2>Color Palette</h2>
 	<div class="sg-swatches">
-		<div class="sg-sw" style="background:#0bbf96;"><span>#0bbf96</span><small>Accent</small></div>
-		<div class="sg-sw" style="background:#089e7d;"><span>#089e7d</span><small>Accent Dark</small></div>
-		<div class="sg-sw" style="background:#0e1420;color:#fff;"><span>#0e1420</span><small>Ink</small></div>
-		<div class="sg-sw" style="background:#4e5a6a;color:#fff;"><span>#4e5a6a</span><small>Muted</small></div>
-		<div class="sg-sw" style="background:#6b7685;color:#fff;"><span>#6b7685</span><small>Subtle</small></div>
-		<div class="sg-sw" style="background:#fafaf8;border:1px solid #e4e6ea;"><span>#fafaf8</span><small>Background</small></div>
-		<div class="sg-sw" style="background:#ffffff;border:1px solid #e4e6ea;"><span>#ffffff</span><small>White</small></div>
-		<div class="sg-sw" style="background:#f3f4f6;border:1px solid #e4e6ea;"><span>#f3f4f6</span><small>Surface</small></div>
-		<div class="sg-sw" style="background:#e4e6ea;"><span>#e4e6ea</span><small>Border</small></div>
+		<div class="sg-sw sg-sw-accent"><span>#0bbf96</span><small>Accent</small></div>
+		<div class="sg-sw sg-sw-accent-dk"><span>#089e7d</span><small>Accent Dark</small></div>
+		<div class="sg-sw sg-sw-ink"><span>#0e1420</span><small>Ink</small></div>
+		<div class="sg-sw sg-sw-muted"><span>#4e5a6a</span><small>Muted</small></div>
+		<div class="sg-sw sg-sw-subtle"><span>#6b7685</span><small>Subtle</small></div>
+		<div class="sg-sw sg-sw-bg"><span>#fafaf8</span><small>Background</small></div>
+		<div class="sg-sw sg-sw-white"><span>#ffffff</span><small>White</small></div>
+		<div class="sg-sw sg-sw-surface"><span>#f3f4f6</span><small>Surface</small></div>
+		<div class="sg-sw sg-sw-border"><span>#e4e6ea</span><small>Border</small></div>
 	</div>
 </section>
 
@@ -47,26 +50,26 @@ get_header();
 
 <section class="sg-section">
 	<h2>Buttons and CTAs</h2>
-	<div class="sg-row" style="gap:1rem;flex-wrap:wrap;">
-		<button class="f-btn" style="display:inline-flex;width:auto;padding:.75rem 1rem;">
+	<div class="sg-row sg-row-wide">
+		<button class="f-btn sg-f-btn-inline">
 			<span class="btn-ico" aria-hidden="true">
 				<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>
 			</span>
-			<span>Get the Free Newsletter &rarr;</span>
+			<span>Get the Free Newsletter -&gt;</span>
 		</button>
 		<a href="#" class="nav-cta">
 			<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>
 			Newsletter CTA
 		</a>
-		<a href="#" class="lm-btn" style="display:inline-block;">Download Resource &rarr;</a>
-		<a href="#" class="sh-link">View all &rarr;</a>
-		<a href="#" class="c-rm">Read &rarr;</a>
+		<a href="#" class="lm-btn sg-link-inline">Download Resource -&gt;</a>
+		<a href="#" class="sh-link">View all -&gt;</a>
+		<a href="#" class="c-rm">Read -&gt;</a>
 	</div>
 </section>
 
 <section class="sg-section">
 	<h2>Pills, Badges, Labels</h2>
-	<div class="sg-row" style="flex-wrap:wrap;gap:.5rem;">
+	<div class="sg-row sg-row-compact">
 		<span class="hero-pill">Science-backed</span>
 		<span class="hero-pill">Primary Sources</span>
 		<span class="hero-pill">No Hype</span>
@@ -120,20 +123,20 @@ get_header();
 				<p class="c-exc"><?php the_excerpt(); ?></p>
 				<div class="c-foot">
 					<span class="c-rt"><?php echo esc_html( eb_primary_category_name( get_the_ID() ) ); ?></span>
-					<a href="<?php the_permalink(); ?>" class="c-rm">Read &rarr;</a>
+					<a href="<?php the_permalink(); ?>" class="c-rm">Read -&gt;</a>
 				</div>
 			</div>
 		</article>
 		<?php endwhile; wp_reset_postdata();
 		else : ?>
-		<p style="color:var(--muted);">Publish some posts to preview this section.</p>
+		<p class="sg-muted">Publish some posts to preview this section.</p>
 		<?php endif; ?>
 	</div>
 </section>
 
 <section class="sg-section">
 	<h2>Post Content Elements</h2>
-	<div class="single-content" style="max-width:760px;">
+	<div class="single-content sg-single">
 		<h2>Heading 2 in Content</h2>
 		<p>Standard paragraph with <a href="#">inline link</a>, <strong>bold emphasis</strong>, and <code>inline code</code>.</p>
 		<h3>Heading 3 in Content</h3>
@@ -170,31 +173,4 @@ get_header();
 </div>
 </main>
 
-<style>
-.sg-page { padding: 3rem 0 5rem; }
-.sg-wrap { max-width: 1100px; }
-.sg-section { margin-bottom: 4rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
-.sg-section:last-child { border-bottom: none; }
-.sg-section > h2 { font-size: 1.1rem; font-family: var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
-.sg-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: .75rem; }
-.sg-sw { border-radius: 6px; padding: 1.25rem .75rem .75rem; min-height: 90px; display: flex; flex-direction: column; justify-content: flex-end; }
-.sg-sw span { font-family: var(--mono); font-size: .72rem; display: block; margin-bottom: .15rem; }
-.sg-sw small { font-size: .68rem; opacity: .72; }
-.sg-type h1, .sg-type h2, .sg-type h3, .sg-type h4 { margin-bottom: .75rem; }
-.sg-type p, .sg-type blockquote { margin-bottom: 1rem; }
-.sg-row { display: flex; align-items: center; }
-.sg-page .single-content ul,
-.sg-page .single-content ol {
-	padding-left: 1.2rem;
-	margin: 0.25rem 0 1.1rem;
-}
-.sg-page .single-content ul { list-style: disc; }
-.sg-page .single-content ol { list-style: decimal; }
-.sg-page .single-content li { margin-bottom: 0.35rem; }
-@media (max-width: 900px) {
-	.sg-page { padding-top: 2rem; }
-}
-</style>
-
 <?php get_footer(); ?>
-
