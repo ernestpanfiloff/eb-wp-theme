@@ -141,17 +141,40 @@
 
     btn.addEventListener('click', function() {
       if (btn.getAttribute('aria-expanded') === 'true') return;
+      if (btn.dataset.revealing === '1') return;
+      btn.dataset.revealing = '1';
 
       var user = decodeChars([104, 117, 113, 104, 118, 119], 3);
       var host = decodeChars([103, 112, 106, 99, 112, 101, 107, 112, 105, 100, 116, 99, 107, 112, 48, 101, 113, 111], 2);
       var email = user + '@' + host;
 
+      var seconds = 5;
+      btn.disabled = true;
+      btn.textContent = 'Revealing email in: ' + seconds + 's';
       link.textContent = email;
-      link.setAttribute('href', 'mailto:' + email);
       link.classList.remove('method-obfuscated');
-      link.setAttribute('aria-label', 'Send email to ' + user);
-      btn.setAttribute('aria-expanded', 'true');
-      btn.textContent = 'Email revealed';
+      link.classList.add('method-revealing');
+      link.removeAttribute('href');
+
+      var timer = window.setInterval(function() {
+        seconds -= 1;
+        if (seconds > 0) {
+          btn.textContent = 'Revealing email in: ' + seconds + 's';
+          return;
+        }
+        window.clearInterval(timer);
+
+        link.setAttribute('href', 'mailto:' + email);
+        link.classList.remove('method-revealing');
+        link.classList.add('method-revealed');
+        link.setAttribute('aria-label', 'Send email to ' + user);
+
+        btn.setAttribute('aria-expanded', 'true');
+        btn.classList.add('is-fading');
+        window.setTimeout(function() {
+          btn.remove();
+        }, 360);
+      }, 1000);
     });
   });
 
