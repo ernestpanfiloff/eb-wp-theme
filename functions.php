@@ -449,11 +449,31 @@ function eb_handle_contact_submit(): void {
 		'Content-Type: text/plain; charset=UTF-8',
 	];
 
+	$mail_error_message = '';
+	$mail_failed_hook   = static function( $error ) use ( &$mail_error_message ): void {
+		if ( $error instanceof WP_Error ) {
+			$mail_error_message = $error->get_error_message();
+		}
+	};
+	add_action( 'wp_mail_failed', $mail_failed_hook, 10, 1 );
 	$sent = wp_mail( $recipient, $subject, $body, $headers );
-	if ( ! $sent && defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-		error_log( 'EnhancingBrain contact form mail failed for recipient: ' . $recipient );
+	remove_action( 'wp_mail_failed', $mail_failed_hook, 10 );
+
+	if ( ! $sent ) {
+		$log_context = 'EnhancingBrain contact form mail failed for recipient: ' . $recipient;
+		if ( $mail_error_message !== '' ) {
+			set_transient( 'eb_contact_last_mail_error', sanitize_text_field( $mail_error_message ), 10 * MINUTE_IN_SECONDS );
+			$log_context .= ' | reason: ' . $mail_error_message;
+		}
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			error_log( $log_context );
+		}
+		wp_safe_redirect( add_query_arg( 'contact_status', 'mailfail', $target ) );
+		exit;
 	}
-	wp_safe_redirect( add_query_arg( 'contact_status', $sent ? 'sent' : 'error', $target ) );
+
+	delete_transient( 'eb_contact_last_mail_error' );
+	wp_safe_redirect( add_query_arg( 'contact_status', 'sent', $target ) );
 	exit;
 }
 add_action( 'admin_post_eb_contact_submit', 'eb_handle_contact_submit' );

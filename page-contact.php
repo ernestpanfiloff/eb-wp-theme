@@ -77,6 +77,14 @@ get_header();
 					<p class="contact-alert contact-alert-ok"><?php esc_html_e( 'Thanks, your message was sent successfully.', 'enhancingbrain' ); ?></p>
 				<?php elseif ( $status === 'short' ) : ?>
 					<p class="contact-alert contact-alert-err"><?php esc_html_e( 'Please write at least 30 characters in your message.', 'enhancingbrain' ); ?></p>
+				<?php elseif ( $status === 'mailfail' ) : ?>
+					<p class="contact-alert contact-alert-err"><?php esc_html_e( 'Your message could not be delivered by the server mailer. Please try again later or email us directly.', 'enhancingbrain' ); ?></p>
+					<?php
+					$last_mail_error = get_transient( 'eb_contact_last_mail_error' );
+					if ( current_user_can( 'manage_options' ) && is_string( $last_mail_error ) && $last_mail_error !== '' ) :
+					?>
+						<p class="contact-alert contact-alert-err"><strong><?php esc_html_e( 'Delivery debug:', 'enhancingbrain' ); ?></strong> <?php echo esc_html( $last_mail_error ); ?></p>
+					<?php endif; ?>
 				<?php elseif ( $status === 'error' ) : ?>
 					<p class="contact-alert contact-alert-err"><?php esc_html_e( 'Sorry, we could not send your message. Please try again.', 'enhancingbrain' ); ?></p>
 				<?php endif; ?>
