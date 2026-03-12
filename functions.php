@@ -197,6 +197,43 @@ function eb_redirect_legacy_articles_slug(): void {
 }
 add_action( 'template_redirect', 'eb_redirect_legacy_articles_slug', 1 );
 
+/**
+ * Render legal templates for known slugs even if the WP Page was not created yet.
+ */
+function eb_legal_slug_template_fallback( $template ) {
+	if ( is_admin() || ! is_404() ) {
+		return $template;
+	}
+
+	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? wp_unslash( $_SERVER['REQUEST_URI'] ) : '/';
+	$req_path    = wp_parse_url( home_url( $request_uri ), PHP_URL_PATH );
+	if ( ! is_string( $req_path ) || $req_path === '' ) {
+		return $template;
+	}
+
+	$map = [
+		'/affiliate-disclaimer' => EB_DIR . '/page-affiliate-disclaimer.php',
+		'/privacy-policy'       => EB_DIR . '/page-privacy-policy.php',
+		'/terms-and-conditions' => EB_DIR . '/page-terms-and-conditions.php',
+	];
+
+	foreach ( $map as $slug => $file ) {
+		$slug_path = wp_parse_url( home_url( $slug ), PHP_URL_PATH );
+		if ( ! is_string( $slug_path ) ) {
+			continue;
+		}
+		if ( trailingslashit( $req_path ) === trailingslashit( $slug_path ) && file_exists( $file ) ) {
+			global $wp_query;
+			$wp_query->is_404 = false;
+			status_header( 200 );
+			return $file;
+		}
+	}
+
+	return $template;
+}
+add_filter( 'template_include', 'eb_legal_slug_template_fallback', 20 );
+
 function eb_body_classes( $classes ) {
 	if ( is_singular() ) $classes[] = 'is-singular';
 	return $classes;
