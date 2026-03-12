@@ -413,6 +413,7 @@ function eb_handle_contact_submit(): void {
 	$name    = isset( $_POST['name'] ) ? sanitize_text_field( wp_unslash( $_POST['name'] ) ) : '';
 	$email   = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
 	$message = isset( $_POST['message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['message'] ) ) : '';
+	$message_len = function_exists( 'wp_strlen' ) ? wp_strlen( $message ) : strlen( $message );
 
 	$target = wp_get_referer();
 	if ( ! is_string( $target ) || $target === '' ) {
@@ -422,15 +423,36 @@ function eb_handle_contact_submit(): void {
 		wp_safe_redirect( add_query_arg( 'contact_status', 'error', $target ) );
 		exit;
 	}
+	if ( $message_len < 30 ) {
+		wp_safe_redirect( add_query_arg( 'contact_status', 'short', $target ) );
+		exit;
+	}
+
+	$recipient = sanitize_email( (string) get_option( 'admin_email' ) );
+	if ( ! is_email( $recipient ) ) {
+		wp_safe_redirect( add_query_arg( 'contact_status', 'error', $target ) );
+		exit;
+	}
 
 	$site_name = (string) get_bloginfo( 'name' );
+	$site_host = (string) wp_parse_url( home_url(), PHP_URL_HOST );
+	$site_host = preg_replace( '/^www\./', '', strtolower( $site_host ) );
+	$from_addr = is_string( $site_host ) && $site_host !== '' ? 'no-reply@' . $site_host : 'wordpress@localhost';
 	$subject   = sprintf( '[%s] Contact form message', $site_name );
 	$body      = "Name: {$name}\n";
 	$body     .= "Email: {$email}\n\n";
 	$body     .= "Message:\n{$message}\n";
-	$headers   = [ 'Reply-To: ' . $name . ' <' . $email . '>' ];
+	$reply_to_name = $name !== '' ? $name : 'Website Visitor';
+	$headers       = [
+		'From: ' . $site_name . ' <' . sanitize_email( $from_addr ) . '>',
+		'Reply-To: ' . $reply_to_name . ' <' . $email . '>',
+		'Content-Type: text/plain; charset=UTF-8',
+	];
 
-	$sent = wp_mail( get_option( 'admin_email' ), $subject, $body, $headers );
+	$sent = wp_mail( $recipient, $subject, $body, $headers );
+	if ( ! $sent && defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+		error_log( 'EnhancingBrain contact form mail failed for recipient: ' . $recipient );
+	}
 	wp_safe_redirect( add_query_arg( 'contact_status', $sent ? 'sent' : 'error', $target ) );
 	exit;
 }

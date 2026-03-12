@@ -75,6 +75,8 @@ get_header();
 				if ( $status === 'sent' ) :
 				?>
 					<p class="contact-alert contact-alert-ok"><?php esc_html_e( 'Thanks, your message was sent successfully.', 'enhancingbrain' ); ?></p>
+				<?php elseif ( $status === 'short' ) : ?>
+					<p class="contact-alert contact-alert-err"><?php esc_html_e( 'Please write at least 30 characters in your message.', 'enhancingbrain' ); ?></p>
 				<?php elseif ( $status === 'error' ) : ?>
 					<p class="contact-alert contact-alert-err"><?php esc_html_e( 'Sorry, we could not send your message. Please try again.', 'enhancingbrain' ); ?></p>
 				<?php endif; ?>
@@ -85,7 +87,7 @@ get_header();
 					<div class="form-row">
 						<div class="form-field">
 							<label for="contact-name"><?php esc_html_e( 'First name', 'enhancingbrain' ); ?></label>
-							<input id="contact-name" type="text" name="name" placeholder="<?php esc_attr_e( 'Your first name', 'enhancingbrain' ); ?>" autocomplete="given-name" />
+							<input id="contact-name" type="text" name="name" placeholder="<?php esc_attr_e( 'Your first name', 'enhancingbrain' ); ?>" autocomplete="given-name" required />
 						</div>
 						<div class="form-field">
 							<label for="contact-email"><?php esc_html_e( 'Email address', 'enhancingbrain' ); ?></label>
@@ -94,7 +96,7 @@ get_header();
 					</div>
 					<div class="form-field">
 						<label for="contact-message"><?php esc_html_e( 'Message', 'enhancingbrain' ); ?></label>
-						<textarea id="contact-message" name="message" placeholder="<?php esc_attr_e( "Tell us what's on your mind...", 'enhancingbrain' ); ?>" rows="6"></textarea>
+						<textarea id="contact-message" name="message" placeholder="<?php esc_attr_e( "Tell us what's on your mind...", 'enhancingbrain' ); ?>" rows="6" minlength="30" required></textarea>
 					</div>
 					<button type="submit" class="f-btn"><?php esc_html_e( 'Send message', 'enhancingbrain' ); ?></button>
 					<p class="form-disclaimer"><?php esc_html_e( 'We respect your privacy. Your info is never shared or sold.', 'enhancingbrain' ); ?></p>
