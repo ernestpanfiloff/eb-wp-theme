@@ -100,6 +100,7 @@
 				$links = eb_parse_menu_items( $raw_links );
 				$has_affiliate_disclaimer = false;
 				$has_privacy_policy = false;
+				$has_terms_conditions = false;
 				foreach ( $links as $link ) :
 					$link_label = strtolower( trim( (string) ( $link['label'] ?? '' ) ) );
 					$link_url   = strtolower( trim( (string) ( $link['url'] ?? '' ) ) );
@@ -109,11 +110,17 @@
 					if ( strpos( $link_label, 'privacy policy' ) !== false || strpos( $link_url, '/privacy-policy' ) !== false ) {
 						$has_privacy_policy = true;
 					}
+					if ( strpos( $link_label, 'terms & conditions' ) !== false || strpos( $link_label, 'terms and conditions' ) !== false || strpos( $link_url, '/terms-and-conditions' ) !== false ) {
+						$has_terms_conditions = true;
+					}
 				?>
 				<li><a href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['label'] ); ?></a></li>
 				<?php endforeach; ?>
 				<?php if ( ! $has_privacy_policy ) : ?>
 				<li><a href="<?php echo esc_url( home_url( '/privacy-policy' ) ); ?>"><?php esc_html_e( 'Privacy Policy', 'enhancingbrain' ); ?></a></li>
+				<?php endif; ?>
+				<?php if ( ! $has_terms_conditions ) : ?>
+				<li><a href="<?php echo esc_url( home_url( '/terms-and-conditions' ) ); ?>"><?php esc_html_e( 'Terms & Conditions', 'enhancingbrain' ); ?></a></li>
 				<?php endif; ?>
 				<?php if ( ! $has_affiliate_disclaimer ) : ?>
 				<li><a href="<?php echo esc_url( home_url( '/affiliate-disclaimer' ) ); ?>"><?php esc_html_e( 'Affiliate Disclaimer', 'enhancingbrain' ); ?></a></li>
