@@ -1281,3 +1281,94 @@ mark, .eb-hi {
   font-weight: 700;
   letter-spacing: -0.01em;
 }
+
+/* Disclaimer page */
+.disclaimer-page { padding-bottom: 4rem; }
+.disclaimer-main { padding-top: 2.6rem; }
+.disclaimer-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.disclaimer-content ul { list-style: disc; }
+.disclaimer-content ol { list-style: decimal; }
+
+.disclaimer-callout {
+  background: var(--accent-lt);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  margin: 1.75rem 0;
+}
+.disclaimer-callout p {
+  color: var(--ink);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.disclaimer-warn {
+  margin: 1.75rem 0;
+  background: rgba(184,112,16,0.07);
+  border-left-color: var(--warn);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+}
+.disclaimer-warn p { margin: 0; }
+.disclaimer-warn strong { color: #7e4d09; }
+
+.disclaimer-evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.65rem;
+  margin: 1.5rem 0;
+}
+.disclaimer-evidence-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+}
+.disclaimer-evidence-card strong {
+  display: block;
+  font-family: var(--head);
+  font-size: 1.02rem;
+  color: var(--ink);
+  margin-bottom: 0.15rem;
+}
+.disclaimer-evidence-card span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.disclaimer-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+.disclaimer-signature {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+}
+.disclaimer-signature-name {
+  font-family: var(--head);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.disclaimer-signature-role {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-dk);
+}
+
+@media (max-width: 600px) {
+  .disclaimer-main { padding-top: 1.7rem; }
+}

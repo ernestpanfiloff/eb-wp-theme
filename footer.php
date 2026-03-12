@@ -98,10 +98,19 @@
 					$raw_links = $new_default;
 				}
 				$links = eb_parse_menu_items( $raw_links );
+				$has_affiliate_disclaimer = false;
 				foreach ( $links as $link ) :
+					$link_label = strtolower( trim( (string) ( $link['label'] ?? '' ) ) );
+					$link_url   = strtolower( trim( (string) ( $link['url'] ?? '' ) ) );
+					if ( strpos( $link_label, 'affiliate disclaimer' ) !== false || strpos( $link_url, '/affiliate-disclaimer' ) !== false ) {
+						$has_affiliate_disclaimer = true;
+					}
 				?>
 				<li><a href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['label'] ); ?></a></li>
 				<?php endforeach; ?>
+				<?php if ( ! $has_affiliate_disclaimer ) : ?>
+				<li><a href="<?php echo esc_url( home_url( '/affiliate-disclaimer' ) ); ?>"><?php esc_html_e( 'Affiliate Disclaimer', 'enhancingbrain' ); ?></a></li>
+				<?php endif; ?>
 			</ul>
 		</div>
 		<?php endif; ?>
