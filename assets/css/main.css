@@ -677,6 +677,11 @@ mark, .eb-hi {
 }
 .lm-b  { height: 3px; background: rgba(11,191,150,0.18); border-radius: 2px; width: 34px; overflow: hidden; }
 .lm-bf { height: 100%; background: var(--accent); border-radius: 2px; }
+.lm-bf-75  { width: 75%; }
+.lm-bf-80  { width: 80%; }
+.lm-bf-85  { width: 85%; }
+.lm-bf-90  { width: 90%; }
+.lm-bf-100 { width: 100%; }
 
 /* ══════════════════════════════════════════
    TOPICS GRID

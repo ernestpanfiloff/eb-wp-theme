@@ -337,11 +337,11 @@ get_header();
 						<div class="lm-pt">The Brain Stack</div>
 						<div class="lm-ps">11 core nutrients</div>
 						<div class="lm-ns">
-							<div class="lm-n">Omega-3 DHA<div class="lm-b"><div class="lm-bf" style="width:90%"></div></div></div>
-							<div class="lm-n">Lion's Mane<div class="lm-b"><div class="lm-bf" style="width:75%"></div></div></div>
-							<div class="lm-n">Bacopa<div class="lm-b"><div class="lm-bf" style="width:80%"></div></div></div>
-							<div class="lm-n">Magnesium<div class="lm-b"><div class="lm-bf" style="width:85%"></div></div></div>
-							<div class="lm-n">+ 7 more...<div class="lm-b"><div class="lm-bf" style="width:100%"></div></div></div>
+							<div class="lm-n">Omega-3 DHA<div class="lm-b"><div class="lm-bf lm-bf-90"></div></div></div>
+							<div class="lm-n">Lion's Mane<div class="lm-b"><div class="lm-bf lm-bf-75"></div></div></div>
+							<div class="lm-n">Bacopa<div class="lm-b"><div class="lm-bf lm-bf-80"></div></div></div>
+							<div class="lm-n">Magnesium<div class="lm-b"><div class="lm-bf lm-bf-85"></div></div></div>
+							<div class="lm-n">+ 7 more...<div class="lm-b"><div class="lm-bf lm-bf-100"></div></div></div>
 						</div>
 					</div>
 				</div>
