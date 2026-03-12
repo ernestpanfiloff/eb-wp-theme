@@ -935,7 +935,7 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
   pointer-events: none;
 }
 .contact-hero .wrap {
-  text-align: left;
+  text-align: center;
   position: relative;
   z-index: 1;
 }
@@ -959,7 +959,7 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
   font-size: 0.92rem;
   color: rgba(255,255,255,0.62);
   max-width: 650px;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .contact-main { padding-top: 2.6rem; }
@@ -968,8 +968,8 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
   grid-template-columns: 1fr;
   gap: 1.25rem;
   align-items: start;
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
 }
 .contact-info {
   display: flex;
