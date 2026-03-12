@@ -130,4 +130,29 @@
     });
   });
 
+  /* Email reveal (keeps address out of initial page source) */
+  function decodeChars(chars, shift) {
+    return chars.map(function(code) { return String.fromCharCode(code - shift); }).join('');
+  }
+  document.querySelectorAll('[data-email-reveal]').forEach(function(block) {
+    var btn = block.querySelector('[data-reveal-email]');
+    var link = block.querySelector('[data-email-link]');
+    if (!btn || !link) return;
+
+    btn.addEventListener('click', function() {
+      if (btn.getAttribute('aria-expanded') === 'true') return;
+
+      var user = decodeChars([104, 117, 113, 104, 118, 119], 3);
+      var host = decodeChars([103, 112, 106, 99, 112, 101, 107, 112, 105, 100, 116, 99, 107, 112, 48, 101, 113, 111], 2);
+      var email = user + '@' + host;
+
+      link.textContent = email;
+      link.setAttribute('href', 'mailto:' + email);
+      link.classList.remove('method-obfuscated');
+      link.setAttribute('aria-label', 'Send email to ' + user);
+      btn.setAttribute('aria-expanded', 'true');
+      btn.textContent = 'Email revealed';
+    });
+  });
+
 })();

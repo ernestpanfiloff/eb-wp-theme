@@ -41,6 +41,10 @@ get_header();
 						<span class="method-label"><?php esc_html_e( 'Email', 'enhancingbrain' ); ?></span>
 						<div class="method-title"><?php esc_html_e( 'Drop us an email', 'enhancingbrain' ); ?></div>
 						<p class="method-desc"><?php esc_html_e( 'Best for collaboration requests, partnerships, detailed questions, or anything that needs a thorough reply.', 'enhancingbrain' ); ?></p>
+						<div class="method-email-block" data-email-reveal>
+							<a href="#" class="method-link method-email-link method-obfuscated" data-email-link rel="nofollow"><?php esc_html_e( 'e•••••@••••••••••••.com', 'enhancingbrain' ); ?></a>
+							<button type="button" class="email-reveal-btn" data-reveal-email aria-expanded="false"><?php esc_html_e( 'Reveal email', 'enhancingbrain' ); ?></button>
+						</div>
 					</div>
 				</div>
 
@@ -66,50 +70,6 @@ get_header();
 				</div>
 			</aside>
 
-			<div class="form-panel">
-				<span class="contact-label"><?php esc_html_e( 'Message', 'enhancingbrain' ); ?></span>
-				<h2><?php esc_html_e( 'Send us a message', 'enhancingbrain' ); ?></h2>
-				<p><?php esc_html_e( "Fill in the form below and we'll get back to you as soon as possible.", 'enhancingbrain' ); ?></p>
-				<?php
-				$status = isset( $_GET['contact_status'] ) ? sanitize_key( wp_unslash( $_GET['contact_status'] ) ) : '';
-				if ( $status === 'sent' ) :
-				?>
-					<p class="contact-alert contact-alert-ok"><?php esc_html_e( 'Thanks, your message was sent successfully.', 'enhancingbrain' ); ?></p>
-				<?php elseif ( $status === 'short' ) : ?>
-					<p class="contact-alert contact-alert-err"><?php esc_html_e( 'Please write at least 30 characters in your message.', 'enhancingbrain' ); ?></p>
-				<?php elseif ( $status === 'mailfail' ) : ?>
-					<p class="contact-alert contact-alert-err"><?php esc_html_e( 'Your message could not be delivered by the server mailer. Please try again later or email us directly.', 'enhancingbrain' ); ?></p>
-					<?php
-					$last_mail_error = get_transient( 'eb_contact_last_mail_error' );
-					if ( current_user_can( 'manage_options' ) && is_string( $last_mail_error ) && $last_mail_error !== '' ) :
-					?>
-						<p class="contact-alert contact-alert-err"><strong><?php esc_html_e( 'Delivery debug:', 'enhancingbrain' ); ?></strong> <?php echo esc_html( $last_mail_error ); ?></p>
-					<?php endif; ?>
-				<?php elseif ( $status === 'error' ) : ?>
-					<p class="contact-alert contact-alert-err"><?php esc_html_e( 'Sorry, we could not send your message. Please try again.', 'enhancingbrain' ); ?></p>
-				<?php endif; ?>
-
-				<form class="contact-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-					<input type="hidden" name="action" value="eb_contact_submit" />
-					<?php wp_nonce_field( 'eb_contact_submit', 'eb_contact_nonce' ); ?>
-					<div class="form-row">
-						<div class="form-field">
-							<label for="contact-name"><?php esc_html_e( 'First name', 'enhancingbrain' ); ?></label>
-							<input id="contact-name" type="text" name="name" placeholder="<?php esc_attr_e( 'Your first name', 'enhancingbrain' ); ?>" autocomplete="given-name" required />
-						</div>
-						<div class="form-field">
-							<label for="contact-email"><?php esc_html_e( 'Email address', 'enhancingbrain' ); ?></label>
-							<input id="contact-email" type="email" name="email" placeholder="<?php esc_attr_e( 'you@example.com', 'enhancingbrain' ); ?>" autocomplete="email" required />
-						</div>
-					</div>
-					<div class="form-field">
-						<label for="contact-message"><?php esc_html_e( 'Message', 'enhancingbrain' ); ?></label>
-						<textarea id="contact-message" name="message" placeholder="<?php esc_attr_e( "Tell us what's on your mind...", 'enhancingbrain' ); ?>" rows="6" minlength="30" required></textarea>
-					</div>
-					<button type="submit" class="f-btn"><?php esc_html_e( 'Send message', 'enhancingbrain' ); ?></button>
-					<p class="form-disclaimer"><?php esc_html_e( 'We respect your privacy. Your info is never shared or sold.', 'enhancingbrain' ); ?></p>
-				</form>
-			</div>
 		</div>
 	</section>
 

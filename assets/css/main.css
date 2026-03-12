@@ -965,9 +965,11 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
 .contact-main { padding-top: 2.6rem; }
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.45fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   align-items: start;
+  max-width: 860px;
+  margin: 0 auto;
 }
 .contact-info {
   display: flex;
@@ -1044,6 +1046,44 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
   font-size: 0.8rem;
   color: var(--accent-dk);
   font-weight: 600;
+}
+.method-email-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.7rem;
+  margin-top: 0.55rem;
+}
+.method-email-link {
+  margin-top: 0;
+  text-decoration: none;
+}
+.method-obfuscated {
+  filter: blur(3.6px);
+  user-select: none;
+  pointer-events: none;
+}
+.email-reveal-btn {
+  appearance: none;
+  border: 1px solid var(--border-dk);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.63rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.44rem 0.72rem;
+  cursor: pointer;
+}
+.email-reveal-btn:hover {
+  border-color: var(--accent-dk);
+  color: var(--accent-dk);
+}
+.email-reveal-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(11,191,150,0.18);
 }
 
 .resp-note {
