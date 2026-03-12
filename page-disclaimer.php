@@ -28,7 +28,7 @@ get_header();
 				<h2><?php esc_html_e( 'The short version', 'enhancingbrain' ); ?></h2>
 				<p><?php esc_html_e( "Some links on this site are affiliate links. If you buy something through one of my links, I may earn a small commission. It costs you nothing extra. The price is exactly the same as if you went directly to the brand's website.", 'enhancingbrain' ); ?></p>
 
-				<div class="disclaimer-callout">
+				<div class="callout callout--note">
 					<p><?php esc_html_e( 'Using my referral links is one of the easiest ways to support this project at zero additional cost to you. It keeps the content free, the newsletter going, and me researching the science full time. I genuinely appreciate it.', 'enhancingbrain' ); ?></p>
 				</div>
 
@@ -45,7 +45,7 @@ get_header();
 				<h2><?php esc_html_e( 'A real example of what I will not promote', 'enhancingbrain' ); ?></h2>
 				<p><?php esc_html_e( 'Brain training apps are one of the most aggressively marketed products in cognitive health. They promise sharper memory, better focus, and protection against decline. The problem is that for most of these claims, the science simply does not back them up.', 'enhancingbrain' ); ?></p>
 
-				<aside class="eb-disclaimer disclaimer-warn" role="note">
+				<aside class="callout callout--warn" role="note">
 					<p>
 						<strong><?php esc_html_e( 'Lumosity', 'enhancingbrain' ); ?></strong>
 						<?php esc_html_e( 'was fined', 'enhancingbrain' ); ?>

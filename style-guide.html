@@ -44,7 +44,7 @@
     .card-sm,
     .card-h,
     .sg-block,
-    .sg-callout,
+    .callout,
     .sg-stat,
     .sg-form input {
       border-radius: 6px !important;
@@ -75,11 +75,6 @@
     .sg-swatch-surface { background: #f3f4f6; }
     .sg-type > * + * { margin-top: .65rem; }
     .sg-row { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
-    .sg-callout { padding: .9rem 1rem; border-radius: var(--radius); border-left: 4px solid; }
-    .sg-callout.note { border-left-color: var(--accent); background: var(--accent-lt); color: #0b5f4e; }
-    .sg-callout.tip { border-left-color: var(--sg-info); background: var(--sg-info-bg); color: var(--sg-info-ink); }
-    .sg-callout.warn { border-left-color: var(--warn); background: rgba(184,112,16,.10); color: #7e4d09; }
-    .sg-callout.editorial { border-left-color: var(--sg-editorial); background: var(--sg-editorial-bg); color: var(--sg-editorial-ink); }
     .sg-callout-stack { display: grid; gap: .6rem; }
     .sg-quote-block {
       border: 1px solid var(--border);
@@ -207,7 +202,7 @@
           <h3>H3: Focus, memory, and long-term brain health</h3>
           <p>Body: Plus Jakarta Sans with high readability and calm contrast.</p>
           <p><strong>Strong text</strong>, <em>emphasis text</em>, and <code>inline code</code> examples.</p>
-          <div class="sg-callout note sg-space-top-md">
+          <div class="callout callout--note sg-space-top-md">
             <p><strong>Font Stack</strong></p>
             <p>Headings: Outfit</p>
             <p>Accent italic highlight: Playfair Display</p>
@@ -251,10 +246,10 @@
         <section class="sg-block">
           <h2>Callout Blocks</h2>
           <div class="sg-callout-stack">
-            <aside class="sg-callout note"><p>Clinical note: this content is educational and not individual medical advice.</p></aside>
-            <aside class="sg-callout tip"><p>Implementation note: prioritize sleep, training, and nutrition before stacking supplements.</p></aside>
-            <aside class="sg-callout warn"><p>Warning callout variant for caution or contraindication context.</p></aside>
-            <aside class="sg-callout editorial"><p>Editorial note: include sources and confidence level whenever guidance could affect health decisions.</p></aside>
+            <aside class="callout callout--note"><p>Clinical note: this content is educational and not individual medical advice.</p></aside>
+            <aside class="callout callout--tip"><p>Implementation note: prioritize sleep, training, and nutrition before stacking supplements.</p></aside>
+            <aside class="callout callout--warn"><p>Warning callout variant for caution or contraindication context.</p></aside>
+            <aside class="callout callout--editorial"><p>Editorial note: include sources and confidence level whenever guidance could affect health decisions.</p></aside>
           </div>
         </section>
 

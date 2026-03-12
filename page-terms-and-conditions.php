@@ -31,7 +31,7 @@ get_header();
 				<h2><?php esc_html_e( 'Educational purpose only', 'enhancingbrain' ); ?></h2>
 				<p><?php esc_html_e( 'All content is provided for informational and educational purposes only. Nothing on this site is medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional before making health-related decisions.', 'enhancingbrain' ); ?></p>
 
-				<div class="disclaimer-callout">
+				<div class="callout callout--note">
 					<p><?php esc_html_e( 'Using this site does not create a doctor-patient or professional advisory relationship.', 'enhancingbrain' ); ?></p>
 				</div>
 
@@ -52,7 +52,7 @@ get_header();
 				<h2><?php esc_html_e( 'No guarantees', 'enhancingbrain' ); ?></h2>
 				<p><?php esc_html_e( 'We strive to provide accurate and up-to-date information, but we make no warranties or guarantees regarding completeness, reliability, or results from using information on this site.', 'enhancingbrain' ); ?></p>
 
-				<aside class="eb-disclaimer disclaimer-warn" role="note">
+				<aside class="callout callout--warn" role="note">
 					<p><?php esc_html_e( 'Any reliance on information from this site is solely at your own discretion and risk.', 'enhancingbrain' ); ?></p>
 				</aside>
 

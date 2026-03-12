@@ -165,7 +165,7 @@ get_header();
 
 <section class="sg-section">
 	<h2>Disclaimer Block</h2>
-	<aside class="eb-disclaimer" role="note">
+	<aside class="callout callout--warn" role="note">
 		<p><?php echo esc_html( get_theme_mod( 'eb_disclaimer_text', 'Not medical advice. For educational purposes only. Always consult a qualified healthcare professional before making changes to your health.' ) ); ?></p>
 	</aside>
 </section>

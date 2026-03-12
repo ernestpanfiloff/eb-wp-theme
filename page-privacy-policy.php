@@ -28,7 +28,7 @@ get_header();
 				<h2><?php esc_html_e( 'Overview', 'enhancingbrain' ); ?></h2>
 				<p><?php esc_html_e( 'This Privacy Policy explains what information we collect on Enhancing Brain, how we use it, and what choices you have. We only collect what we need to run the site, send requested updates, and improve the experience.', 'enhancingbrain' ); ?></p>
 
-				<div class="disclaimer-callout">
+				<div class="callout callout--note">
 					<p><?php esc_html_e( 'Your trust matters. We do not sell your personal data.', 'enhancingbrain' ); ?></p>
 				</div>
 
@@ -57,7 +57,7 @@ get_header();
 				<h2><?php esc_html_e( 'Affiliate links and third-party services', 'enhancingbrain' ); ?></h2>
 				<p><?php esc_html_e( 'Some pages may contain affiliate links. If you click a third-party link, you leave this site and are subject to that third party’s privacy policy and terms. We are not responsible for third-party practices.', 'enhancingbrain' ); ?></p>
 
-				<aside class="eb-disclaimer disclaimer-warn" role="note">
+				<aside class="callout callout--warn" role="note">
 					<p><?php esc_html_e( 'Third-party platforms (for example newsletter providers, analytics services, social media platforms, and affiliate networks) may process data under their own policies.', 'enhancingbrain' ); ?></p>
 				</aside>
 

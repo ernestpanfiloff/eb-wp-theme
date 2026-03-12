@@ -118,7 +118,7 @@ add_shortcode( 'eb_highlight', 'eb_highlight_shortcode' );
 
 function eb_disclaimer_shortcode( $atts ) {
 	$text = get_theme_mod( 'eb_disclaimer_text', 'Not medical advice. For educational purposes only. Always consult a qualified healthcare professional before making changes to your health.' );
-	return '<aside class="eb-disclaimer" role="note"><p>' . esc_html( $text ) . '</p></aside>';
+	return '<aside class="callout callout--warn" role="note"><p>' . esc_html( $text ) . '</p></aside>';
 }
 add_shortcode( 'eb_disclaimer', 'eb_disclaimer_shortcode' );
 
