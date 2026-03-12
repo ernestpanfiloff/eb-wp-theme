@@ -968,8 +968,8 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
   grid-template-columns: 1fr;
   gap: 1.25rem;
   align-items: start;
-  max-width: 980px;
-  margin: 0;
+  max-width: 900px;
+  margin: 0 auto;
 }
 .contact-info {
   display: flex;
@@ -1085,13 +1085,20 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
   background: var(--white);
   color: var(--ink);
   font-family: var(--mono);
-  font-size: 0.63rem;
+  font-size: 0.57rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 700;
-  padding: 0.44rem 0.72rem;
+  min-width: 4.8rem;
+  min-height: 1.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.34rem 0.6rem;
+  white-space: nowrap;
   cursor: pointer;
-  transition: opacity 0.35s ease, transform 0.35s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
 }
 .email-reveal-btn:hover {
   border-color: var(--accent-dk);
@@ -1101,9 +1108,11 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
   cursor: default;
   opacity: 0.9;
 }
-.email-reveal-btn.is-fading {
-  opacity: 0;
-  transform: translateY(-2px);
+.email-reveal-btn.is-done {
+  color: var(--accent-dk);
+  border-color: rgba(11,191,150,0.35);
+  background: var(--accent-lt);
+  opacity: 1;
   pointer-events: none;
 }
 .email-reveal-btn:focus-visible {

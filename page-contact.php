@@ -44,7 +44,7 @@ get_header();
 							<p class="method-desc"><?php esc_html_e( 'Best for collaboration requests, partnerships, detailed questions, or anything that needs a thorough reply.', 'enhancingbrain' ); ?></p>
 							<div class="method-email-block" data-email-reveal>
 								<a href="#" class="method-link method-email-link method-obfuscated" data-email-link rel="nofollow"><?php esc_html_e( 'e•••••@••••••••••••.com', 'enhancingbrain' ); ?></a>
-								<button type="button" class="email-reveal-btn" data-reveal-email aria-expanded="false"><?php esc_html_e( 'Reveal email', 'enhancingbrain' ); ?></button>
+								<button type="button" class="email-reveal-btn" data-reveal-email aria-expanded="false"><?php esc_html_e( 'Reveal', 'enhancingbrain' ); ?></button>
 							</div>
 						</div>
 					</div>

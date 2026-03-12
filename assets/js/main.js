@@ -150,7 +150,7 @@
 
       var seconds = 5;
       btn.disabled = true;
-      btn.textContent = 'Revealing email in: ' + seconds + 's';
+      btn.textContent = seconds + 's';
       link.textContent = email;
       link.classList.remove('method-obfuscated');
       link.classList.add('method-revealing');
@@ -159,7 +159,7 @@
       var timer = window.setInterval(function() {
         seconds -= 1;
         if (seconds > 0) {
-          btn.textContent = 'Revealing email in: ' + seconds + 's';
+          btn.textContent = seconds + 's';
           return;
         }
         window.clearInterval(timer);
@@ -170,10 +170,8 @@
         link.setAttribute('aria-label', 'Send email to ' + user);
 
         btn.setAttribute('aria-expanded', 'true');
-        btn.classList.add('is-fading');
-        window.setTimeout(function() {
-          btn.remove();
-        }, 360);
+        btn.classList.add('is-done');
+        btn.textContent = 'Revealed';
       }, 1000);
     });
   });
