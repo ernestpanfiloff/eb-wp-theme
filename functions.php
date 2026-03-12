@@ -351,13 +351,23 @@ function eb_primary_category_name( $post_id = null ): string {
  * Render primary nav menu from Customizer OR fall back to wp_nav_menu.
  */
 function eb_render_primary_nav( string $ul_class = 'nav-links' ): void {
-	$raw = get_theme_mod( 'eb_nav_items', "Home | /\nArticles | /articles\n  Brain Health & Longevity | /category/brain-health-longevity | Sleep, exercise, nutrition, and brain aging\n  Focus & Productivity | /category/focus-productivity | Dopamine, deep work, and sustained attention\n  Memory & Learning | /category/memory-learning | Neuroplasticity, recall, and learning systems\n  Nootropics & Supplements | /category/nootropics-supplements | Evidence-based compounds for cognitive support\nAbout | /about" );
+	$raw = get_theme_mod( 'eb_nav_items', "Home | /\nArticles | /articles\n  Brain Health & Longevity | /category/brain-health-longevity | Sleep, exercise, nutrition, and brain aging\n  Focus & Productivity | /category/focus-productivity | Dopamine, deep work, and sustained attention\n  Memory & Learning | /category/memory-learning | Neuroplasticity, recall, and learning systems\n  Nootropics & Supplements | /category/nootropics-supplements | Evidence-based compounds for cognitive support\nAbout | /about\nContact | /contact" );
 	if ( trim( $raw ) === '' ) {
 		// Fallback to WP menu
 		wp_nav_menu( [ 'theme_location' => 'primary', 'container' => false, 'items_wrap' => '<ul class="' . esc_attr( $ul_class ) . '" role="list">%3$s</ul>' ] );
 		return;
 	}
 	$items   = eb_parse_menu_items( $raw );
+	$has_contact = false;
+	foreach ( $items as $item ) {
+		if ( isset( $item['label'] ) && strtolower( trim( (string) $item['label'] ) ) === 'contact' ) {
+			$has_contact = true;
+			break;
+		}
+	}
+	if ( ! $has_contact ) {
+		$items[] = [ 'label' => 'Contact', 'url' => '/contact', 'desc' => '', 'children' => [] ];
+	}
 	$current = wp_parse_url( home_url( wp_unslash( $_SERVER['REQUEST_URI'] ?? '/' ) ), PHP_URL_PATH );
 	$current = is_string( $current ) ? $current : '/';
 	echo '<ul class="' . esc_attr( $ul_class ) . '" role="list">';
@@ -391,3 +401,38 @@ function eb_render_primary_nav( string $ul_class = 'nav-links' ): void {
 	}
 	echo '</ul>';
 }
+
+/**
+ * Handle contact form submission.
+ */
+function eb_handle_contact_submit(): void {
+	if ( ! isset( $_POST['eb_contact_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['eb_contact_nonce'] ) ), 'eb_contact_submit' ) ) {
+		wp_die( esc_html__( 'Security check failed.', 'enhancingbrain' ) );
+	}
+
+	$name    = isset( $_POST['name'] ) ? sanitize_text_field( wp_unslash( $_POST['name'] ) ) : '';
+	$email   = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
+	$message = isset( $_POST['message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['message'] ) ) : '';
+
+	$target = wp_get_referer();
+	if ( ! is_string( $target ) || $target === '' ) {
+		$target = home_url( '/contact/' );
+	}
+	if ( $email === '' || ! is_email( $email ) || $message === '' ) {
+		wp_safe_redirect( add_query_arg( 'contact_status', 'error', $target ) );
+		exit;
+	}
+
+	$site_name = (string) get_bloginfo( 'name' );
+	$subject   = sprintf( '[%s] Contact form message', $site_name );
+	$body      = "Name: {$name}\n";
+	$body     .= "Email: {$email}\n\n";
+	$body     .= "Message:\n{$message}\n";
+	$headers   = [ 'Reply-To: ' . $name . ' <' . $email . '>' ];
+
+	$sent = wp_mail( get_option( 'admin_email' ), $subject, $body, $headers );
+	wp_safe_redirect( add_query_arg( 'contact_status', $sent ? 'sent' : 'error', $target ) );
+	exit;
+}
+add_action( 'admin_post_eb_contact_submit', 'eb_handle_contact_submit' );
+add_action( 'admin_post_nopriv_eb_contact_submit', 'eb_handle_contact_submit' );

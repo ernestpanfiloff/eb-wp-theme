@@ -49,41 +49,43 @@
     .lm-btn:hover {
       color: var(--ink) !important;
     }
-    .sg-page { padding: 2.5rem 0 5rem; background: var(--bg); }
+    .sg-page { padding: 2.5rem 0 5rem; background: var(--bg); font-family: var(--body); color: var(--muted); }
     .sg-wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
     .sg-head { margin-bottom: 2rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
     .sg-kicker { font-family: var(--mono); font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-dk); }
     .sg-title { font-size: clamp(1.8rem, 3vw, 2.5rem); margin-top: .45rem; }
     .sg-grid { display: grid; grid-template-columns: 1fr; gap: 1.15rem; }
-    .sg-block { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem; }
+    .sg-block { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
     .sg-block h2 { font-size: 1.18rem; margin-bottom: .8rem; }
     .sg-palette { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .65rem; }
-    .sg-swatch { min-height: 90px; border-radius: 6px; padding: .75rem; display: flex; flex-direction: column; justify-content: flex-end; font-family: var(--mono); font-size: .68rem; border: 1px solid rgba(0,0,0,.08); }
+    .sg-swatch { min-height: 90px; border-radius: var(--radius); padding: .75rem; display: flex; flex-direction: column; justify-content: flex-end; font-family: var(--mono); font-size: .68rem; border: 1px solid rgba(0,0,0,.08); }
     .sg-type > * + * { margin-top: .65rem; }
     .sg-row { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
-    .sg-callout { border-left: 4px solid var(--accent); background: var(--accent-lt); padding: .9rem 1rem; border-radius: 0 6px 6px 0; }
+    .sg-callout { border-left: 4px solid var(--accent); background: var(--accent-lt); padding: .9rem 1rem; border-radius: var(--radius); }
     .sg-callout.warn { border-left-color: var(--warn); background: rgba(184,112,16,.08); }
     .sg-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: .75rem; }
-    .sg-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
-    .sg-table th, .sg-table td { border: 1px solid var(--border); padding: .55rem .65rem; text-align: left; }
-    .sg-table th { background: var(--ink); color: #fff; font-family: var(--head); }
+    .sg-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .9rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .sg-table th, .sg-table td { border-bottom: 1px solid var(--border); padding: .6rem .75rem; text-align: left; }
+    .sg-table tr:last-child td { border-bottom: 0; }
+    .sg-table th { background: var(--ink); color: #fff; font-family: var(--head); font-size: .78rem; }
     .sg-type h2 { font-size: 1.35rem; }
     .sg-type h3 { font-size: 1.08rem; }
     .sg-prose h2 { margin-top: 1rem; font-size: 1.22rem; }
     .sg-prose h3 { margin-top: 1.2rem; font-size: 1.02rem; }
     .sg-prose p { margin-top: .65rem; }
+    .sg-prose a { color: var(--accent-dk); text-decoration: underline; text-underline-offset: 3px; }
     .sg-prose ul, .sg-prose ol { margin-top: .65rem; padding-left: 1.2rem; }
     .sg-prose ul { list-style: disc; }
     .sg-prose ol { list-style: decimal; }
     .sg-prose li { margin-top: .35rem; color: var(--muted); }
     .sg-prose ul li,
     .sg-prose ol li { display: list-item; }
-    .sg-prose blockquote { margin-top: .75rem; border-left: 4px solid var(--accent); padding: .8rem 1rem; background: var(--accent-lt); border-radius: 0 6px 6px 0; }
-    .sg-prose code { background: var(--surface); border: 1px solid var(--border); padding: .1rem .3rem; border-radius: 4px; font-family: var(--mono); font-size: .85em; }
-    .sg-prose pre { margin-top: .75rem; background: var(--ink); color: #d1fae5; border-radius: 6px; padding: .9rem; overflow-x: auto; border: 1px solid rgba(255,255,255,0.14); }
+    .sg-prose blockquote { margin-top: .75rem; }
+    .sg-prose code { background: var(--surface); border: 1px solid var(--border); padding: .1rem .3rem; border-radius: var(--radius); font-family: var(--mono); font-size: .85em; }
+    .sg-prose pre { margin-top: .75rem; background: var(--ink); color: #d1fae5; border-radius: var(--radius); padding: .9rem; overflow-x: auto; border: 1px solid rgba(255,255,255,0.14); }
     .sg-prose pre code { color: #d1fae5; background: transparent; border: 0; padding: 0; display: block; }
     .sg-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: .6rem; }
-    .sg-stat { border: 1px solid var(--border); border-radius: 6px; padding: .8rem; background: #fff; }
+    .sg-stat { border: 1px solid var(--border); border-radius: var(--radius); padding: .8rem; background: #fff; }
     .sg-stat strong { display: block; font-size: 1.2rem; font-family: var(--head); color: var(--ink); }
     .sg-form { display: grid; gap: .6rem; max-width: 420px; }
     .sg-form label { font-size: .82rem; font-weight: 600; color: var(--ink); }
@@ -104,11 +106,11 @@
       box-shadow: 0 0 0 3px rgba(11,191,150,0.12);
     }
     .sg-kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .6rem; }
-    .sg-kpi { border: 1px solid var(--border); background: #fff; border-radius: 6px; padding: .75rem; }
+    .sg-kpi { border: 1px solid var(--border); background: #fff; border-radius: var(--radius); padding: .75rem; }
     .sg-kpi strong { display: block; font-size: 1.35rem; font-family: var(--head); color: var(--ink); }
     .sg-kpi span { color: var(--muted); font-size: .78rem; }
     .sg-faq { display: grid; gap: .5rem; }
-    .sg-faq-item { border: 1px solid var(--border); border-radius: 6px; background: #fff; }
+    .sg-faq-item { border: 1px solid var(--border); border-radius: var(--radius); background: #fff; }
     .sg-faq-q { font-weight: 600; color: var(--ink); padding: .75rem .9rem; border-bottom: 1px solid var(--border); }
     .sg-faq-a { color: var(--muted); padding: .72rem .9rem; }
     .sg-timeline { display: grid; gap: .55rem; }
@@ -117,7 +119,7 @@
     .sg-step-body strong { display: block; color: var(--ink); font-size: .9rem; }
     .sg-step-body p { margin-top: .2rem; color: var(--muted); font-size: .82rem; }
     .sg-compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .65rem; }
-    .sg-compare-card { border: 1px solid var(--border); border-radius: 6px; background: #fff; padding: .9rem; }
+    .sg-compare-card { border: 1px solid var(--border); border-radius: var(--radius); background: #fff; padding: .9rem; }
     .sg-compare-card h3 { font-size: .95rem; margin-bottom: .35rem; }
     .sg-compare-card p { font-size: .8rem; color: var(--muted); }
     .ft-dis {
@@ -136,8 +138,8 @@
     <div class="sg-wrap">
       <header class="sg-head">
         <span class="sg-kicker">Enhancing Brain</span>
-        <h1 class="sg-title">Massy Style Guide Mockup</h1>
-        <p>Comprehensive, on-brand reference for posts, pages, and reusable UI elements.</p>
+        <h1 class="sg-title">Style Guide Mockup</h1>
+        <p>Live reference for current website styles and reusable UI components.</p>
       </header>
 
       <div class="sg-grid">
@@ -166,6 +168,21 @@
             <p>Accent italic highlight: Playfair Display</p>
             <p>Body: Plus Jakarta Sans</p>
             <p>Labels and code: DM Mono</p>
+          </div>
+        </section>
+
+        <section class="sg-block">
+          <h2>Highlight Effect</h2>
+          <p>Display highlight: <mark class="eb-hi">Because it does.</mark></p>
+          <div class="single-content" style="max-width:760px;margin-top:.65rem;">
+            <p>In-article highlight: Your brain is your <mark class="eb-hi">highest-ROI asset</mark> when protected daily.</p>
+          </div>
+        </section>
+
+        <section class="sg-block">
+          <h2>Quote Style</h2>
+          <div class="single-content" style="max-width:760px;">
+            <blockquote><p>I have no idea. People who brag about their IQ are losers.</p></blockquote>
           </div>
         </section>
 

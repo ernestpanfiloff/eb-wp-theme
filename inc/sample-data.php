@@ -1,14 +1,14 @@
 <?php
 /**
- * Enhancing Brain — Sample Data Installer
+ * Enhancing Brain - Sample Data Installer
  * Creates sample categories, posts, and pages on theme activation.
- * Only runs once — checks for a flag in options.
+ * Only runs once - checks for a flag in options.
  */
 
 defined( 'ABSPATH' ) || exit;
 
 function eb_install_sample_data() {
-	if ( get_option( 'eb_sample_data_installed' ) === 'v2' ) return;
+	if ( get_option( 'eb_sample_data_installed' ) === 'v3' ) return;
 
 	/* Categories */
 	$cats = [
@@ -99,6 +99,12 @@ function eb_install_sample_data() {
 			'content' => '<h2>About Enhancing Brain</h2><p>Enhancing Brain is a science-backed resource for entrepreneurs, professionals, and creators who want to understand and optimise how their brain actually works.</p><p>Every article cites primary research. No guesswork, no hype, no "life hacks" without evidence.</p><h2>Who this is for</h2><p>If you\'re serious about your work, your clarity, and your long-term cognitive health — this is for you. We translate peer-reviewed neuroscience into practical, actionable information.</p><h2>What we cover</h2><ul><li>Brain health and longevity</li><li>Focus and deep work</li><li>Memory and learning</li><li>Evidence-based nootropics</li><li>Sleep science</li><li>Neuroplasticity</li></ul><p>[eb_disclaimer]</p>',
 		],
 		[
+			'title'   => 'Contact',
+			'slug'    => 'contact',
+			'template'=> 'page-contact.php',
+			'content' => '<!-- Contact page uses page-contact.php template -->',
+		],
+		[
 			'title'   => 'Articles',
 			'slug'    => 'articles',
 			'content' => '<!-- This page acts as the posts page. WordPress populates it automatically. -->',
@@ -113,6 +119,16 @@ function eb_install_sample_data() {
 			'slug'    => 'style-guide',
 			'template'=> 'page-style-guide.php',
 			'content' => '',
+		],
+		[
+			'title'   => 'Affiliate Disclaimer',
+			'slug'    => 'affiliate-disclaimer',
+			'content' => '<h2>Affiliate Disclaimer</h2><p>Some links on this site may be affiliate links. If you purchase through those links, we may earn a small commission at no additional cost to you.</p><p>We only share products and tools we believe are useful and aligned with our evidence-based standards.</p>',
+		],
+		[
+			'title'   => 'Terms & Conditions',
+			'slug'    => 'terms-and-conditions',
+			'content' => '<h2>Terms & Conditions</h2><p>By using this website, you agree to these terms. Content is provided for educational purposes and may not be interpreted as medical advice.</p><p>We may update site content and these terms at any time.</p>',
 		],
 	];
 
@@ -157,7 +173,7 @@ function eb_install_sample_data() {
 	set_theme_mod( 'eb_lm_visible',       '1' );
 	set_theme_mod( 'eb_topics_visible',   '1' );
 
-	update_option( 'eb_sample_data_installed', 'v2' );
+	update_option( 'eb_sample_data_installed', 'v3' );
 }
 add_action( 'after_switch_theme', 'eb_install_sample_data' );
 
@@ -169,7 +185,7 @@ function eb_setup_notice() {
 	?>
 	<div class="notice notice-info is-dismissible" id="eb-setup-notice">
 		<p><strong>Enhancing Brain theme activated!</strong>
-		Quick setup: <a href="<?php echo esc_url( admin_url( 'options-reading.php' ) ); ?>">Settings → Reading</a> — set "Your homepage displays" to "A static page" → Homepage: <strong>Home</strong>. Then <a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>">Appearance → Menus</a> to build your navigation. <a href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>">Appearance → Customize → ⚡ Enhancing Brain</a> to edit all content.</p>
+        Quick setup: <a href="<?php echo esc_url( admin_url( 'options-reading.php' ) ); ?>">Settings -> Reading</a> - set "Your homepage displays" to "A static page" -> Homepage: <strong>Home</strong>. Then <a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>">Appearance -> Menus</a> to build your navigation. <a href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>">Appearance -> Customize -> Enhancing Brain</a> to edit all content.</p>
 	</div>
 	<script>jQuery(function($){ $('#eb-setup-notice').on('click','.notice-dismiss',function(){ $.post(ajaxurl,{action:'eb_dismiss_notice',nonce:'<?php echo wp_create_nonce("eb_dismiss"); ?>'}); }); });</script>
 	<?php

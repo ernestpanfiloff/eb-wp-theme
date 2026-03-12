@@ -21,7 +21,7 @@ $all_cats      = get_categories( [ 'hide_empty' => false ] );
 			<ol>
 				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'enhancingbrain' ); ?></a></li>
 				<li aria-hidden="true">></li>
-				<li aria-current="page"><?php echo esc_html( $page_title ); ?></li>
+				<li aria-current="page"><span class="sr-only"><?php echo esc_html( $page_title ); ?></span><span aria-hidden="true">...</span></li>
 			</ol>
 		</nav>
 

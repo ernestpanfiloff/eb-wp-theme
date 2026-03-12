@@ -44,7 +44,7 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 	}
 
 	/* 3 - NAVIGATION */
-	$default_nav = "Home | /\nArticles | /articles\n  Brain Health & Longevity | /category/brain-health-longevity | Sleep, exercise, nutrition, and brain aging\n  Focus & Productivity | /category/focus-productivity | Dopamine, deep work, and sustained attention\n  Memory & Learning | /category/memory-learning | Neuroplasticity, recall, and learning systems\n  Nootropics & Supplements | /category/nootropics-supplements | Evidence-based compounds for cognitive support\nAbout | /about";
+	$default_nav = "Home | /\nArticles | /articles\n  Brain Health & Longevity | /category/brain-health-longevity | Sleep, exercise, nutrition, and brain aging\n  Focus & Productivity | /category/focus-productivity | Dopamine, deep work, and sustained attention\n  Memory & Learning | /category/memory-learning | Neuroplasticity, recall, and learning systems\n  Nootropics & Supplements | /category/nootropics-supplements | Evidence-based compounds for cognitive support\nAbout | /about\nContact | /contact";
 	$wp_customize->add_section( 'eb_nav', [
 		'title'       => __( 'Navigation and Header', 'enhancingbrain' ),
 		'panel'       => 'eb_panel', 'priority' => 18,
@@ -137,7 +137,7 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 	/* Section toggles */
 	eb_ctl( $wp_customize, 'eb_footer_show_content_col',     [ 'default' => '1', 'label' => __( 'Show "Content" column',       'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'checkbox' ] );
 	eb_ctl( $wp_customize, 'eb_footer_show_resources_col',   [ 'default' => '1', 'label' => __( 'Show "Resources" column',     'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'checkbox' ] );
-	eb_ctl( $wp_customize, 'eb_footer_show_research_col',    [ 'default' => '1', 'label' => __( 'Show "Research From" column', 'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'checkbox' ] );
+	eb_ctl( $wp_customize, 'eb_footer_show_research_col',    [ 'default' => '1', 'label' => __( 'Show "Company and Legal" column', 'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'checkbox' ] );
 	eb_ctl( $wp_customize, 'eb_footer_show_disclaimer',      [ 'default' => '1', 'label' => __( 'Show disclaimer text',        'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'checkbox' ] );
 	eb_ctl( $wp_customize, 'eb_footer_show_disclaimer_pill', [ 'default' => '1', 'label' => __( 'Show "Not a doctor" pill',    'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'checkbox' ] );
 
@@ -154,11 +154,11 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 	/* Footer column headings */
 	eb_ctl( $wp_customize, 'eb_footer_col1_heading', [ 'default' => 'Blog Categories',      'label' => __( '"Content" Column Heading',      'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
 	eb_ctl( $wp_customize, 'eb_footer_col2_heading', [ 'default' => 'Resources',    'label' => __( '"Resources" Column Heading',    'enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
-	eb_ctl( $wp_customize, 'eb_footer_col3_heading', [ 'default' => 'Research','label' => __( '"Research From" Column Heading','enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
+	eb_ctl( $wp_customize, 'eb_footer_col3_heading', [ 'default' => 'Company & Legal','label' => __( '"Company and Legal" Column Heading','enhancingbrain' ), 'section' => 'eb_footer', 'type' => 'text' ] );
 
 	/* Footer column links - unlimited textarea format */
 	eb_ctl( $wp_customize, 'eb_footer_col1_links', [
-		'default' => "Blog | /articles\nBrain Health | /category/brain-health-longevity\nFocus & Productivity | /category/focus-productivity\nMemory & Learning | /category/memory-learning\nNootropics | /category/nootropics-supplements",
+		'default' => "Brain Health | /category/brain-health-longevity\nFocus & Productivity | /category/focus-productivity\nMemory & Learning | /category/memory-learning\nNootropics | /category/nootropics-supplements",
 		'label'       => __( '"Content" Column Links (Label | /url, one per line)', 'enhancingbrain' ),
 		'section'     => 'eb_footer', 'type' => 'textarea', 'transport' => 'refresh',
 	] );
@@ -168,8 +168,8 @@ function eb_customizer_register( WP_Customize_Manager $wp_customize ) {
 		'section'     => 'eb_footer', 'type' => 'textarea', 'transport' => 'refresh',
 	] );
 	eb_ctl( $wp_customize, 'eb_footer_col3_links', [
-		'default' => "PubMed | https://pubmed.ncbi.nlm.nih.gov\nNIH | https://www.nih.gov\nNature Neuroscience | https://www.nature.com/neuro\nHuberman Lab | https://hubermanlab.com",
-		'label'       => __( '"Research From" Column Links (Label | /url, one per line)', 'enhancingbrain' ),
+		'default' => "About | /about\nContact | /contact\nAffiliate Disclaimer | /affiliate-disclaimer\nPrivacy Policy | /privacy-policy\nTerms & Conditions | /terms-and-conditions",
+		'label'       => __( '"Company and Legal" Column Links (Label | /url, one per line)', 'enhancingbrain' ),
 		'section'     => 'eb_footer', 'type' => 'textarea', 'transport' => 'refresh',
 	] );
 

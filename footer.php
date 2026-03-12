@@ -49,8 +49,11 @@
 			<ul>
 				<?php
 				$links = eb_parse_menu_items( get_theme_mod( 'eb_footer_col1_links',
-					"Blog | /articles\nBrain Health | /category/brain-health-longevity\nFocus & Productivity | /category/focus-productivity\nMemory & Learning | /category/memory-learning\nNootropics | /category/nootropics-supplements"
+					"Brain Health | /category/brain-health-longevity\nFocus & Productivity | /category/focus-productivity\nMemory & Learning | /category/memory-learning\nNootropics | /category/nootropics-supplements"
 				) );
+				$links = array_values( array_filter( $links, function( $link ) {
+					return strtolower( trim( (string) ( $link['label'] ?? '' ) ) ) !== 'blog';
+				} ) );
 				foreach ( $links as $link ) :
 				?>
 				<li><a href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['label'] ); ?></a></li>
@@ -79,15 +82,25 @@
 		<!-- Research From column -->
 		<?php if ( get_theme_mod( 'eb_footer_show_research_col', '1' ) ) : ?>
 		<div class="ft-col">
-			<h2 class="ft-col-title"><?php echo esc_html( get_theme_mod( 'eb_footer_col3_heading', 'Research' ) ); ?></h2>
+			<?php
+			$col3_heading = (string) get_theme_mod( 'eb_footer_col3_heading', 'Company & Legal' );
+			if ( strtolower( trim( $col3_heading ) ) === 'research' ) {
+				$col3_heading = 'Company & Legal';
+			}
+			?>
+			<h2 class="ft-col-title"><?php echo esc_html( $col3_heading ); ?></h2>
 			<ul>
 				<?php
-				$links = eb_parse_menu_items( get_theme_mod( 'eb_footer_col3_links',
-					"PubMed | https://pubmed.ncbi.nlm.nih.gov\nNIH | https://www.nih.gov\nNature Neuroscience | https://www.nature.com/neuro\nHuberman Lab | https://hubermanlab.com"
-				) );
+				$legacy_default = "PubMed | https://pubmed.ncbi.nlm.nih.gov\nNIH | https://www.nih.gov\nNature Neuroscience | https://www.nature.com/neuro\nHuberman Lab | https://hubermanlab.com";
+				$new_default    = "About | /about\nContact | /contact\nAffiliate Disclaimer | /affiliate-disclaimer\nPrivacy Policy | /privacy-policy\nTerms & Conditions | /terms-and-conditions";
+				$raw_links      = get_theme_mod( 'eb_footer_col3_links', $new_default );
+				if ( trim( (string) $raw_links ) === trim( $legacy_default ) ) {
+					$raw_links = $new_default;
+				}
+				$links = eb_parse_menu_items( $raw_links );
 				foreach ( $links as $link ) :
 				?>
-				<li><a href="<?php echo esc_url( $link['url'] ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $link['label'] ); ?></a></li>
+				<li><a href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['label'] ); ?></a></li>
 				<?php endforeach; ?>
 			</ul>
 		</div>

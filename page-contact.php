@@ -70,8 +70,18 @@ get_header();
 				<span class="contact-label"><?php esc_html_e( 'Message', 'enhancingbrain' ); ?></span>
 				<h2><?php esc_html_e( 'Send us a message', 'enhancingbrain' ); ?></h2>
 				<p><?php esc_html_e( "Fill in the form below and we'll get back to you as soon as possible.", 'enhancingbrain' ); ?></p>
+				<?php
+				$status = isset( $_GET['contact_status'] ) ? sanitize_key( wp_unslash( $_GET['contact_status'] ) ) : '';
+				if ( $status === 'sent' ) :
+				?>
+					<p class="contact-alert contact-alert-ok"><?php esc_html_e( 'Thanks, your message was sent successfully.', 'enhancingbrain' ); ?></p>
+				<?php elseif ( $status === 'error' ) : ?>
+					<p class="contact-alert contact-alert-err"><?php esc_html_e( 'Sorry, we could not send your message. Please try again.', 'enhancingbrain' ); ?></p>
+				<?php endif; ?>
 
-				<form class="contact-form" method="post" action="#">
+				<form class="contact-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+					<input type="hidden" name="action" value="eb_contact_submit" />
+					<?php wp_nonce_field( 'eb_contact_submit', 'eb_contact_nonce' ); ?>
 					<div class="form-row">
 						<div class="form-field">
 							<label for="contact-name"><?php esc_html_e( 'First name', 'enhancingbrain' ); ?></label>
@@ -86,7 +96,7 @@ get_header();
 						<label for="contact-message"><?php esc_html_e( 'Message', 'enhancingbrain' ); ?></label>
 						<textarea id="contact-message" name="message" placeholder="<?php esc_attr_e( "Tell us what's on your mind...", 'enhancingbrain' ); ?>" rows="6"></textarea>
 					</div>
-					<button type="button" class="f-btn"><?php esc_html_e( 'Send message', 'enhancingbrain' ); ?></button>
+					<button type="submit" class="f-btn"><?php esc_html_e( 'Send message', 'enhancingbrain' ); ?></button>
 					<p class="form-disclaimer"><?php esc_html_e( 'We respect your privacy. Your info is never shared or sold.', 'enhancingbrain' ); ?></p>
 				</form>
 			</div>
@@ -113,6 +123,17 @@ get_header();
 			</div>
 		</div>
 	</section>
+
+	<?php
+	$content = trim( (string) get_the_content() );
+	if ( $content !== '' ) :
+	?>
+	<section class="contact-extra">
+		<div class="wrap single-content">
+			<?php the_content(); ?>
+		</div>
+	</section>
+	<?php endif; ?>
 
 	<?php endwhile; ?>
 </main>

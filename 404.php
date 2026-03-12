@@ -16,7 +16,7 @@ get_header();
 			<ol>
 				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'enhancingbrain' ); ?></a></li>
 				<li aria-hidden="true">></li>
-				<li aria-current="page"><?php esc_html_e( '404', 'enhancingbrain' ); ?></li>
+				<li aria-current="page"><span class="sr-only"><?php esc_html_e( '404', 'enhancingbrain' ); ?></span><span aria-hidden="true">...</span></li>
 			</ol>
 		</nav>
 

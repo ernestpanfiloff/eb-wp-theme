@@ -1078,6 +1078,23 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
   font-size: 0.84rem;
   margin-bottom: 1.1rem;
 }
+.contact-alert {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.55rem 0.7rem;
+  font-size: 0.78rem;
+  margin-bottom: 0.8rem;
+}
+.contact-alert-ok {
+  border-color: rgba(11,191,150,0.35);
+  background: rgba(11,191,150,0.08);
+  color: var(--accent-dk);
+}
+.contact-alert-err {
+  border-color: rgba(184,112,16,0.35);
+  background: rgba(184,112,16,0.08);
+  color: #7e4d09;
+}
 .contact-form { display: grid; gap: 0.9rem; }
 .form-row {
   display: grid;
@@ -1149,6 +1166,11 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
   color: var(--muted);
   line-height: 1.65;
   padding: 0.8rem 1rem;
+}
+.contact-extra {
+  margin-top: 2.6rem;
+  padding-top: 2.2rem;
+  border-top: 1px solid var(--border);
 }
 
 @media (max-width: 900px) {

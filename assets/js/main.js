@@ -72,18 +72,6 @@
     });
   }
 
-  // Mobile sub-menu
-  var mobTog = document.getElementById('mobArticlesTog');
-  var mobSub = document.getElementById('mobSub');
-  if (mobTog && mobSub) {
-    mobTog.addEventListener('click', function(e) {
-      e.preventDefault();
-      var open = mobSub.classList.toggle('open');
-      mobTog.setAttribute('aria-expanded', String(open));
-      mobSub.setAttribute('aria-hidden', String(!open));
-    });
-  }
-
   /* ── Topics band scroll ── */
   var wrap = document.getElementById('bandWrap');
   var tags = document.getElementById('bandTags');
