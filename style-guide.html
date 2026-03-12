@@ -9,6 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/main.css" />
   <style>
+    :root {
+      --sg-info: #2b7bd8;
+      --sg-info-bg: rgba(43,123,216,.10);
+      --sg-info-ink: #1d4f89;
+      --sg-editorial: #8b5cf6;
+      --sg-editorial-bg: rgba(139,92,246,.10);
+      --sg-editorial-ink: #5b3aa1;
+    }
     .nav-cta,
     .f-btn,
     .lm-btn,
@@ -59,18 +67,28 @@
     .sg-block h2 { font-size: 1.18rem; margin-bottom: .8rem; }
     .sg-palette { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .65rem; }
     .sg-swatch { min-height: 90px; border-radius: var(--radius); padding: .75rem; display: flex; flex-direction: column; justify-content: flex-end; font-family: var(--mono); font-size: .68rem; border: 1px solid rgba(0,0,0,.08); }
+    .sg-swatch-ink { background: #0e1420; color: #fff; }
+    .sg-swatch-accent { background: #0bbf96; color: #0e1420; }
+    .sg-swatch-accent-dk { background: #089e7d; color: #fff; }
+    .sg-swatch-bg { background: #fafaf8; }
+    .sg-swatch-white { background: #ffffff; }
+    .sg-swatch-surface { background: #f3f4f6; }
     .sg-type > * + * { margin-top: .65rem; }
     .sg-row { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
-    .sg-callout { border-left: 4px solid var(--accent); background: var(--accent-lt); padding: .9rem 1rem; border-radius: var(--radius); }
-    .sg-callout.warn { border-left-color: var(--warn); background: rgba(184,112,16,.08); }
+    .sg-callout { padding: .9rem 1rem; border-radius: var(--radius); border-left: 4px solid; }
+    .sg-callout.note { border-left-color: var(--accent); background: var(--accent-lt); color: #0b5f4e; }
+    .sg-callout.tip { border-left-color: var(--sg-info); background: var(--sg-info-bg); color: var(--sg-info-ink); }
+    .sg-callout.warn { border-left-color: var(--warn); background: rgba(184,112,16,.10); color: #7e4d09; }
+    .sg-callout.editorial { border-left-color: var(--sg-editorial); background: var(--sg-editorial-bg); color: var(--sg-editorial-ink); }
     .sg-callout-stack { display: grid; gap: .6rem; }
     .sg-quote-block {
       border: 1px solid var(--border);
-      background: linear-gradient(180deg, #ffffff, #f8faf9);
+      background: var(--surface);
       border-radius: var(--radius);
       padding: .95rem 1rem;
-      color: var(--ink);
-      font-family: var(--acc);
+      color: var(--muted);
+      font-family: var(--body);
+      font-weight: 400;
       font-style: italic;
       line-height: 1.7;
     }
@@ -112,6 +130,9 @@
     .sg-stat { border: 1px solid var(--border); border-radius: var(--radius); padding: .8rem; background: #fff; }
     .sg-stat strong { display: block; font-size: 1.2rem; font-family: var(--head); color: var(--ink); }
     .sg-form { display: grid; gap: .6rem; max-width: 420px; }
+    .sg-space-top-sm { margin-top: .65rem; }
+    .sg-space-top-md { margin-top: .8rem; }
+    .sg-btn-max { max-width: 260px; }
     .sg-form label { font-size: .82rem; font-weight: 600; color: var(--ink); }
     .sg-form input {
       width: 100%;
@@ -170,12 +191,12 @@
         <section class="sg-block">
           <h2>Color Palette</h2>
           <div class="sg-palette">
-            <div class="sg-swatch" style="background:#0e1420;color:#fff;">Ink<br>#0e1420</div>
-            <div class="sg-swatch" style="background:#0bbf96;color:#0e1420;">Accent<br>#0bbf96</div>
-            <div class="sg-swatch" style="background:#089e7d;color:#fff;">Accent Dark<br>#089e7d</div>
-            <div class="sg-swatch" style="background:#fafaf8;">Background<br>#fafaf8</div>
-            <div class="sg-swatch" style="background:#ffffff;">White<br>#ffffff</div>
-            <div class="sg-swatch" style="background:#f3f4f6;">Surface<br>#f3f4f6</div>
+            <div class="sg-swatch sg-swatch-ink">Ink<br>#0e1420</div>
+            <div class="sg-swatch sg-swatch-accent">Accent<br>#0bbf96</div>
+            <div class="sg-swatch sg-swatch-accent-dk">Accent Dark<br>#089e7d</div>
+            <div class="sg-swatch sg-swatch-bg">Background<br>#fafaf8</div>
+            <div class="sg-swatch sg-swatch-white">White<br>#ffffff</div>
+            <div class="sg-swatch sg-swatch-surface">Surface<br>#f3f4f6</div>
           </div>
         </section>
 
@@ -186,7 +207,7 @@
           <h3>H3: Focus, memory, and long-term brain health</h3>
           <p>Body: Plus Jakarta Sans with high readability and calm contrast.</p>
           <p><strong>Strong text</strong>, <em>emphasis text</em>, and <code>inline code</code> examples.</p>
-          <div class="sg-callout" style="margin-top:.8rem;">
+          <div class="sg-callout note sg-space-top-md">
             <p><strong>Font Stack</strong></p>
             <p>Headings: Outfit</p>
             <p>Accent italic highlight: Playfair Display</p>
@@ -198,8 +219,8 @@
         <section class="sg-block">
           <h2>Buttons + Pills + Badges</h2>
           <div class="sg-row">
-            <a href="#" class="nav-cta"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>Get the Free Newsletter &rarr;</a>
-            <button class="f-btn" type="button" style="max-width:260px;"><span class="btn-ico" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg></span><span>Primary Action</span></button>
+            <a href="#" class="nav-cta"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>Get the Free Newsletter -></a>
+            <button class="f-btn sg-btn-max" type="button"><span class="btn-ico" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg></span><span>Primary Action</span></button>
             <a href="#" class="lm-btn">Lead Magnet CTA</a>
             <span class="hero-pill">Science-backed</span>
             <span class="band-tag active">Focus &amp; Productivity</span>
@@ -214,31 +235,33 @@
               <div class="c-body">
                 <h3 class="c-title"><a href="#">Deep work and dopamine stability</a></h3>
                 <p class="c-exc">How to structure your week for sustained cognitive output.</p>
-                <div class="c-foot"><span class="c-rt">Focus &amp; Productivity</span><a href="#" class="c-rm">Read &rarr;</a></div>
+                <div class="c-foot"><span class="c-rt">Focus &amp; Productivity</span><a href="#" class="c-rm">Read -></a></div>
               </div>
             </article>
             <article class="card card-sm">
               <div class="c-body">
                 <h3 class="c-title"><a href="#">Nutrient basics for long-term cognition</a></h3>
                 <p class="c-exc">Practical, evidence-based guidance without hype.</p>
-                <div class="c-foot"><span class="c-rt">Nootropics &amp; Supplements</span><a href="#" class="c-rm">Read &rarr;</a></div>
+                <div class="c-foot"><span class="c-rt">Nootropics &amp; Supplements</span><a href="#" class="c-rm">Read -></a></div>
               </div>
             </article>
           </div>
         </section>
 
         <section class="sg-block">
-          <h2>Callouts + Quote Blocks</h2>
+          <h2>Callout Blocks</h2>
           <div class="sg-callout-stack">
-            <aside class="sg-callout"><p>Clinical note: this content is educational and not individual medical advice.</p></aside>
-            <aside class="sg-callout"><p>Implementation note: prioritize sleep, training, and nutrition before stacking supplements.</p></aside>
+            <aside class="sg-callout note"><p>Clinical note: this content is educational and not individual medical advice.</p></aside>
+            <aside class="sg-callout tip"><p>Implementation note: prioritize sleep, training, and nutrition before stacking supplements.</p></aside>
+            <aside class="sg-callout warn"><p>Warning callout variant for caution or contraindication context.</p></aside>
+            <aside class="sg-callout editorial"><p>Editorial note: include sources and confidence level whenever guidance could affect health decisions.</p></aside>
           </div>
+        </section>
+
+        <section class="sg-block">
+          <h2>Quote Block</h2>
           <div class="sg-quote-block">
             <p>"Your brain adapts to what you repeatedly do. Repetition is biology, not motivation."</p>
-          </div>
-          <div class="sg-callout-stack">
-            <aside class="sg-callout warn"><p>Warning callout variant for caution or contraindication context.</p></aside>
-            <aside class="sg-callout"><p>Editorial note: include sources and confidence level whenever guidance could affect health decisions.</p></aside>
           </div>
         </section>
 
@@ -283,13 +306,13 @@ const minutes = Math.max(1, Math.round(words / 200));</code></pre>
             <div class="sg-stat"><strong>6</strong><span>Memory &amp; Learning posts</span></div>
             <div class="sg-stat"><strong>8</strong><span>Nootropics &amp; Supplements posts</span></div>
           </div>
-          <div class="sg-kpi-grid" style="margin-top:.65rem;">
+          <div class="sg-kpi-grid sg-space-top-sm">
             <div class="sg-kpi"><strong>4.8/5</strong><span>Reader trust rating</span></div>
             <div class="sg-kpi"><strong>11</strong><span>Core nutrient guides</span></div>
             <div class="sg-kpi"><strong>52</strong><span>Weekly briefs per year</span></div>
             <div class="sg-kpi"><strong>100%</strong><span>Primary-source linked</span></div>
           </div>
-          <div class="sg-compare" style="margin-top:.65rem;">
+          <div class="sg-compare sg-space-top-sm">
             <article class="sg-compare-card"><h3>Myth</h3><p>"More supplements always means better cognition."</p></article>
             <article class="sg-compare-card"><h3>Evidence</h3><p>Targeted compounds with correct dosage and timing outperform random stacks.</p></article>
             <article class="sg-compare-card"><h3>Action</h3><p>Start with sleep and training, then layer supplements only where evidence is clear.</p></article>
