@@ -968,8 +968,8 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
   grid-template-columns: 1fr;
   gap: 1.25rem;
   align-items: start;
-  max-width: none;
-  margin: 0;
+  max-width: var(--max);
+  margin: 0 auto;
 }
 .contact-info {
   display: flex;
