@@ -28,3 +28,21 @@ mark.eb-hi, .eb-hi {
   border-radius: 0 4px 4px 0;
   font-style: italic;
 }
+.editor-styles-wrapper hr,
+.editor-styles-wrapper .wp-block-separator {
+  border: 0;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 100%;
+  overflow: visible;
+  background: transparent;
+}
+.editor-styles-wrapper hr::before,
+.editor-styles-wrapper .wp-block-separator::before {
+  content: "...";
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.45em;
+  color: #6b7685;
+}

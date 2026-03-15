@@ -905,6 +905,28 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
 .single-content li { margin-top: 0.35rem; color: var(--muted); }
 .single-content ul li, .single-content ol li { display: list-item; }
 .single-content blockquote { margin-top: 0.75rem; }
+.single-content hr,
+.single-content .wp-block-separator,
+.default-page .entry-content hr,
+.default-page .entry-content .wp-block-separator {
+  border: 0;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 100%;
+  overflow: visible;
+  background: transparent;
+}
+.single-content hr::before,
+.single-content .wp-block-separator::before,
+.default-page .entry-content hr::before,
+.default-page .entry-content .wp-block-separator::before {
+  content: "...";
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.45em;
+  color: var(--subtle);
+}
 .single-content table { width: 100%; border-collapse: collapse; margin-bottom: 1.4rem; font-size: 0.9rem; }
 .single-content th   { text-align: left; padding: 0.6rem 0.75rem; background: var(--ink); color: #fff; font-family: var(--head); font-size: 0.78rem; }
 .single-content td   { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); }
