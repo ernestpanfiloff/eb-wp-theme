@@ -988,12 +988,22 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
   text-align: left;
   padding: 0.6rem 0.75rem;
   border-bottom: 1px solid var(--border);
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
 }
 .single-content th {
   background: var(--ink);
   color: #fff;
   font-family: var(--head);
   font-size: 0.78rem;
+}
+.single-content table th,
+.single-content table td,
+.single-content .wp-block-table th,
+.single-content .wp-block-table td {
+  border-left: 0 !important;
+  border-right: 0 !important;
 }
 .single-content tr:last-child td { border-bottom: 0; }
 .single-content img  { border-radius: var(--radius); margin: 1.5rem auto; }
