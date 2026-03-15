@@ -921,12 +921,29 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
 .single-content .sg-callout .wp-block-group__inner-container > *:last-child {
   margin-bottom: 0 !important;
 }
-.single-content blockquote p { margin-bottom: 0; }
+.single-content blockquote {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 0.95rem 1rem;
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-family: var(--body);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.7;
+}
+.single-content blockquote p {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  line-height: inherit;
+}
 .single-content a  { color: var(--accent-dk); text-decoration: underline; text-underline-offset: 3px; }
 .single-content ul, .single-content ol { margin-top: 0.65rem; padding-left: 1.2rem; }
 .single-content li { margin-top: 0.35rem; color: var(--muted); }
 .single-content ul li, .single-content ol li { display: list-item; }
-.single-content blockquote { margin-top: 0.75rem; }
 .single-content hr,
 .single-content .wp-block-separator,
 .default-page .entry-content hr,
