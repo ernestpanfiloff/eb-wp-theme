@@ -28,9 +28,9 @@ get_header();
 				<h2><?php esc_html_e( 'Overview', 'enhancingbrain' ); ?></h2>
 				<p><?php esc_html_e( 'This Privacy Policy explains what information we collect on Enhancing Brain, how we use it, and what choices you have. We only collect what we need to run the site, send requested updates, and improve the experience.', 'enhancingbrain' ); ?></p>
 
-				<div class="callout callout--note">
+				<aside class="callout callout--note" role="note">
 					<p><?php esc_html_e( 'Your trust matters. We do not sell your personal data.', 'enhancingbrain' ); ?></p>
-				</div>
+				</aside>
 
 				<h2><?php esc_html_e( 'Information we collect', 'enhancingbrain' ); ?></h2>
 				<p><?php esc_html_e( 'Depending on how you interact with the site, we may collect:', 'enhancingbrain' ); ?></p>

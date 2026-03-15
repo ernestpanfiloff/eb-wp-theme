@@ -31,9 +31,9 @@ get_header();
 				<h2><?php esc_html_e( 'Educational purpose only', 'enhancingbrain' ); ?></h2>
 				<p><?php esc_html_e( 'All content is provided for informational and educational purposes only. Nothing on this site is medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional before making health-related decisions.', 'enhancingbrain' ); ?></p>
 
-				<div class="callout callout--note">
+				<aside class="callout callout--note" role="note">
 					<p><?php esc_html_e( 'Using this site does not create a doctor-patient or professional advisory relationship.', 'enhancingbrain' ); ?></p>
-				</div>
+				</aside>
 
 				<h2><?php esc_html_e( 'Use of website content', 'enhancingbrain' ); ?></h2>
 				<p><?php esc_html_e( 'Unless otherwise stated, all text, branding, graphics, and site content are the property of Enhancing Brain and are protected by applicable intellectual property laws.', 'enhancingbrain' ); ?></p>

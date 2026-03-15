@@ -28,9 +28,9 @@ get_header();
 				<h2><?php esc_html_e( 'The short version', 'enhancingbrain' ); ?></h2>
 				<p><?php esc_html_e( "Some links on this site are affiliate links. If you buy something through one of my links, I may earn a small commission. It costs you nothing extra. The price is exactly the same as if you went directly to the brand's website.", 'enhancingbrain' ); ?></p>
 
-				<div class="callout callout--note">
+				<aside class="callout callout--note" role="note">
 					<p><?php esc_html_e( 'Using my referral links is one of the easiest ways to support this project at zero additional cost to you. It keeps the content free, the newsletter going, and me researching the science full time. I genuinely appreciate it.', 'enhancingbrain' ); ?></p>
-				</div>
+				</aside>
 
 				<h2><?php esc_html_e( 'What I would and would not promote', 'enhancingbrain' ); ?></h2>
 				<p><?php esc_html_e( 'This part matters more to me than the legal boilerplate. There is a massive amount of noise in the brain health space. Supplements with no evidence. Apps with bold claims and no science. Influencers pushing whatever pays the highest commission. I am not interested in any of that.', 'enhancingbrain' ); ?></p>

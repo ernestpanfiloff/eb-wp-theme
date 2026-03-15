@@ -839,17 +839,17 @@ footer#site-footer a.logo .a { color: var(--accent) !important; }
   border-left: 4px solid var(--border-dk);
   border-radius: var(--radius);
   background: var(--surface);
-  padding: 1rem 1.2rem;
-  margin: 1.75rem 0;
+  padding: 0.8rem 1rem;
+  margin: 0.75rem 0;
 }
 .callout p,
 .eb-disclaimer p,
 .disclaimer-callout p,
 .sg-callout p {
   margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.7;
-  color: var(--ink);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted);
 }
 
 .callout--note,
@@ -1332,6 +1332,11 @@ mark, .eb-hi {
 .disclaimer-content {
   max-width: 760px;
   margin: 0 auto;
+}
+.disclaimer-content .callout,
+.disclaimer-content .eb-disclaimer,
+.disclaimer-content .disclaimer-callout {
+  margin: 0.7rem 0 1rem;
 }
 .disclaimer-content ul { list-style: disc; }
 .disclaimer-content ol { list-style: decimal; }
